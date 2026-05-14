@@ -75,12 +75,15 @@
     .caso-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .caso-img {
-      width: 100%; height: 200px; object-fit: cover;
+      width: 100%;
       background: var(--accent-light);
       display: flex; align-items: center; justify-content: center;
-      font-size: 56px;
+      font-size: 56px; padding: 1rem 0;
+      border-top: 1px solid var(--border);
+      border-radius: 0 0 var(--radius) var(--radius);
+      min-height: 60px;
     }
-    .caso-img img { width: 100%; height: 100%; object-fit: cover; }
+    .caso-img img { width: 100%; height: auto; display: block; object-fit: contain; border-radius: 0 0 var(--radius) var(--radius); }
     .caso-body { padding: 1.5rem; }
     .caso-tag {
       display: inline-flex; align-items: center;
@@ -199,7 +202,6 @@
         card.className = 'caso-card'
         card.style.animationDelay = `${i * 0.1}s`
         card.innerHTML = `
-          ${imgHtml}
           <div class="caso-body">
             <span class="caso-tag">${c.servicio}</span>
             <h2 class="caso-title">${c.titulo}</h2>
