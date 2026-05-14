@@ -331,7 +331,7 @@
             <div class="caso-row-meta">${c.servicio} · ${c.tecnologia} · ${c.cliente}</div>
           </div>
           <div style="display:flex;gap:6px;flex-shrink:0;">
-            <button class="btn-editar" onclick="editarCaso(${JSON.stringify(c).split('"').join('&quot;')})">Editar</button>
+            <button class="btn-editar" data-caso='${JSON.stringify(c).replace(/'/g, "&#39;")}' onclick="editarCasoBtn(this)">Editar</button>
             <button class="btn-borrar" onclick="borrarCaso('${c.id}')">Borrar</button>
           </div>`
         wrap.appendChild(row)
@@ -340,6 +340,13 @@
   }
 
   // ── EDITAR ──
+  function editarCasoBtn(btn) {
+    try {
+      const c = JSON.parse(btn.getAttribute('data-caso'))
+      editarCaso(c)
+    } catch(e) { console.error('Error al parsear caso:', e) }
+  }
+
   function editarCaso(c) {
     document.getElementById('fId').value       = c.id
     document.getElementById('fTitulo').value   = c.titulo
@@ -348,8 +355,10 @@
     document.getElementById('fResultado').value= c.resultado
     document.getElementById('fCliente').value  = c.cliente
     document.getElementById('fTech').value     = c.tecnologia
-    document.getElementById('formTitle').textContent = '✏️ Editando caso de éxito'
-    document.getElementById('btnTexto').textContent  = 'Actualizar caso'
+    const formTitle = document.getElementById('formTitle')
+    const btnTexto  = document.getElementById('btnTexto')
+    if (formTitle) formTitle.textContent = '✏️ Editando caso de éxito'
+    if (btnTexto)  btnTexto.textContent  = 'Actualizar caso'
     if (c.imagen_url) {
       document.getElementById('imgPlaceholder').style.display = 'none'
       const thumb = document.getElementById('imgThumb')
@@ -372,8 +381,10 @@
   // ── HELPERS ──
   function limpiarFormulario() {
     ['fId','fTitulo','fDesc','fResultado','fTech'].forEach(id => document.getElementById(id).value = '')
-    document.getElementById('formTitle').textContent = '➕ Agregar nuevo caso de éxito'
-    document.getElementById('btnTexto').textContent  = 'Guardar caso de éxito'
+    const ft = document.getElementById('formTitle')
+    const bt = document.getElementById('btnTexto')
+    if (ft) ft.textContent = '➕ Agregar nuevo caso de éxito'
+    if (bt) bt.textContent = 'Guardar caso de éxito'
     document.getElementById('fServicio').value = ''
     document.getElementById('fCliente').value  = ''
     document.getElementById('fImagen').value   = ''
