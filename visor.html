@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imagen — Pragma TI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0D1F3C; --ink-60: #4A6080;
+      --accent: #1A5BA8; --accent-mid: #2471C8;
+      --border: #C8DCF0; --cream: #F2F6FC; --white: #ffffff;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #111;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    /* BARRA SUPERIOR */
+    .toolbar {
+      background: rgba(13,31,60,0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.75rem 1.5rem;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 12px; }
+    .toolbar-logo {
+      font-size: 16px; font-weight: 600; color: white;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .toolbar-logo span { color: #85B7EB; }
+    .toolbar-title {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 12px; max-width: 300px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .toolbar-actions { display: flex; align-items: center; gap: 8px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500; padding: 7px 14px;
+      border-radius: 6px; cursor: pointer; text-decoration: none;
+      font-family: 'DM Sans', sans-serif; border: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-back {
+      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8);
+    }
+    .btn-back:hover { background: rgba(255,255,255,0.15); color: white; }
+    .btn-download {
+      background: var(--accent); color: white;
+    }
+    .btn-download:hover { background: var(--accent-mid); }
+    .btn-close {
+      background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5);
+      padding: 7px 10px;
+    }
+    .btn-close:hover { background: rgba(220,50,50,0.3); color: white; }
+
+    /* ÁREA DE IMAGEN */
+    .img-area {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 2rem; overflow: auto;
+    }
+    .img-area img {
+      max-width: 100%; max-height: calc(100vh - 120px);
+      object-fit: contain; border-radius: 6px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    }
+    .img-error {
+      text-align: center; color: rgba(255,255,255,0.4);
+      font-size: 15px; padding: 3rem;
+    }
+
+    /* BARRA INFERIOR */
+    .bottombar {
+      background: rgba(13,31,60,0.9);
+      padding: 0.6rem 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
+    }
+    .bottombar a {
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      text-decoration: none; transition: color .2s;
+    }
+    .bottombar a:hover { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 540px) {
+      .toolbar-title { display: none; }
+      .btn span { display: none; }
+      .btn { padding: 7px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-left">
+    <a href="index.html" class="toolbar-logo">Pragma <span>TI</span></a>
+    <div class="toolbar-title" id="imgTitle">Cargando...</div>
+  </div>
+  <div class="toolbar-actions">
+    <button class="btn btn-back" onclick="history.back()">
+      ← <span>Volver</span>
+    </button>
+    <a class="btn btn-download" id="btnDownload" href="#" download>
+      ↓ <span>Descargar</span>
+    </a>
+    <button class="btn btn-close" onclick="window.close()" title="Cerrar ventana">✕</button>
+  </div>
+</div>
+
+<div class="img-area">
+  <img id="imgVisor" src="" alt="Imagen del caso" onerror="showError()" />
+</div>
+
+<div class="bottombar">
+  <a href="casos.html">← Regresar a casos de éxito</a>
+  <a href="index.html">Inicio</a>
+  <a href="index.html#contacto">Contactar</a>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search)
+  const src    = params.get('src')
+  const titulo = params.get('titulo') || 'Imagen del caso'
+
+  if (src) {
+    document.getElementById('imgVisor').src    = src
+    document.getElementById('imgTitle').textContent = titulo
+    document.getElementById('btnDownload').href = src
+    document.getElementById('btnDownload').download = titulo
+    document.title = titulo + ' — Pragma TI'
+  } else {
+    showError()
+  }
+
+  function showError() {
+    document.querySelector('.img-area').innerHTML =
+      '<div class="img-error">No se pudo cargar la imagen.<br><br><a href="casos.html" style="color:#85B7EB;">← Volver a casos</a></div>'
+  }
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') history.back()
+  })
+</script>
+</body>
+</html>

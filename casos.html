@@ -199,7 +199,7 @@
       casos.forEach((c, i) => {
         const icono = iconos[c.servicio] || '💼'
         const imgHtml = c.imagen_url
-          ? `<div class="caso-img"><img src="${c.imagen_url}" alt="${c.titulo}" onclick="window.open('${c.imagen_url}', '_blank')" title="Clic para ver imagen completa" /></div>`
+          ? `<div class="caso-img"><img src="${c.imagen_url}" alt="${c.titulo}" onclick="window.open('visor.html?src=' + encodeURIComponent('${c.imagen_url}') + '&titulo=' + encodeURIComponent('${c.titulo}'), '_blank')" title="Clic para ver imagen completa" /></div>`
           : `<div class="caso-img">${icono}</div>`
 
         const card = document.createElement('div')
