@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Pragma TI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F2F6FC; --white: #FFFFFF; --ink: #0D1F3C;
+      --ink-60: #4A6080; --accent: #1A5BA8; --accent-light: #E0EBFA;
+      --accent-mid: #2471C8; --border: #C8DCF0; --red: #DC2626;
+      --red-light: #FEE2E2; --green: #16A34A; --green-light: #DCFCE7;
+      --radius: 12px; --radius-sm: 6px;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+    /* LOGIN */
+    #loginWrap {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem;
+    }
+    .login-box {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2.5rem; width: 100%; max-width: 380px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .login-logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+    .login-logo span { color: var(--accent); }
+    .login-sub { font-size: 13px; color: var(--ink-60); margin-bottom: 2rem; }
+    .login-error { font-size: 12px; color: var(--red); background: var(--red-light); padding: 8px 12px; border-radius: var(--radius-sm); margin-bottom: 1rem; display: none; }
+
+    /* ADMIN */
+    #adminWrap { display: none; }
+    .admin-nav {
+      background: var(--ink); color: white; padding: 0 2rem; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .admin-nav-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; }
+    .admin-nav-title span { color: var(--accent-light); }
+    .admin-nav-actions { display: flex; gap: 10px; align-items: center; }
+    .btn-salir { font-size: 13px; color: rgba(255,255,255,0.6); background: none; border: none; cursor: pointer; padding: 6px 12px; border-radius: 20px; transition: background .2s; }
+    .btn-salir:hover { background: rgba(255,255,255,0.1); color: white; }
+    .admin-body { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+    /* FORM */
+    .form-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem;
+    }
+    .form-card-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; font-size: 12px; font-weight: 500; color: var(--ink-60); margin-bottom: 5px; }
+    input[type=text], input[type=password], textarea, select {
+      width: 100%; padding: 10px 14px;
+      background: var(--cream); border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--ink); outline: none; transition: border-color .2s;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); background: white; }
+    textarea { resize: vertical; min-height: 90px; }
+    .img-preview { width: 100%; height: 160px; border: 2px dashed var(--border); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; color: var(--ink-60); background: var(--cream); overflow: hidden; margin-top: 6px; position: relative; transition: border-color .2s; }
+    .img-preview:hover { border-color: var(--accent); }
+    .img-preview img { width: 100%; height: 100%; object-fit: cover; }
+    .img-preview input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .btn-primary {
+      width: 100%; padding: 12px; background: var(--accent); color: white;
+      border: none; border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--accent-mid); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+    .alert { font-size: 13px; padding: 10px 14px; border-radius: var(--radius-sm); margin-top: 12px; display: none; }
+    .alert-ok  { background: var(--green-light); color: var(--green); }
+    .alert-err { background: var(--red-light); color: var(--red); }
+
+    /* LISTA */
+    .lista-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
+    .caso-row {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 10px;
+    }
+    .caso-row-img { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; overflow: hidden; }
+    .caso-row-img img { width: 100%; height: 100%; object-fit: cover; }
+    .caso-row-info { flex: 1; }
+    .caso-row-title { font-size: 14px; font-weight: 500; color: var(--ink); }
+    .caso-row-meta { font-size: 12px; color: var(--ink-60); margin-top: 2px; }
+    .btn-borrar { font-size: 12px; color: var(--red); background: var(--red-light); border: none; border-radius: 20px; padding: 5px 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; flex-shrink: 0; transition: background .2s; }
+    .btn-borrar:hover { background: #FECACA; }
+    .lista-empty { text-align: center; color: var(--ink-60); font-size: 13px; padding: 2rem; }
+
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginWrap">
+  <div class="login-box">
+    <div class="login-logo">Pragma <span>TI</span></div>
+    <div class="login-sub">Panel de administración</div>
+    <div class="login-error" id="loginError">Contraseña incorrecta</div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" id="passInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()" />
+    </div>
+    <button class="btn-primary" onclick="login()">Ingresar →</button>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="adminWrap">
+  <div class="admin-nav">
+    <div class="admin-nav-title">Pragma <span>TI</span> — Admin</div>
+    <div class="admin-nav-actions">
+      <a href="casos.html" target="_blank" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Ver página pública ↗</a>
+      <button class="btn-salir" onclick="salir()">Salir</button>
+    </div>
+  </div>
+
+  <div class="admin-body">
+
+    <!-- FORMULARIO -->
+    <div class="form-card">
+      <div class="form-card-title">➕ Agregar nuevo caso de éxito</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Título *</label>
+          <input type="text" id="fTitulo" placeholder="Ej. Sistema de gestión de renta familiar" />
+        </div>
+        <div class="form-group">
+          <label>Servicio *</label>
+          <select id="fServicio">
+            <option value="">Seleccionar...</option>
+            <option>Aplicación Web</option>
+            <option>Automatizaciones</option>
+            <option>Analítica de Datos</option>
+            <option>Sitios Web & Dominios</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descripción *</label>
+        <textarea id="fDesc" placeholder="Describe el problema del cliente y la solución implementada..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Resultado obtenido *</label>
+        <input type="text" id="fResultado" placeholder="Ej. Eliminación total de procesos manuales" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tipo de cliente *</label>
+          <select id="fCliente">
+            <option value="">Seleccionar...</option>
+            <option>Empresa privada</option>
+            <option>PYME</option>
+            <option>Emprendedor</option>
+            <option>Corporación</option>
+            <option>Entidad pública</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tecnología principal *</label>
+          <input type="text" id="fTech" placeholder="Ej. Oracle APEX" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Imagen del caso</label>
+        <div class="img-preview" id="imgPreview" onclick="document.getElementById('fImagen').click()">
+          <span id="imgPlaceholder">📁 Clic para subir imagen</span>
+          <img id="imgThumb" style="display:none;" />
+          <input type="file" id="fImagen" accept="image/*" onchange="previsualizarImagen(event)" style="display:none;" />
+        </div>
+      </div>
+      <button class="btn-primary" id="btnGuardar" onclick="guardarCaso()">Guardar caso de éxito</button>
+      <div class="alert alert-ok" id="alertOk">✅ Caso guardado correctamente</div>
+      <div class="alert alert-err" id="alertErr">❌ Error al guardar. Verifica los campos.</div>
+    </div>
+
+    <!-- LISTA -->
+    <div class="lista-title">📋 Casos publicados</div>
+    <div id="listaWrap"><div class="lista-empty">Cargando...</div></div>
+
+  </div>
+</div>
+
+<script>
+  // ── CONFIG ──
+  const SUPABASE_URL = 'https://aqzrivzpbdqozygconis.supabase.co'
+  const SUPABASE_KEY = 'TU_ANON_KEY_AQUI'
+  const PASS_HASH    = 'pragma2026admin' // Cambia esto por tu contraseña real
+
+  // ── LOGIN ──
+  function login() {
+    const val = document.getElementById('passInput').value.trim()
+    if (val === PASS_HASH) {
+      localStorage.setItem('pragma_admin', '1')
+      document.getElementById('loginWrap').style.display = 'none'
+      document.getElementById('adminWrap').style.display = 'block'
+      cargarLista()
+    } else {
+      document.getElementById('loginError').style.display = 'block'
+    }
+  }
+
+  function salir() {
+    localStorage.removeItem('pragma_admin')
+    location.reload()
+  }
+
+  // Auto-login si ya estaba autenticado
+  if (localStorage.getItem('pragma_admin') === '1') {
+    document.getElementById('loginWrap').style.display = 'none'
+    document.getElementById('adminWrap').style.display = 'block'
+    cargarLista()
+  }
+
+  // ── IMAGEN PREVIEW ──
+  function previsualizarImagen(e) {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = ev => {
+      document.getElementById('imgPlaceholder').style.display = 'none'
+      const thumb = document.getElementById('imgThumb')
+      thumb.src = ev.target.result
+      thumb.style.display = 'block'
+    }
+    reader.readAsDataURL(file)
+  }
+
+  // ── GUARDAR ──
+  async function guardarCaso() {
+    const titulo    = document.getElementById('fTitulo').value.trim()
+    const servicio  = document.getElementById('fServicio').value
+    const desc      = document.getElementById('fDesc').value.trim()
+    const resultado = document.getElementById('fResultado').value.trim()
+    const cliente   = document.getElementById('fCliente').value
+    const tech      = document.getElementById('fTech').value.trim()
+    const fileInput = document.getElementById('fImagen')
+
+    if (!titulo || !servicio || !desc || !resultado || !cliente || !tech) {
+      mostrarAlerta('err', '❌ Completa todos los campos obligatorios.')
+      return
+    }
+
+    const btn = document.getElementById('btnGuardar')
+    btn.disabled = true
+    btn.textContent = 'Guardando...'
+
+    try {
+      let imagen_url = null
+
+      // Subir imagen si existe
+      if (fileInput.files[0]) {
+        const file = fileInput.files[0]
+        const ext  = file.name.split('.').pop()
+        const path = `${Date.now()}.${ext}`
+        const upRes = await fetch(
+          `${SUPABASE_URL}/storage/v1/object/casos-imagenes/${path}`,
+          { method: 'POST', headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`, 'Content-Type': file.type }, body: file }
+        )
+        if (upRes.ok) imagen_url = `${SUPABASE_URL}/storage/v1/object/public/casos-imagenes/${path}`
+      }
+
+      // Insertar en base de datos
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/casos_exito`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify({ titulo, servicio, descripcion: desc, resultado, cliente, tecnologia: tech, imagen_url, activo: true })
+      })
+
+      if (res.ok) {
+        mostrarAlerta('ok', '✅ Caso guardado correctamente')
+        limpiarFormulario()
+        cargarLista()
+      } else {
+        mostrarAlerta('err', '❌ Error al guardar. Verifica la configuración de Supabase.')
+      }
+    } catch (e) {
+      mostrarAlerta('err', '❌ Error de conexión. Verifica tu internet.')
+    }
+
+    btn.disabled = false
+    btn.textContent = 'Guardar caso de éxito'
+  }
+
+  // ── LISTA ──
+  async function cargarLista() {
+    const wrap = document.getElementById('listaWrap')
+    wrap.innerHTML = '<div class="lista-empty">Cargando...</div>'
+    try {
+      const res = await fetch(
+        `${SUPABASE_URL}/rest/v1/casos_exito?order=created_at.desc`,
+        { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
+      )
+      const casos = await res.json()
+      if (!casos.length) { wrap.innerHTML = '<div class="lista-empty">No hay casos publicados aún.</div>'; return }
+      wrap.innerHTML = ''
+      casos.forEach(c => {
+        const iconos = { 'Aplicación Web':'🖥️','Automatizaciones':'⚡','Analítica de Datos':'📊','Sitios Web & Dominios':'🌐' }
+        const icono  = iconos[c.servicio] || '💼'
+        const imgHtml = c.imagen_url
+          ? `<div class="caso-row-img"><img src="${c.imagen_url}" /></div>`
+          : `<div class="caso-row-img">${icono}</div>`
+        const row = document.createElement('div')
+        row.className = 'caso-row'
+        row.innerHTML = `
+          ${imgHtml}
+          <div class="caso-row-info">
+            <div class="caso-row-title">${c.titulo}</div>
+            <div class="caso-row-meta">${c.servicio} · ${c.tecnologia} · ${c.cliente}</div>
+          </div>
+          <button class="btn-borrar" onclick="borrarCaso('${c.id}')">Borrar</button>`
+        wrap.appendChild(row)
+      })
+    } catch { wrap.innerHTML = '<div class="lista-empty">Error al cargar casos.</div>' }
+  }
+
+  // ── BORRAR ──
+  async function borrarCaso(id) {
+    if (!confirm('¿Eliminar este caso de éxito?')) return
+    await fetch(`${SUPABASE_URL}/rest/v1/casos_exito?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` }
+    })
+    cargarLista()
+  }
+
+  // ── HELPERS ──
+  function limpiarFormulario() {
+    ['fTitulo','fDesc','fResultado','fTech'].forEach(id => document.getElementById(id).value = '')
+    document.getElementById('fServicio').value = ''
+    document.getElementById('fCliente').value  = ''
+    document.getElementById('fImagen').value   = ''
+    document.getElementById('imgThumb').style.display = 'none'
+    document.getElementById('imgPlaceholder').style.display = 'block'
+  }
+
+  function mostrarAlerta(tipo, msg) {
+    const ok  = document.getElementById('alertOk')
+    const err = document.getElementById('alertErr')
+    ok.style.display  = 'none'
+    err.style.display = 'none'
+    const el = tipo === 'ok' ? ok : err
+    el.textContent = msg
+    el.style.display = 'block'
+    setTimeout(() => el.style.display = 'none', 4000)
+  }
+</script>
+</body>
+</html>
