@@ -108,7 +108,7 @@
     <div class="toolbar-title" id="imgTitle">Cargando...</div>
   </div>
   <div class="toolbar-actions">
-    <button class="btn btn-back" onclick="history.back()">
+    <button class="btn btn-back" onclick="window.location.href='casos.html'">
       ← <span>Volver</span>
     </button>
     <a class="btn btn-download" id="btnDownload" href="#" download>
@@ -136,8 +136,22 @@
   if (src) {
     document.getElementById('imgVisor').src    = src
     document.getElementById('imgTitle').textContent = titulo
-    document.getElementById('btnDownload').href = src
-    document.getElementById('btnDownload').download = titulo
+    const btnDl = document.getElementById('btnDownload')
+    btnDl.addEventListener('click', async (e) => {
+      e.preventDefault()
+      try {
+        const res = await fetch(src)
+        const blob = await res.blob()
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = titulo + '.jpg'
+        a.click()
+        URL.revokeObjectURL(url)
+      } catch {
+        window.open(src, '_blank')
+      }
+    })
     document.title = titulo + ' — Pragma TI'
   } else {
     showError()
@@ -150,7 +164,7 @@
 
   // Cerrar con Escape
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') history.back()
+    if (e.key === 'Escape') window.location.href = 'casos.html'
   })
 </script>
 </body>
