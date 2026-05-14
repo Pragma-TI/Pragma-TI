@@ -129,6 +129,32 @@
     .cta-btn:hover { background: var(--accent-mid); }
 
     @media (max-width: 600px) { .casos-grid { grid-template-columns: 1fr; } }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.92); cursor: zoom-out;
+      align-items: center; justify-content: center; padding: 2rem;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      object-fit: contain; border-radius: 8px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+      animation: zoomIn .2s ease;
+    }
+    .lightbox-close {
+      position: fixed; top: 1.25rem; right: 1.5rem;
+      font-size: 28px; color: white; cursor: pointer;
+      background: rgba(255,255,255,0.1); border: none;
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    @keyframes zoomIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .caso-img img { cursor: zoom-in; transition: opacity .2s; }
+    .caso-img img:hover { opacity: 0.88; }
   </style>
 </head>
 <body>
@@ -195,7 +221,7 @@
       casos.forEach((c, i) => {
         const icono = iconos[c.servicio] || '💼'
         const imgHtml = c.imagen_url
-          ? `<div class="caso-img"><img src="${c.imagen_url}" alt="${c.titulo}" /></div>`
+          ? `<div class="caso-img"><img src="${c.imagen_url}" alt="${c.titulo}" onclick="openLightbox('${c.imagen_url}', '${c.titulo}')" /></div>`
           : `<div class="caso-img">${icono}</div>`
 
         const card = document.createElement('div')
@@ -224,6 +250,25 @@
   }
 
   cargarCasos()
+
+  function openLightbox(src, alt) {
+    document.getElementById('lightboxImg').src = src
+    document.getElementById('lightboxImg').alt = alt
+    document.getElementById('lightbox').classList.add('active')
+    document.body.style.overflow = 'hidden'
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active')
+    document.body.style.overflow = ''
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox() })
+
 </script>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
+  <img id="lightboxImg" src="" alt="Imagen ampliada" onclick="event.stopPropagation()" />
+</div>
+
 </body>
 </html>
