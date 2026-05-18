@@ -96,6 +96,9 @@
     .lista-empty { text-align: center; color: var(--ink-60); font-size: 13px; padding: 2rem; }
 
     @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    @keyframes logoBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .logo-cursor{animation:logoBlink 1.1s step-end infinite}
   </style>
 </head>
 <body>
@@ -113,7 +116,7 @@
       </defs>
       <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#logoGradL)" transform="rotate(45 50 50)"/>
       <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
-      <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+      <rect class="logo-cursor" x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
     </svg>
       <span style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#0D1F3C;">Pragma <span style="color:#1A5BA8;">TI</span></span>
     </div>
@@ -140,7 +143,7 @@
       </defs>
       <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#logoGradA)" transform="rotate(45 50 50)"/>
       <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
-      <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+      <rect class="logo-cursor" x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
     </svg>
       <span>Pragma <span>TI</span> — Admin</span>
     </div>
