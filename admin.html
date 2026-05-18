@@ -37,7 +37,7 @@
       background: var(--ink); color: white; padding: 0 2rem; height: 60px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .admin-nav-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; }
+    .admin-nav-title { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 700; display: flex; align-items: center; }
     .admin-nav-title span { color: var(--accent-light); }
     .admin-nav-actions { display: flex; gap: 10px; align-items: center; }
     .btn-salir { font-size: 13px; color: rgba(255,255,255,0.6); background: none; border: none; cursor: pointer; padding: 6px 12px; border-radius: 20px; transition: background .2s; }
@@ -103,7 +103,20 @@
 <!-- LOGIN -->
 <div id="loginWrap">
   <div class="login-box">
-    <div class="login-logo">Pragma <span>TI</span></div>
+    <div class="login-logo" style="display:flex;align-items:center;gap:8px;margin-bottom:0.25rem;">
+      <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="logoGradL" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0A2463"/>
+          <stop offset="100%" stop-color="#2C7BE5"/>
+        </linearGradient>
+      </defs>
+      <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#logoGradL)" transform="rotate(45 50 50)"/>
+      <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
+      <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+    </svg>
+      <span style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#0D1F3C;">Pragma <span style="color:#1A5BA8;">TI</span></span>
+    </div>
     <div class="login-sub">Panel de administración</div>
     <div class="login-error" id="loginError">Contraseña incorrecta</div>
     <div class="form-group">
@@ -117,7 +130,20 @@
 <!-- ADMIN -->
 <div id="adminWrap">
   <div class="admin-nav">
-    <div class="admin-nav-title">Pragma <span>TI</span> — Admin</div>
+    <div class="admin-nav-title" style="display:flex;align-items:center;gap:8px;">
+      <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="logoGradA" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0A2463"/>
+          <stop offset="100%" stop-color="#2C7BE5"/>
+        </linearGradient>
+      </defs>
+      <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#logoGradA)" transform="rotate(45 50 50)"/>
+      <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
+      <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+    </svg>
+      <span>Pragma <span>TI</span> — Admin</span>
+    </div>
     <div class="admin-nav-actions">
       <a href="casos.html" target="_blank" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Ver página pública ↗</a>
       <button class="btn-salir" onclick="salir()">Salir</button>

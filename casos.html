@@ -26,10 +26,9 @@
       padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-mark { width: 32px; height: 32px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .logo-mark svg { width: 18px; height: 18px; fill: white; }
-    .logo-text { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: var(--ink); }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-mark { display: flex; align-items: center; justify-content: center; }
+    .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 700; color: var(--ink); }
     .logo-text span { color: var(--accent); }
     .nav-back {
       display: inline-flex; align-items: center; gap: 6px;
@@ -139,9 +138,17 @@
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-    </div>
+    <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="logoGradC" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0A2463"/>
+            <stop offset="100%" stop-color="#2C7BE5"/>
+          </linearGradient>
+        </defs>
+        <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#logoGradC)" transform="rotate(45 50 50)"/>
+        <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
+        <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+      </svg>
     <span class="logo-text">Pragma <span>TI</span></span>
   </a>
   <a href="index.html" class="nav-back">← Volver al inicio</a>
