@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consultoría Power BI en Latinoamérica — Pragma TI</title>
+  <meta name="description" content="Expertos en Power BI para toda Latinoamérica. Dashboards ejecutivos con IA, reportes operativos, migración desde Excel y capacitaciones online. Más de 15 años de experiencia. Pragma TI."/>
+  <meta name="keywords" content="Power BI Latinoamérica, consultoría Power BI LATAM, dashboards Power BI IA, capacitación Power BI online, reportes Power BI, migración Excel Power BI, analítica de datos inteligencia artificial, Business Intelligence LATAM, Power BI Peru Chile Colombia Mexico Argentina"/>
+  <meta property="og:title" content="Consultoría Power BI con IA para toda Latinoamérica — Pragma TI"/>
+  <meta property="og:description" content="Transformamos tus datos en decisiones con IA. Dashboards ejecutivos, capacitaciones y proyectos Power BI para empresas en toda Latinoamérica."/>
+  <meta property="og:url" content="https://pragma-ti.com/powerbi"/>
+  <link rel="canonical" href="https://pragma-ti.com/powerbi"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='100' y2='100' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%232C7BE5'/%3E%3Cstop offset='100%25' stop-color='%230A2463'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='15' y='15' width='70' height='70' rx='10' fill='url(%23g)' transform='rotate(45 50 50)'/%3E%3Ctext x='30' y='66' font-family='Georgia,serif' font-size='46' font-weight='700' fill='white'%3EP%3C/text%3E%3Crect x='56' y='60' width='19' height='6' rx='3' fill='%23FF6B35'/%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F2F6FC; --white: #fff;
+      --ink: #0D1F3C; --ink-60: #4A6080;
+      --accent: #1A5BA8; --accent-mid: #2471C8;
+      --accent-light: #E0EBFA; --gold: #C8952A;
+      --orange: #FF6B35; --border: #C8DCF0;
+      --pbi-yellow: #F2C811; --pbi-dark: #1A1A2E;
+      --radius: 14px; --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,246,252,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.5rem,5vw,4rem); height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 700; color: var(--ink); }
+    .logo-text span { color: var(--accent); }
+    @keyframes logoBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .logo-cursor { animation: logoBlink 1.1s step-end infinite; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--ink-60); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: white !important;
+      padding: 8px 20px; border-radius: 20px; font-weight: 600 !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--accent-mid) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0A2463 0%, #1A5BA8 50%, #2C7BE5 100%);
+      display: flex; align-items: center;
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem) 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
+      background: linear-gradient(to top, var(--cream), transparent);
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--pbi-yellow); letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag::before { content:''; width:24px; height:1.5px; background: var(--pbi-yellow); }
+    .hero-h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; color: white;
+      letter-spacing: -0.04em; line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 em { font-style: italic; color: var(--pbi-yellow); }
+    .hero-desc {
+      font-size: clamp(16px, 2vw, 18px); color: rgba(255,255,255,0.7);
+      max-width: 580px; line-height: 1.75; margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--pbi-yellow); color: var(--ink);
+      padding: 14px 32px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: all .2s; letter-spacing: -0.01em;
+    }
+    .btn-primary:hover { background: #e0b800; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1); color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 500; text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 2.2rem;
+      font-weight: 900; color: var(--pbi-yellow); line-height: 1;
+    }
+    .stat-lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+    /* ── SECTION BASE ── */
+    section { padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem); }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-tag::before { content:''; width:20px; height:1.5px; background: var(--accent); }
+    .section-h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem,4vw,3rem);
+      font-weight: 900; color: var(--ink);
+      letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-h2 em { font-style: italic; color: var(--accent); }
+    .section-desc { font-size: 16px; color: var(--ink-60); max-width: 560px; line-height: 1.7; margin-bottom: 3rem; }
+
+    /* ── SERVICIOS POWER BI ── */
+    #servicios { background: var(--white); }
+    .servicios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 20px; }
+    .svc-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: all .2s; position: relative; overflow: hidden;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+      opacity: 0; transition: opacity .2s;
+    }
+    .svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,91,168,0.12); border-color: var(--accent); }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-icon {
+      width: 52px; height: 52px; background: var(--accent-light);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 1.25rem;
+    }
+    .svc-title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .svc-desc { font-size: 13px; color: var(--ink-60); line-height: 1.65; margin-bottom: 1rem; }
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      padding: 3px 10px; border-radius: 20px;
+      background: var(--accent-light); color: var(--accent);
+      border: 1px solid var(--border); letter-spacing: 0.04em;
+    }
+
+    /* ── POR QUÉ POWER BI ── */
+    #porque { background: var(--cream); }
+    .porque-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .porque-visual {
+      background: linear-gradient(135deg, #0A2463, #1A5BA8);
+      border-radius: 20px; padding: 2.5rem;
+      position: relative; overflow: hidden;
+    }
+    .porque-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .chart-bars { display: flex; align-items: flex-end; gap: 10px; height: 160px; position: relative; z-index: 1; }
+    .bar {
+      flex: 1; border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, var(--pbi-yellow), rgba(242,200,17,0.4));
+      animation: barRise 1.2s ease forwards;
+      transform-origin: bottom;
+    }
+    @keyframes barRise { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .bar:nth-child(1) { height: 60%; animation-delay: .1s; }
+    .bar:nth-child(2) { height: 85%; animation-delay: .2s; background: linear-gradient(180deg, #2C7BE5, rgba(44,123,229,0.4)); }
+    .bar:nth-child(3) { height: 45%; animation-delay: .3s; }
+    .bar:nth-child(4) { height: 100%; animation-delay: .4s; background: linear-gradient(180deg, #FF6B35, rgba(255,107,53,0.4)); }
+    .bar:nth-child(5) { height: 70%; animation-delay: .5s; }
+    .bar:nth-child(6) { height: 90%; animation-delay: .6s; background: linear-gradient(180deg, #2C7BE5, rgba(44,123,229,0.4)); }
+    .chart-label { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 12px; text-align: center; position: relative; z-index: 1; }
+    .chart-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+    .porque-items { display: flex; flex-direction: column; gap: 1.5rem; }
+    .porque-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .porque-num {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--accent-light); color: var(--accent);
+      font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .porque-text h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .porque-text p { font-size: 13px; color: var(--ink-60); line-height: 1.6; }
+
+    /* ── PROCESO ── */
+    #proceso { background: var(--ink); }
+    .proceso-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1px; background: rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
+    .proceso-step { background: var(--ink); padding: 2rem; }
+    .paso-num {
+      font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900;
+      color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: 0.75rem;
+    }
+    .paso-title { font-size: 15px; font-weight: 600; color: white; margin-bottom: 8px; }
+    .paso-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+    .paso-icon { font-size: 24px; margin-bottom: 1rem; }
+
+    /* ── CAPACITACIONES ── */
+    #capacitacion { background: var(--cream); }
+    .cap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 16px; }
+    .cap-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      position: relative; transition: all .2s;
+    }
+    .cap-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(26,91,168,0.1); }
+    .cap-nivel {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: 'DM Mono', monospace; font-size: 9px;
+      padding: 3px 10px; border-radius: 20px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .nivel-basico { background: #DCFCE7; color: #16A34A; }
+    .nivel-intermedio { background: #FEF9C3; color: #CA8A04; }
+    .nivel-avanzado { background: #FEE2E2; color: #DC2626; }
+    .cap-icon { font-size: 32px; margin-bottom: 1rem; }
+    .cap-title { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .cap-desc { font-size: 12px; color: var(--ink-60); line-height: 1.6; margin-bottom: 1rem; }
+    .cap-temas { display: flex; flex-direction: column; gap: 4px; }
+    .cap-tema { font-size: 12px; color: var(--ink-60); display: flex; align-items: center; gap: 6px; }
+    .cap-tema::before { content: '→'; color: var(--accent); font-size: 11px; }
+
+    /* ── CTA STRIP ── */
+    #cta {
+      background: linear-gradient(135deg, #0A2463 0%, #1A5BA8 100%);
+      padding: 5rem clamp(1.5rem,5vw,4rem);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(242,200,17,0.06) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-tag { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--pbi-yellow); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .cta-h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 900; color: white; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .cta-h2 em { color: var(--pbi-yellow); font-style: italic; }
+    .cta-desc { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; line-height: 1.7; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--white); }
+    .faq-list { max-width: 780px; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+    .faq-q {
+      padding: 1.25rem 1.5rem; font-size: 15px; font-weight: 600;
+      color: var(--ink); cursor: pointer; display: flex;
+      justify-content: space-between; align-items: center;
+      background: var(--cream); transition: background .2s;
+      list-style: none;
+    }
+    .faq-q:hover { background: var(--accent-light); }
+    .faq-q::after { content: '+'; font-size: 20px; color: var(--accent); font-weight: 300; flex-shrink: 0; }
+    details[open] .faq-q::after { content: '−'; }
+    .faq-a { padding: 1.25rem 1.5rem; font-size: 14px; color: var(--ink-60); line-height: 1.7; background: white; border-top: 1px solid var(--border); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); padding: 2.5rem clamp(1.5rem,5vw,4rem);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 8px; }
+    .footer-logo-text { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: white; }
+    .footer-logo-text span { color: #85B7EB; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: white; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 1rem; padding-top: 1rem; text-align: center; }
+    .footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.15); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links { display: none; }
+      .porque-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; text-align: center; }
+    }
+
+    /* ── FADE UP ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+
+  <!-- Schema.org SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Consultoría Power BI",
+    "provider": {
+      "@type": "Organization",
+      "name": "Pragma TI",
+      "url": "https://pragma-ti.com",
+      "telephone": "+51925079592",
+      "email": "informes@pragma-ti.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Lima", "addressRegion": "Lima", "addressCountry": "PE" }
+    },
+    "description": "Consultoría especializada en Power BI en Lima, Perú. Dashboards ejecutivos, reportes operativos, migración desde Excel y capacitaciones empresariales.",
+    "areaServed": ["Perú", "Chile", "Colombia", "México", "Argentina", "Ecuador", "Bolivia", "Uruguay", "Paraguay", "Venezuela", "Latinoamérica"],
+    "serviceType": ["Consultoría Power BI", "Dashboards ejecutivos", "Capacitación Power BI", "Migración Excel a Power BI"]
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
+      <defs><linearGradient id="navG" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0A2463"/><stop offset="100%" stop-color="#2C7BE5"/></linearGradient></defs>
+      <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#navG)" transform="rotate(45 50 50)"/>
+      <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
+      <rect class="logo-cursor" x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+    </svg>
+    <span class="logo-text">Pragma <span>TI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#capacitacion">Capacitación</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#cta" class="nav-cta">Agendar consulta</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Consultoría Power BI + IA · Toda Latinoamérica · Online</div>
+    <h1 class="hero-h1">Tus datos merecen<br><em>mejores decisiones</em></h1>
+    <p class="hero-desc">
+      En Pragma TI usamos Inteligencia Artificial para acelerar el análisis, diseño y construcción de dashboards en Power BI. Atendemos empresas en toda Latinoamérica — 100% online, sin barreras geográficas.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">📊 Solicitar diagnóstico gratis</a>
+      <a href="#servicios" class="btn-secondary">Ver servicios →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-lbl">Años en BI & Analytics</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Orientado a resultados</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Plataformas de análisis</div>
+      </div>
+      <div>
+        <div class="stat-num">LATAM</div>
+        <div class="stat-lbl">100% Online</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS POWER BI -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="section-tag">Lo que hacemos</div>
+    <h2 class="section-h2">Servicios <em>Power BI</em><br>para tu empresa</h2>
+    <p class="section-desc">Desde el dato crudo hasta el dashboard que tu gerente abre cada lunes. Cubrimos todo el ciclo de analítica.</p>
+    <div class="servicios-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-icon">📊</div>
+        <div class="svc-title">Dashboards Ejecutivos</div>
+        <div class="svc-desc">Diseñamos reportes estratégicos para gerentes y directivos. KPIs en tiempo real, alertas automáticas y visualizaciones que cuentan la historia de tu negocio.</div>
+        <div class="svc-tags"><span class="tag">Ventas</span><span class="tag">Finanzas</span><span class="tag">Operaciones</span><span class="tag">RRHH</span></div>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.1s">
+        <div class="svc-icon">⚙️</div>
+        <div class="svc-title">Reportes Operativos</div>
+        <div class="svc-desc">Automatizamos los reportes que tu equipo hace manualmente en Excel. Actualizaciones automáticas, menos errores y más tiempo para lo que importa.</div>
+        <div class="svc-tags"><span class="tag">Automatización</span><span class="tag">ETL</span><span class="tag">Power Query</span></div>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.2s">
+        <div class="svc-icon">🔄</div>
+        <div class="svc-title">Migración Excel → Power BI</div>
+        <div class="svc-desc">¿Tu empresa vive en Excel? Te migramos a Power BI sin perder la lógica de negocio. Proceso ordenado, sin interrupciones y con capacitación incluida.</div>
+        <div class="svc-tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.3s">
+        <div class="svc-icon">🗄️</div>
+        <div class="svc-title">Modelado de Datos</div>
+        <div class="svc-desc">Construimos modelos de datos estrella robustos que soportan cualquier pregunta de negocio. Medidas DAX avanzadas y relaciones bien diseñadas.</div>
+        <div class="svc-tags"><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">SQL</span></div>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.4s">
+        <div class="svc-icon">🤖</div>
+        <div class="svc-title">Power BI + Inteligencia Artificial</div>
+        <div class="svc-desc">Usamos IA para acelerar el análisis exploratorio, generar medidas DAX automáticamente, detectar anomalías y sugerir visualizaciones óptimas para tus datos.</div>
+        <div class="svc-tags"><span class="tag">Copilot</span><span class="tag">Claude AI</span><span class="tag">ML Models</span><span class="tag">Smart Narrative</span></div>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.5s">
+        <div class="svc-icon">🎓</div>
+        <div class="svc-title">Capacitación Empresarial</div>
+        <div class="svc-desc">Formamos a tu equipo para que sea autónomo en Power BI. Desde usuarios básicos hasta analistas avanzados. Modalidad presencial o virtual.</div>
+        <div class="svc-tags"><span class="tag">In-company</span><span class="tag">Virtual</span><span class="tag">Certificación</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ POWER BI -->
+<section id="porque">
+  <div class="section-inner">
+    <div class="porque-grid">
+      <div>
+        <div class="section-tag">Por qué elegirnos</div>
+        <h2 class="section-h2"><em>Expertos</em> en datos,<br>no solo en herramientas</h2>
+        <p class="section-desc">Cualquiera puede hacer un gráfico en Power BI. Nosotros entendemos tu negocio primero y construimos la analítica correcta.</p>
+        <div class="porque-items">
+          <div class="porque-item fade-up">
+            <div class="porque-num">01</div>
+            <div class="porque-text">
+              <h4>15+ años en BI corporativo</h4>
+              <p>Experiencia en empresas como Aenza, Accenture y Tgestiona. Sabemos lo que funciona en grandes volúmenes de datos.</p>
+            </div>
+          </div>
+          <div class="porque-item fade-up" style="transition-delay:.1s">
+            <div class="porque-num">02</div>
+            <div class="porque-text">
+              <h4>Enfoque en el negocio, no en la técnica</h4>
+              <p>No entregamos reportes bonitos sin impacto. Cada dashboard nace de un problema real de negocio que necesita solución.</p>
+            </div>
+          </div>
+          <div class="porque-item fade-up" style="transition-delay:.2s">
+            <div class="porque-num">03</div>
+            <div class="porque-text">
+              <h4>Capacitación incluida en cada proyecto</h4>
+              <p>Tu equipo aprende a usar y mantener lo que construimos. No generamos dependencia — generamos autonomía.</p>
+            </div>
+          </div>
+          <div class="porque-item fade-up" style="transition-delay:.3s">
+            <div class="porque-num">04</div>
+            <div class="porque-text">
+              <h4>IA que acelera cada etapa</h4>
+              <p>Usamos inteligencia artificial para automatizar el análisis inicial, generar DAX más rápido y detectar oportunidades en tus datos que el ojo humano no vería.</p>
+            </div>
+          </div>
+          <div class="porque-item fade-up" style="transition-delay:.4s">
+            <div class="porque-num">05</div>
+            <div class="porque-text">
+              <h4>100% online para toda Latinoamérica</h4>
+              <p>Trabajamos con empresas en Perú, Chile, Colombia, México, Argentina y toda la región. La distancia no es un límite cuando los datos son digitales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="porque-visual fade-up">
+        <div class="chart-title">📈 Impacto típico de proyecto</div>
+        <div class="chart-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="chart-label">Reducción tiempo de reportes · Mejora en toma de decisiones · ROI del proyecto</div>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.08);border-radius:8px;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.7);">⏱️ Tiempo de reporte</span>
+            <span style="font-family:'Fraunces',serif;font-size:18px;color:#F2C811;font-weight:700;">−80%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.08);border-radius:8px;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.7);">🎯 Decisiones basadas en datos</span>
+            <span style="font-family:'Fraunces',serif;font-size:18px;color:#FF6B35;font-weight:700;">+65%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.08);border-radius:8px;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.7);">💰 ROI promedio del proyecto</span>
+            <span style="font-family:'Fraunces',serif;font-size:18px;color:#2C7BE5;font-weight:700;">3-5x</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="section-inner">
+    <div class="section-tag" style="color:rgba(255,255,255,0.5)">Cómo trabajamos</div>
+    <h2 class="section-h2" style="color:white;margin-bottom:2.5rem">Del dato al <em style="color:var(--pbi-yellow)">dashboard</em><br>en 4 pasos</h2>
+    <div class="proceso-grid">
+      <div class="proceso-step fade-up">
+        <div class="paso-icon">🔍</div>
+        <div class="paso-num">01</div>
+        <div class="paso-title">Diagnóstico gratuito</div>
+        <div class="paso-desc">Entendemos tus fuentes de datos, procesos actuales y qué decisiones necesitas tomar. Sin costo, sin compromiso.</div>
+      </div>
+      <div class="proceso-step fade-up" style="transition-delay:.1s">
+        <div class="paso-icon">🏗️</div>
+        <div class="paso-num">02</div>
+        <div class="paso-title">Diseño del modelo</div>
+        <div class="paso-desc">Construimos el modelo de datos estrella, definimos métricas clave y validamos la lógica de negocio contigo.</div>
+      </div>
+      <div class="proceso-step fade-up" style="transition-delay:.2s">
+        <div class="paso-icon">📊</div>
+        <div class="paso-num">03</div>
+        <div class="paso-title">Desarrollo del dashboard</div>
+        <div class="paso-desc">Creamos las visualizaciones, medidas DAX y reportes con iteraciones semanales para que valides cada avance.</div>
+      </div>
+      <div class="proceso-step fade-up" style="transition-delay:.3s">
+        <div class="paso-icon">🚀</div>
+        <div class="paso-num">04</div>
+        <div class="paso-title">Entrega y capacitación</div>
+        <div class="paso-desc">Publicamos en Power BI Service, capacitamos a tu equipo y te acompañamos en la adopción. Soporte incluido.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CAPACITACIONES -->
+<section id="capacitacion">
+  <div class="section-inner">
+    <div class="section-tag">Formación</div>
+    <h2 class="section-h2"><em>Capacitaciones</em> Power BI<br>para tu equipo</h2>
+    <p class="section-desc">Formamos a tu equipo en Power BI desde cero hasta nivel avanzado. Modalidad in-company o virtual, adaptada a tu industria y casos de uso reales.</p>
+    <div class="cap-grid">
+      <div class="cap-card fade-up">
+        <span class="cap-nivel nivel-basico">Básico</span>
+        <div class="cap-icon">🌱</div>
+        <div class="cap-title">Power BI Fundamentos</div>
+        <div class="cap-desc">Para usuarios que vienen de Excel y quieren empezar a crear reportes profesionales sin experiencia previa en BI.</div>
+        <div class="cap-temas">
+          <div class="cap-tema">Importar y transformar datos</div>
+          <div class="cap-tema">Visualizaciones esenciales</div>
+          <div class="cap-tema">Filtros y segmentadores</div>
+          <div class="cap-tema">Publicar en Power BI Service</div>
+        </div>
+      </div>
+      <div class="cap-card fade-up" style="transition-delay:.1s">
+        <span class="cap-nivel nivel-intermedio">Intermedio</span>
+        <div class="cap-icon">⚡</div>
+        <div class="cap-title">Power BI Analítico</div>
+        <div class="cap-desc">Para analistas que ya usan Power BI y quieren dominar DAX, modelado de datos y reportes dinámicos avanzados.</div>
+        <div class="cap-temas">
+          <div class="cap-tema">DAX esencial y funciones clave</div>
+          <div class="cap-tema">Modelado de datos estrella</div>
+          <div class="cap-tema">Power Query avanzado</div>
+          <div class="cap-tema">Reportes con drill-through</div>
+        </div>
+      </div>
+      <div class="cap-card fade-up" style="transition-delay:.2s">
+        <span class="cap-nivel nivel-avanzado">Avanzado</span>
+        <div class="cap-icon">🏆</div>
+        <div class="cap-title">Power BI Experto</div>
+        <div class="cap-desc">Para profesionales de datos que necesitan dominar optimización, seguridad, deployment y arquitectura de soluciones BI a escala.</div>
+        <div class="cap-temas">
+          <div class="cap-tema">DAX avanzado y optimización</div>
+          <div class="cap-tema">Row-Level Security (RLS)</div>
+          <div class="cap-tema">Incremental refresh</div>
+          <div class="cap-tema">Arquitectura BI empresarial</div>
+        </div>
+      </div>
+      <div class="cap-card fade-up" style="transition-delay:.3s">
+        <span class="cap-nivel nivel-basico">Ejecutivo</span>
+        <div class="cap-icon">👔</div>
+        <div class="cap-title">Power BI para Gerentes</div>
+        <div class="cap-desc">Para directivos que necesitan interpretar dashboards, hacer las preguntas correctas a sus equipos y tomar mejores decisiones con datos.</div>
+        <div class="cap-temas">
+          <div class="cap-tema">Lectura e interpretación de KPIs</div>
+          <div class="cap-tema">Exploración de datos sin código</div>
+          <div class="cap-tema">Preguntas en lenguaje natural</div>
+          <div class="cap-tema">Mobile reporting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-tag">Preguntas frecuentes</div>
+    <h2 class="section-h2">Todo lo que necesitas<br><em>saber</em> antes de empezar</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">¿Cuánto tiempo toma implementar Power BI en mi empresa?</summary>
+        <div class="faq-a">Siendo sinceros: cada modelo de datos toma entre 3 y 4 días de trabajo efectivo. Un proyecto típico con 2-3 modelos y sus dashboards correspondientes puede estar listo en 1 a 2 semanas. Proyectos más complejos con múltiples fuentes, áreas y usuarios pueden extenderse a 3-4 semanas. Siempre empezamos con un diagnóstico gratuito para darte un estimado real basado en tus datos.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Necesito tener Power BI licenciado antes de contratar el servicio?</summary>
+        <div class="faq-a">No necesariamente. Te asesoramos en qué licencia conviene según el tamaño de tu empresa y cómo la usarás. Power BI Desktop es gratuito y Power BI Service tiene un plan gratuito individual. Te ayudamos a elegir la opción correcta sin pagar de más.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Pueden conectarse a nuestro sistema actual (ERP, CRM, etc.)?</summary>
+        <div class="faq-a">Sí. Power BI tiene más de 100 conectores nativos y nosotros tenemos experiencia con Oracle EBS, SQL Server, SAP, Salesforce, Google Sheets, APIs REST y muchos más. En el diagnóstico inicial evaluamos tus fuentes de datos.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Qué pasa si necesitamos cambios después de la entrega?</summary>
+        <div class="faq-a">Incluimos un período de soporte post-entrega y capacitamos a tu equipo para ajustes menores. Para cambios mayores ofrecemos soporte mensual o por paquete de horas. El objetivo siempre es que seas autónomo.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Trabajan solo en Perú o atienden otros países de Latinoamérica?</summary>
+        <div class="faq-a">Atendemos empresas en toda Latinoamérica — Perú, Chile, Colombia, México, Argentina, Ecuador y más. Todos nuestros proyectos se ejecutan 100% online sin perder calidad. Para capacitaciones presenciales evaluamos el traslado según el tamaño del proyecto.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Cómo usan Inteligencia Artificial en los proyectos Power BI?</summary>
+        <div class="faq-a">Usamos IA en varias etapas: análisis exploratorio automático de tus datos para detectar patrones y anomalías, generación asistida de medidas DAX complejas, sugerencia de visualizaciones óptimas según el tipo de dato, y narrativas inteligentes que explican automáticamente los cambios en tus métricas. Esto reduce el tiempo de desarrollo hasta un 40% y mejora la calidad del resultado final.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">¿Cuánto cuesta un proyecto Power BI?</summary>
+        <div class="faq-a">El costo varía según el alcance, número de fuentes de datos y cantidad de reportes. Ofrecemos desde proyectos puntuales hasta servicios recurrentes. El diagnóstico inicial es gratuito y sin compromiso — con esa información te damos un presupuesto exacto.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-tag">¿Listo para empezar?</div>
+    <h2 class="cta-h2">Tu empresa merece<br>tomar <em>mejores decisiones</em></h2>
+    <p class="cta-desc">Agenda una sesión de diagnóstico gratuita — online, sin importar dónde estés en Latinoamérica. En 30 minutos evaluamos tus datos, identificamos oportunidades y te mostramos cómo la IA puede acelerar tu analítica.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/51925079592?text=Hola,%20me%20interesa%20una%20consultoría%20Power%20BI" class="btn-primary" target="_blank">💬 WhatsApp directo</a>
+      <a href="mailto:informes@pragma-ti.com?subject=Consultoría Power BI" class="btn-secondary">✉️ informes@pragma-ti.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+      <defs><linearGradient id="fG" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0A2463"/><stop offset="100%" stop-color="#2C7BE5"/></linearGradient></defs>
+      <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#fG)" transform="rotate(45 50 50)"/>
+      <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
+      <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+    </svg>
+    <span class="footer-logo-text">Pragma <span>TI</span></span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Inicio</a>
+    <a href="casos.html">Casos de éxito</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <div class="footer-copy">© 2026 Pragma TI · pragma-ti.com</div>
+</footer>
+<div style="background:#0D1F3C;padding:.75rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);">
+  <a href="admin.html" style="font-size:11px;color:rgba(255,255,255,0.15);text-decoration:none;">⚙ Administrador</a>
+</div>
+
+<script>
+  // Fade up observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>
+</body>
+</html>
