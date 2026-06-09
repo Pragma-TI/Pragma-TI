@@ -316,9 +316,9 @@
 
 
     /* ── SLIDER ── */
-    .slider-wrap { position: relative; border-radius: 16px; overflow: hidden; background: #1A1A2E; box-shadow: 0 24px 64px rgba(0,0,0,0.3); }
+    .slider-wrap { position: relative; border-radius: 16px; overflow: hidden; background: #1A1A2E; box-shadow: 0 24px 64px rgba(0,0,0,0.3); max-height: 380px; }
     .slider-track { display: flex; transition: transform .5s cubic-bezier(.4,0,.2,1); }
-    .slide { min-width: 100%; }
+    .slide { min-width: 100%; height: 380px; overflow: hidden; }
     .slide svg { width: 100%; height: auto; display: block; }
     .slider-nav { position: absolute; bottom: 14px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
     .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25); cursor: pointer; transition: all .2s; border: none; }
@@ -507,19 +507,19 @@
         <div class="slider-track" id="sliderTrack">
           <div class="slide" style="position:relative;">
             <span class="slide-label">Cuentas por Cobrar</span>
-            <img src="dash_cuentas_cobrar.png" alt="Dashboard Cuentas por Cobrar en Power BI" width="1400" height="788" style="width:100%;display:block;"/>
+            <img src="dash_cuentas_cobrar.png" alt="Dashboard Cuentas por Cobrar en Power BI" width="1400" height="788" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/>
           </div>
           <div class="slide" style="position:relative;">
             <span class="slide-label">Flujo de Caja</span>
-            <img src="dash_flujo_caja.png" alt="Dashboard Flujo de Caja en Power BI" width="1400" height="788" loading="lazy" style="width:100%;display:block;"/>
+            <img src="dash_flujo_caja.png" alt="Dashboard Flujo de Caja en Power BI" width="1400" height="788" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/>
           </div>
           <div class="slide" style="position:relative;">
             <span class="slide-label">Gestión de Gastos RRHH</span>
-            <img src="dash_rrhh.png" alt="Dashboard Gastos Recursos Humanos en Power BI" width="1400" height="788" loading="lazy" style="width:100%;display:block;"/>
+            <img src="dash_rrhh.png" alt="Dashboard Gastos Recursos Humanos en Power BI" width="1400" height="788" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/>
           </div>
           <div class="slide" style="position:relative;">
             <span class="slide-label">Galería de Dashboards</span>
-            <img src="dash_galeria.png" alt="Galería de Dashboards Power BI" width="1400" height="788" loading="lazy" style="width:100%;display:block;"/>
+            <img src="dash_galeria.png" alt="Galería de Dashboards Power BI" width="1400" height="788" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/>
           </div>
         </div>
         <button class="slider-btn prev" onclick="moveSlide(-1)" aria-label="Dashboard anterior">&#8249;</button>
