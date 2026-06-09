@@ -357,7 +357,7 @@
 <body>
 
 <!-- NAV -->
-<nav>
+<nav role="navigation" aria-label="Navegación principal">
   <a href="index.html" class="nav-logo">
     <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
       <defs><linearGradient id="navG" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0A2463"/><stop offset="100%" stop-color="#2C7BE5"/></linearGradient></defs>
@@ -376,6 +376,7 @@
 </nav>
 
 <!-- HERO -->
+<main>
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-tag">Consultoría Power BI + IA · Toda Latinoamérica · Online</div>
@@ -506,23 +507,23 @@
         <div class="slider-track" id="sliderTrack">
           <div class="slide" style="position:relative;">
             <span class="slide-label">Cuentas por Cobrar</span>
-            <img src="dash_cuentas_cobrar.png" alt="Dashboard Cuentas por Cobrar en Power BI" style="width:100%;display:block;"/>
+            <img src="dash_cuentas_cobrar.png" alt="Dashboard Cuentas por Cobrar en Power BI" width="1400" height="788" style="width:100%;display:block;"/>
           </div>
           <div class="slide" style="position:relative;">
             <span class="slide-label">Flujo de Caja</span>
-            <img src="dash_flujo_caja.png" alt="Dashboard Flujo de Caja en Power BI" style="width:100%;display:block;"/>
+            <img src="dash_flujo_caja.png" alt="Dashboard Flujo de Caja en Power BI" width="1400" height="788" loading="lazy" style="width:100%;display:block;"/>
           </div>
           <div class="slide" style="position:relative;">
             <span class="slide-label">Gestión de Gastos RRHH</span>
-            <img src="dash_rrhh.png" alt="Dashboard Gastos Recursos Humanos en Power BI" style="width:100%;display:block;"/>
+            <img src="dash_rrhh.png" alt="Dashboard Gastos Recursos Humanos en Power BI" width="1400" height="788" loading="lazy" style="width:100%;display:block;"/>
           </div>
           <div class="slide" style="position:relative;">
             <span class="slide-label">Galería de Dashboards</span>
-            <img src="dash_galeria.png" alt="Galería de Dashboards Power BI" style="width:100%;display:block;"/>
+            <img src="dash_galeria.png" alt="Galería de Dashboards Power BI" width="1400" height="788" loading="lazy" style="width:100%;display:block;"/>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="moveSlide(-1)">&#8249;</button>
-        <button class="slider-btn next" onclick="moveSlide(1)">&#8250;</button>
+        <button class="slider-btn prev" onclick="moveSlide(-1)" aria-label="Dashboard anterior">&#8249;</button>
+        <button class="slider-btn next" onclick="moveSlide(1)" aria-label="Dashboard siguiente">&#8250;</button>
         <div class="slider-nav" id="sliderNav"></div>
       </div>
     </div>
@@ -676,6 +677,7 @@
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
@@ -709,6 +711,7 @@
     for(let i=0;i<total;i++){
       const d = document.createElement('button');
       d.className = 'dot' + (i===0?' active':'');
+      d.setAttribute('aria-label', 'Ir al slide ' + (i+1));
       d.onclick = (idx=>()=>goTo(idx))(i);
       nav.appendChild(d);
     }
