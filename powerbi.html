@@ -9,9 +9,9 @@
   <meta name="keywords" content="Power BI Latinoamérica, consultoría Power BI LATAM, dashboards Power BI IA, capacitación Power BI online, reportes Power BI, migración Excel Power BI, analítica de datos inteligencia artificial, Business Intelligence LATAM, Power BI Peru Chile Colombia Mexico Argentina"/>
   <meta property="og:title" content="Consultoría Power BI con IA para toda Latinoamérica — Pragma TI"/>
   <meta property="og:description" content="Transformamos tus datos en decisiones con IA. Dashboards ejecutivos, capacitaciones y proyectos Power BI para empresas en toda Latinoamérica."/>
-  <meta property="og:url" content="https://pragma-ti.com/powerbi.html"/>
+  <meta property="og:url" content="https://www.pragma-ti.com/powerbi.html"/>
   <link rel="preload" as="image" href="dash_cuentas_cobrar.png"/>
-  <link rel="canonical" href="https://pragma-ti.com/powerbi.html"/>
+  <link rel="canonical" href="https://www.pragma-ti.com/powerbi.html"/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='100' y2='100' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%232C7BE5'/%3E%3Cstop offset='100%25' stop-color='%230A2463'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='15' y='15' width='70' height='70' rx='10' fill='url(%23g)' transform='rotate(45 50 50)'/%3E%3Ctext x='30' y='66' font-family='Georgia,serif' font-size='46' font-weight='700' fill='white'%3EP%3C/text%3E%3Crect x='56' y='60' width='19' height='6' rx='3' fill='%23FF6B35'/%3E%3C/svg%3E"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -231,37 +231,6 @@
     }
     .porque-text h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
     .porque-text p { font-size: 13px; color: var(--ink-60); line-height: 1.6; }
-
-    /* ── PROCESO ── */
-    #proceso { background: var(--ink); }
-    .proceso-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1px; background: rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
-    .proceso-step { background: var(--ink); padding: 2rem; }
-    .paso-num {
-      font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: 3rem; font-weight: 900;
-      color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: 0.75rem;
-    }
-    .paso-title { font-size: 15px; font-weight: 600; color: white; margin-bottom: 8px; }
-    .paso-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-    .paso-icon { font-size: 24px; margin-bottom: 1rem; }
-
-    /* ── CAPACITACIONES ── */
-    #capacitacion { background: var(--cream); }
-    .cap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 16px; }
-    .cap-card {
-      background: white; border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      position: relative; transition: all .2s;
-    }
-    .cap-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(26,91,168,0.1); }
-    .cap-nivel {
-      position: absolute; top: 1rem; right: 1rem;
-      font-family: 'DM Mono', monospace; font-size: 9px;
-      padding: 3px 10px; border-radius: 20px; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .nivel-basico { background: #DCFCE7; color: #16A34A; }
-    .nivel-intermedio { background: #FEF9C3; color: #CA8A04; }
-    .nivel-avanzado { background: #FEE2E2; color: #DC2626; }
     .cap-icon { font-size: 32px; margin-bottom: 1rem; }
     .cap-title { font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
     .cap-desc { font-size: 12px; color: var(--ink-60); line-height: 1.6; margin-bottom: 1rem; }
@@ -341,6 +310,69 @@
     .slider-btn.next { right: 12px; }
     .slide-label { position: absolute; top: 12px; left: 12px; background: rgba(242,200,17,0.15); border: 1px solid rgba(242,200,17,0.3); color: #F2C811; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 20px; z-index: 2; }
 
+
+    /* ── CONECTIVIDAD ── */
+    #conectividad { background: var(--ink); }
+    .fuentes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 3rem; }
+    .fuente-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm); padding: 1.25rem;
+      display: flex; align-items: center; gap: 12px;
+      transition: all .2s;
+    }
+    .fuente-card:hover { background: rgba(255,255,255,0.1); border-color: var(--pbi-yellow); }
+    .fuente-icon { font-size: 28px; flex-shrink: 0; }
+    .fuente-name { font-size: 13px; font-weight: 600; color: white; }
+    .fuente-type { font-size: 10px; color: rgba(255,255,255,0.4); font-family: 'DM Mono', monospace; letter-spacing: 0.05em; margin-top: 2px; }
+    .fuentes-label {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--pbi-yellow); letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .fuentes-label::before { content:''; width:20px; height:1.5px; background: var(--pbi-yellow); }
+    .db-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 6px 14px;
+      font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.7);
+      margin: 4px;
+    }
+    .db-badge:hover { background: rgba(242,200,17,0.15); border-color: var(--pbi-yellow); color: var(--pbi-yellow); }
+    .db-badges-wrap { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 2rem; }
+
+    /* ── BENEFICIOS ── */
+    #beneficios { background: var(--white); }
+    .beneficios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .beneficio-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      position: relative; overflow: hidden; transition: all .2s;
+    }
+    .beneficio-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-mid));
+      opacity: 0; transition: opacity .2s;
+    }
+    .beneficio-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(26,91,168,0.1); border-color: var(--accent); }
+    .beneficio-card:hover::after { opacity: 1; }
+    .beneficio-num {
+      font-family: 'Fraunces', 'Fraunces-fallback', serif;
+      font-size: 3rem; font-weight: 900;
+      color: var(--accent-light); line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .beneficio-icon { font-size: 32px; margin-bottom: 1rem; }
+    .beneficio-title { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .beneficio-desc { font-size: 13px; color: var(--ink-60); line-height: 1.65; }
+    .beneficio-tag {
+      display: inline-flex; margin-top: 12px;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      padding: 3px 10px; border-radius: 20px;
+      background: var(--accent-light); color: var(--accent);
+      border: 1px solid var(--border); letter-spacing: 0.04em;
+    }
     /* ── FADE UP ── */
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
@@ -381,7 +413,8 @@
   </a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#capacitacion">Capacitación</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#conectividad">Conectividad</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#cta" class="nav-cta">Agendar consulta</a></li>
   </ul>
@@ -410,8 +443,8 @@
         <div class="stat-lbl">Orientado a resultados</div>
       </div>
       <div>
-        <div class="stat-num">3</div>
-        <div class="stat-lbl">Plataformas de análisis</div>
+        <div class="stat-num">3 días</div>
+        <div class="stat-lbl">Entrega por modelo de datos</div>
       </div>
       <div>
         <div class="stat-num">LATAM</div>
@@ -426,44 +459,106 @@
   <div class="section-inner">
     <div class="section-tag">Lo que hacemos</div>
     <h2 class="section-h2">Servicios <em>Power BI</em><br>para tu empresa</h2>
-    <p class="section-desc">Desde el dato crudo hasta el dashboard que tu gerente abre cada lunes. Cubrimos todo el ciclo de analítica.</p>
+    <p class="section-desc">Entregables concretos con tiempos definidos — desde dashboards nuevos hasta soporte de soluciones existentes.</p>
     <div class="servicios-grid">
+
       <div class="svc-card fade-up">
         <div class="svc-icon">📊</div>
-        <div class="svc-title">Dashboards Ejecutivos</div>
-        <div class="svc-desc">Diseñamos reportes estratégicos para gerentes y directivos. KPIs en tiempo real, alertas automáticas y visualizaciones que cuentan la historia de tu negocio.</div>
-        <div class="svc-tags"><span class="tag">Ventas</span><span class="tag">Finanzas</span><span class="tag">Operaciones</span><span class="tag">RRHH</span></div>
+        <div class="svc-title">Construcción de Dashboards</div>
+        <div class="svc-desc">Desarrollamos dashboards ejecutivos y operativos desde cero, adaptados a tu negocio. KPIs en tiempo real, alertas automáticas y visualizaciones que cuentan la historia de tus datos.</div>
+        <div class="svc-tags"><span class="tag">Ventas</span><span class="tag">Finanzas</span><span class="tag">Operaciones</span><span class="tag">RRHH</span><span class="tag">Almacén</span><span class="tag">Compras</span><span class="tag">Contabilidad</span></div>
       </div>
+
       <div class="svc-card fade-up" style="transition-delay:.1s">
-        <div class="svc-icon">⚙️</div>
-        <div class="svc-title">Reportes Operativos</div>
-        <div class="svc-desc">Automatizamos los reportes que tu equipo hace manualmente en Excel. Actualizaciones automáticas, menos errores y más tiempo para lo que importa.</div>
-        <div class="svc-tags"><span class="tag">Automatización</span><span class="tag">ETL</span><span class="tag">Power Query</span></div>
+        <div class="svc-icon">🔧</div>
+        <div class="svc-title">Soporte a Dashboards Existentes</div>
+        <div class="svc-desc">¿Tienes dashboards en Power BI que no funcionan bien, son lentos o necesitan mejoras? Los auditamos, optimizamos y extendemos — sin necesidad de reconstruir desde cero.</div>
+        <div class="svc-tags"><span class="tag">Optimización</span><span class="tag">Corrección</span><span class="tag">Mejoras DAX</span><span class="tag">Performance</span></div>
       </div>
+
       <div class="svc-card fade-up" style="transition-delay:.2s">
+        <div class="svc-icon">🎓</div>
+        <div class="svc-title">Capacitaciones Power BI</div>
+        <div class="svc-desc">Formamos a tu equipo en Power BI desde usuarios básicos hasta analistas avanzados. Modalidad virtual o presencial, con casos reales de tu industria y evaluación incluida.</div>
+        <div class="svc-tags"><span class="tag">Básico</span><span class="tag">Intermedio</span><span class="tag">Avanzado</span><span class="tag">DAX</span><span class="tag">Virtual</span></div>
+      </div>
+
+      <div class="svc-card fade-up" style="transition-delay:.3s">
         <div class="svc-icon">🔄</div>
         <div class="svc-title">Migración Excel → Power BI</div>
-        <div class="svc-desc">¿Tu empresa vive en Excel? Te migramos a Power BI sin perder la lógica de negocio. Proceso ordenado, sin interrupciones y con capacitación incluida.</div>
-        <div class="svc-tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+        <div class="svc-desc">Migramos tus archivos Excel a Power BI conservando toda la lógica de negocio. Proceso ordenado por fases, sin interrupciones operativas y con transferencia de conocimiento incluida.</div>
+        <div class="svc-tags"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Automatización</span><span class="tag">Sin downtime</span></div>
       </div>
-      <div class="svc-card fade-up" style="transition-delay:.3s">
+
+      <div class="svc-card fade-up" style="transition-delay:.4s">
         <div class="svc-icon">🗄️</div>
         <div class="svc-title">Modelado de Datos</div>
-        <div class="svc-desc">Construimos modelos de datos estrella robustos que soportan cualquier pregunta de negocio. Medidas DAX avanzadas y relaciones bien diseñadas.</div>
-        <div class="svc-tags"><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">SQL</span></div>
+        <div class="svc-desc">Diseñamos y construimos el modelo de datos que sustenta todos tus reportes: esquema estrella, relaciones optimizadas, medidas DAX avanzadas y documentación completa del modelo.</div>
+        <div class="svc-tags"><span class="tag">Star Schema</span><span class="tag">DAX</span><span class="tag">SQL</span><span class="tag">Documentación</span></div>
       </div>
-      <div class="svc-card fade-up" style="transition-delay:.4s">
-        <div class="svc-icon">🤖</div>
-        <div class="svc-title">Power BI + Inteligencia Artificial</div>
-        <div class="svc-desc">Usamos IA para acelerar el análisis exploratorio, generar medidas DAX automáticamente, detectar anomalías y sugerir visualizaciones óptimas para tus datos.</div>
-        <div class="svc-tags"><span class="tag">Copilot</span><span class="tag">Claude AI</span><span class="tag">ML Models</span><span class="tag">Smart Narrative</span></div>
-      </div>
+
       <div class="svc-card fade-up" style="transition-delay:.5s">
-        <div class="svc-icon">🎓</div>
-        <div class="svc-title">Capacitación Empresarial</div>
-        <div class="svc-desc">Formamos a tu equipo para que sea autónomo en Power BI. Desde usuarios básicos hasta analistas avanzados. Modalidad presencial o virtual.</div>
-        <div class="svc-tags"><span class="tag">In-company</span><span class="tag">Virtual</span><span class="tag">Certificación</span></div>
+        <div class="svc-icon">🤖</div>
+        <div class="svc-title">Desarrollo Acelerado con IA</div>
+        <div class="svc-desc">Aplicamos inteligencia artificial en cada fase del proyecto para reducir tiempos de entrega hasta un 40%. Análisis exploratorio automático, generación de DAX asistida y detección de anomalías en tus datos.</div>
+        <div class="svc-tags"><span class="tag">Claude AI</span><span class="tag">Copilot</span><span class="tag">Entrega rápida</span><span class="tag">Calidad</span></div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- BENEFICIOS -->
+<section id="beneficios">
+  <div class="section-inner">
+    <div class="section-tag">¿Por qué contratarnos?</div>
+    <h2 class="section-h2">Los beneficios concretos<br>de trabajar con <em>expertos</em></h2>
+    <p class="section-desc">No solo entregamos dashboards — entregamos soluciones analíticas que funcionan hoy y escalan mañana.</p>
+    <div class="beneficios-grid">
+
+      <div class="beneficio-card fade-up">
+        <div class="beneficio-icon">🏗️</div>
+        <div class="beneficio-title">Modelado de datos de alto nivel</div>
+        <div class="beneficio-desc">Diseñamos modelos estrella optimizados con relaciones correctas, tablas de hechos y dimensiones bien definidas. El resultado: reportes rápidos, sin ambigüedades y que soportan cualquier pregunta de negocio sin rediseñarse.</div>
+        <span class="beneficio-tag">Star Schema · DAX · Relaciones</span>
+      </div>
+
+      <div class="beneficio-card fade-up" style="transition-delay:.1s">
+        <div class="beneficio-icon">⚙️</div>
+        <div class="beneficio-title">ETL óptimos y robustos</div>
+        <div class="beneficio-desc">Construimos procesos de extracción, transformación y carga que son eficientes, mantenibles y tolerantes a errores. Tus datos llegan limpios, validados y actualizados automáticamente — sin intervención manual.</div>
+        <span class="beneficio-tag">Power Query · Automatización · Calidad</span>
+      </div>
+
+      <div class="beneficio-card fade-up" style="transition-delay:.2s">
+        <div class="beneficio-icon">🎯</div>
+        <div class="beneficio-title">KPIs e Indicadores consistentes</div>
+        <div class="beneficio-desc">Cada métrica se define una sola vez y se reutiliza en todos los reportes. El margen bruto en Ventas, Finanzas y Gerencia siempre muestra el mismo número — eliminamos el problema de "cada área tiene su propia versión del dato".</div>
+        <span class="beneficio-tag">Single Source of Truth · Medidas DAX</span>
+      </div>
+
+      <div class="beneficio-card fade-up" style="transition-delay:.3s">
+        <div class="beneficio-icon">⚡</div>
+        <div class="beneficio-title">Entrega hasta 40% más rápida con IA</div>
+        <div class="beneficio-desc">Usamos inteligencia artificial para acelerar el análisis exploratorio, generar medidas DAX complejas y detectar patrones en tus datos. Lo que antes tomaba semanas, hoy lo entregamos en días — sin sacrificar calidad.</div>
+        <span class="beneficio-tag">Claude AI · Copilot · Automatización</span>
+      </div>
+
+      <div class="beneficio-card fade-up" style="transition-delay:.4s">
+        <div class="beneficio-icon">📈</div>
+        <div class="beneficio-title">Modelos que escalan con tu empresa</div>
+        <div class="beneficio-desc">Diseñamos desde el inicio pensando en el crecimiento. Agregar nuevas fuentes de datos, áreas de negocio o usuarios no requiere reconstruir el modelo — solo extenderlo. Tu inversión inicial protege las futuras.</div>
+        <span class="beneficio-tag">Escalabilidad · Arquitectura · Reusabilidad</span>
+      </div>
+
+      <div class="beneficio-card fade-up" style="transition-delay:.5s">
+        <div class="beneficio-icon">🛡️</div>
+        <div class="beneficio-title">Cero dependencia post-entrega</div>
+        <div class="beneficio-desc">Tu equipo aprende a usar, mantener y extender todo lo que construimos. Documentamos el modelo, las medidas y los procesos ETL. No generamos dependencia — generamos autonomía y capacidad interna.</div>
+        <span class="beneficio-tag">Documentación · Capacitación · Autonomía</span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -543,100 +638,11 @@
   </div>
 </section>
 
-<!-- PROCESO -->
-<section id="proceso">
-  <div class="section-inner">
-    <div class="section-tag" style="color:rgba(255,255,255,0.5)">Cómo trabajamos</div>
-    <h2 class="section-h2" style="color:white;margin-bottom:2.5rem">Del dato al <em style="color:var(--pbi-yellow)">dashboard</em><br>en 4 pasos</h2>
-    <div class="proceso-grid">
-      <div class="proceso-step fade-up">
-        <div class="paso-icon">🔍</div>
-        <div class="paso-num">01</div>
-        <div class="paso-title">Diagnóstico gratuito</div>
-        <div class="paso-desc">Entendemos tus fuentes de datos, procesos actuales y qué decisiones necesitas tomar. Sin costo, sin compromiso.</div>
-      </div>
-      <div class="proceso-step fade-up" style="transition-delay:.1s">
-        <div class="paso-icon">🏗️</div>
-        <div class="paso-num">02</div>
-        <div class="paso-title">Diseño del modelo</div>
-        <div class="paso-desc">Construimos el modelo de datos estrella, definimos métricas clave y validamos la lógica de negocio contigo.</div>
-      </div>
-      <div class="proceso-step fade-up" style="transition-delay:.2s">
-        <div class="paso-icon">📊</div>
-        <div class="paso-num">03</div>
-        <div class="paso-title">Desarrollo del dashboard</div>
-        <div class="paso-desc">Creamos las visualizaciones, medidas DAX y reportes con iteraciones semanales para que valides cada avance.</div>
-      </div>
-      <div class="proceso-step fade-up" style="transition-delay:.3s">
-        <div class="paso-icon">🚀</div>
-        <div class="paso-num">04</div>
-        <div class="paso-title">Entrega y capacitación</div>
-        <div class="paso-desc">Publicamos en Power BI Service, capacitamos a tu equipo y te acompañamos en la adopción. Soporte incluido.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
-<!-- CAPACITACIONES -->
-<section id="capacitacion">
-  <div class="section-inner">
-    <div class="section-tag">Formación</div>
-    <h2 class="section-h2"><em>Capacitaciones</em> Power BI<br>para tu equipo</h2>
-    <p class="section-desc">Formamos a tu equipo en Power BI desde cero hasta nivel avanzado. Modalidad in-company o virtual, adaptada a tu industria y casos de uso reales.</p>
-    <div class="cap-grid">
-      <div class="cap-card fade-up">
-        <span class="cap-nivel nivel-basico">Básico</span>
-        <div class="cap-icon">🌱</div>
-        <div class="cap-title">Power BI Fundamentos</div>
-        <div class="cap-desc">Para usuarios que vienen de Excel y quieren empezar a crear reportes profesionales sin experiencia previa en BI.</div>
-        <div class="cap-temas">
-          <div class="cap-tema">Importar y transformar datos</div>
-          <div class="cap-tema">Visualizaciones esenciales</div>
-          <div class="cap-tema">Filtros y segmentadores</div>
-          <div class="cap-tema">Publicar en Power BI Service</div>
-        </div>
-      </div>
-      <div class="cap-card fade-up" style="transition-delay:.1s">
-        <span class="cap-nivel nivel-intermedio">Intermedio</span>
-        <div class="cap-icon">⚡</div>
-        <div class="cap-title">Power BI Analítico</div>
-        <div class="cap-desc">Para analistas que ya usan Power BI y quieren dominar DAX, modelado de datos y reportes dinámicos avanzados.</div>
-        <div class="cap-temas">
-          <div class="cap-tema">DAX esencial y funciones clave</div>
-          <div class="cap-tema">Modelado de datos estrella</div>
-          <div class="cap-tema">Power Query avanzado</div>
-          <div class="cap-tema">Reportes con drill-through</div>
-        </div>
-      </div>
-      <div class="cap-card fade-up" style="transition-delay:.2s">
-        <span class="cap-nivel nivel-avanzado">Avanzado</span>
-        <div class="cap-icon">🏆</div>
-        <div class="cap-title">Power BI Experto</div>
-        <div class="cap-desc">Para profesionales de datos que necesitan dominar optimización, seguridad, deployment y arquitectura de soluciones BI a escala.</div>
-        <div class="cap-temas">
-          <div class="cap-tema">DAX avanzado y optimización</div>
-          <div class="cap-tema">Row-Level Security (RLS)</div>
-          <div class="cap-tema">Incremental refresh</div>
-          <div class="cap-tema">Arquitectura BI empresarial</div>
-        </div>
-      </div>
-      <div class="cap-card fade-up" style="transition-delay:.3s">
-        <span class="cap-nivel nivel-basico">Ejecutivo</span>
-        <div class="cap-icon">👔</div>
-        <div class="cap-title">Power BI para Gerentes</div>
-        <div class="cap-desc">Para directivos que necesitan interpretar dashboards, hacer las preguntas correctas a sus equipos y tomar mejores decisiones con datos.</div>
-        <div class="cap-temas">
-          <div class="cap-tema">Lectura e interpretación de KPIs</div>
-          <div class="cap-tema">Exploración de datos sin código</div>
-          <div class="cap-tema">Preguntas en lenguaje natural</div>
-          <div class="cap-tema">Mobile reporting</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 
 <!-- FAQ -->
 <section id="faq">
@@ -672,6 +678,115 @@
         <summary class="faq-q">¿Cuánto cuesta un proyecto Power BI?</summary>
         <div class="faq-a">El costo varía según el alcance, número de fuentes de datos y cantidad de reportes. Ofrecemos desde proyectos puntuales hasta servicios recurrentes. El diagnóstico inicial es gratuito y sin compromiso — con esa información te damos un presupuesto exacto.</div>
       </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONECTIVIDAD -->
+<section id="conectividad">
+  <div class="section-inner">
+    <div class="section-tag" style="color:rgba(255,255,255,0.5)">Integración de datos</div>
+    <h2 class="section-h2" style="color:white;margin-bottom:.5rem">Nos conectamos a <em style="color:var(--pbi-yellow)">cualquier fuente</em><br>de datos de tu empresa</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.5);margin-bottom:2.5rem">Con más de 15 años trabajando con bases de datos empresariales, dominamos la extracción, transformación y carga de datos desde sistemas on-premise y plataformas cloud hacia Power BI.</p>
+
+    <!-- ON PREMISE -->
+    <div class="fuentes-label">On-Premise · Sistemas locales</div>
+    <div class="fuentes-grid">
+      <div class="fuente-card fade-up">
+        <div class="fuente-icon">🗄️</div>
+        <div><div class="fuente-name">SQL Server</div><div class="fuente-type">Microsoft · On-Premise</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.05s">
+        <div class="fuente-icon">🔶</div>
+        <div><div class="fuente-name">Oracle Database</div><div class="fuente-type">Oracle · On-Premise</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.1s">
+        <div class="fuente-icon">🐬</div>
+        <div><div class="fuente-name">MySQL / MariaDB</div><div class="fuente-type">Open Source · On-Premise</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.15s">
+        <div class="fuente-icon">🐘</div>
+        <div><div class="fuente-name">PostgreSQL</div><div class="fuente-type">Open Source · On-Premise</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.2s">
+        <div class="fuente-icon">⚙️</div>
+        <div><div class="fuente-name">SAP HANA / BW</div><div class="fuente-type">SAP · On-Premise</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.25s">
+        <div class="fuente-icon">📊</div>
+        <div><div class="fuente-name">Oracle EBS</div><div class="fuente-type">Oracle ERP · On-Premise</div></div>
+      </div>
+    </div>
+
+    <!-- CLOUD -->
+    <div class="fuentes-label">Cloud · Plataformas en la nube</div>
+    <div class="fuentes-grid">
+      <div class="fuente-card fade-up">
+        <div class="fuente-icon">☁️</div>
+        <div><div class="fuente-name">Azure SQL / Synapse</div><div class="fuente-type">Microsoft Azure · Cloud</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.05s">
+        <div class="fuente-icon">🟠</div>
+        <div><div class="fuente-name">AWS Redshift / RDS</div><div class="fuente-type">Amazon Web Services · Cloud</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.1s">
+        <div class="fuente-icon">🟡</div>
+        <div><div class="fuente-name">Google BigQuery</div><div class="fuente-type">Google Cloud · Cloud</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.15s">
+        <div class="fuente-icon">☁️</div>
+        <div><div class="fuente-name">Snowflake</div><div class="fuente-type">Data Warehouse · Cloud</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.2s">
+        <div class="fuente-icon">💼</div>
+        <div><div class="fuente-name">Salesforce</div><div class="fuente-type">CRM · Cloud</div></div>
+      </div>
+      <div class="fuente-card fade-up" style="transition-delay:.25s">
+        <div class="fuente-icon">🔷</div>
+        <div><div class="fuente-name">Dynamics 365</div><div class="fuente-type">Microsoft ERP/CRM · Cloud</div></div>
+      </div>
+    </div>
+
+    <!-- ARCHIVOS Y APIs -->
+    <div class="fuentes-label">Archivos · APIs · SaaS</div>
+    <div class="db-badges-wrap">
+      <span class="db-badge">📁 Excel / CSV</span>
+      <span class="db-badge">📂 SharePoint</span>
+      <span class="db-badge">🔗 REST APIs</span>
+      <span class="db-badge">📊 Google Analytics</span>
+      <span class="db-badge">📋 Google Sheets</span>
+      <span class="db-badge">🗂️ JSON / XML</span>
+      <span class="db-badge">📧 Exchange Online</span>
+      <span class="db-badge">💰 QuickBooks</span>
+      <span class="db-badge">🏭 SAP Business One</span>
+      <span class="db-badge">⚡ OData</span>
+      <span class="db-badge">🐍 Python Scripts</span>
+      <span class="db-badge">🌐 Web Scraping</span>
+    </div>
+
+    <!-- EXPERTISE DB -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;">
+      <div>
+        <div style="font-size:24px;margin-bottom:8px;">🔍</div>
+        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Modelado avanzado de BD</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Diseñamos queries optimizados, stored procedures y vistas personalizadas para extraer exactamente los datos que necesitas.</div>
+      </div>
+      <div>
+        <div style="font-size:24px;margin-bottom:8px;">🔄</div>
+        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">ETL con Power Query</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Transformamos y limpiamos datos de múltiples fuentes en un único modelo analítico confiable y actualizado automáticamente.</div>
+      </div>
+      <div>
+        <div style="font-size:24px;margin-bottom:8px;">🔐</div>
+        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Conexión segura On-Premise</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Configuramos el Data Gateway de Power BI para que tus servidores locales se actualicen de forma segura sin exponer datos a internet.</div>
+      </div>
+      <div>
+        <div style="font-size:24px;margin-bottom:8px;">⚡</div>
+        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">DirectQuery y Import Mode</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Seleccionamos el modo de conexión óptimo según el volumen de datos y la frecuencia de actualización que necesita tu empresa.</div>
+      </div>
     </div>
   </div>
 </section>
