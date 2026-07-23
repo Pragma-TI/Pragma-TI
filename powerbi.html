@@ -865,9 +865,25 @@
       s.async = true;
       document.head.appendChild(s);
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      window.gtag = function(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-18223884875');
+
+      // ===== Conversiones Google Ads =====
+      var LABEL_WHATSAPP = 'AW-18223884875/7ttCCMPd79QcEMvU6fFD'; // Clic WhatsApp Power BI
+      var LABEL_EMAIL    = 'AW-18223884875/FlvICILu8NQcEMvU6fFD'; // Clic Email Power BI
+
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(a) {
+        a.addEventListener('click', function() {
+          gtag('event', 'conversion', { 'send_to': LABEL_WHATSAPP, 'value': 50.0, 'currency': 'PEN' });
+        });
+      });
+
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
+        a.addEventListener('click', function() {
+          gtag('event', 'conversion', { 'send_to': LABEL_EMAIL, 'value': 50.0, 'currency': 'PEN' });
+        });
+      });
     });
   </script>
 </body>
