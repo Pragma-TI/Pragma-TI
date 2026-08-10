@@ -10,7 +10,6 @@
   <meta property="og:title" content="Deja de armar reportes. Empieza a decidir. — Pragma TI"/>
   <meta property="og:description" content="Tu primer dashboard Power BI funcionando en 3 días, desde USD 150. Prototipo gratis con tus propios datos en 48 horas."/>
   <meta property="og:url" content="https://www.pragma-ti.com/powerbi.html"/>
-  <link rel="preload" as="image" href="dash_cuentas_cobrar.png"/>
   <link rel="canonical" href="https://www.pragma-ti.com/powerbi.html"/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='100' y2='100' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%232C7BE5'/%3E%3Cstop offset='100%25' stop-color='%230A2463'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='15' y='15' width='70' height='70' rx='10' fill='url(%23g)' transform='rotate(45 50 50)'/%3E%3Ctext x='30' y='66' font-family='Georgia,serif' font-size='46' font-weight='700' fill='white'%3EP%3C/text%3E%3Crect x='56' y='60' width='19' height='6' rx='3' fill='%23FF6B35'/%3E%3C/svg%3E"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -312,7 +311,6 @@
 
 
     /* ── CONECTIVIDAD ── */
-    #conectividad { background: var(--ink); }
     .fuentes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 3rem; }
     .fuente-card {
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
@@ -425,6 +423,40 @@
     .pkg-card.featured .pkg-cta { background: var(--pbi-yellow); color: var(--pbi-dark); }
     .pkg-card.featured .pkg-cta:hover { background: #e0b800; }
     .pkg-fine { font-size: 11.5px; color: var(--ink-60); margin-top: 1.4rem; line-height: 1.6; }
+
+    /* ── CONECTIVIDAD (hub animado) ── */
+    .conn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+    .hub-wrap { display: flex; justify-content: center; }
+    .hub { position: relative; width: 380px; height: 380px; flex-shrink: 0; }
+    .hub svg.lines { position: absolute; inset: 0; }
+    .hub svg.lines line { stroke: rgba(26,91,168,0.35); stroke-width: 1.5; stroke-dasharray: 5 7; animation: flow 1.6s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -24; } }
+    .hub-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 112px; height: 112px; border-radius: 50%;
+      background: radial-gradient(circle at 32% 28%, #FFE066, var(--pbi-yellow) 60%, #C8A200); display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 10px 34px rgba(242,200,17,0.45); z-index: 2; }
+    .hub-center b { font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: 17px; color: var(--pbi-dark); line-height: 1.1; text-align: center; }
+    .hub-center span { font-size: 9px; letter-spacing: .14em; color: rgba(26,26,46,0.65); text-transform: uppercase; margin-top: 2px; }
+    .hub-ring { position: absolute; left: 50%; top: 50%; width: 112px; height: 112px; border: 1.5px solid rgba(242,200,17,0.5); border-radius: 50%;
+      transform: translate(-50%,-50%); animation: ping 2.6s cubic-bezier(0,0,.2,1) infinite; z-index: 1; }
+    .hub-ring:nth-child(2) { animation-delay: .9s; }
+    .hub-ring:nth-child(3) { animation-delay: 1.8s; }
+    @keyframes ping { 0% { transform: translate(-50%,-50%) scale(1); opacity: .8; } 100% { transform: translate(-50%,-50%) scale(2.6); opacity: 0; } }
+    .src-chip { position: absolute; transform: translate(-50%,-50%); background: white; border: 1px solid var(--border); border-radius: 20px;
+      padding: 5px 11px; font-size: 11px; font-weight: 600; color: var(--ink); white-space: nowrap; display: flex; align-items: center; gap: 5px;
+      box-shadow: 0 4px 14px rgba(13,31,60,0.10); z-index: 3; animation: bob 3.4s ease-in-out infinite; }
+    .src-chip:nth-child(odd) { animation-delay: 1.2s; }
+    @keyframes bob { 0%,100% { margin-top: 0; } 50% { margin-top: -6px; } }
+    @media (prefers-reduced-motion: reduce) { .hub-ring, .src-chip, .hub svg.lines line { animation: none; } }
+    .conn-groups { display: flex; flex-direction: column; gap: 1.3rem; }
+    .conn-group b { display: block; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .conn-item { font-size: 14px; color: var(--ink); line-height: 1.7; display: flex; gap: 8px; align-items: baseline; }
+    .conn-item::before { content: '⟶'; color: var(--pbi-yellow); text-shadow: 0 0 1px var(--gold); flex-shrink: 0; }
+    .conn-item span { color: var(--ink-60); }
+    .conn-note { margin-top: .6rem; font-size: 13px; color: var(--ink-60); font-style: italic; }
+    @media (max-width: 900px) {
+      .conn-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hub { transform: scale(.82); margin: -30px 0; }
+    }
   </style>
 
   <!-- Schema.org SEO -->
@@ -462,7 +494,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#prototipo">Prototipo gratis</a></li>
-    <li><a href="#casos">Casos</a></li>
+    <li><a href="#conectividad">Conexiones</a></li>
     <li><a href="#paquetes">Paquetes</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://wa.me/51925079592?text=Hola,%20quiero%20un%20diagn%C3%B3stico%20gratis%20de%20mis%20reportes" target="_blank" class="nav-cta">Diagnóstico gratis</a></li>
@@ -489,77 +521,51 @@
   </div>
 </section>
 
-<!-- DOLOR -->
-<section id="dolor">
+<!-- CONECTIVIDAD -->
+<section id="conectividad">
   <div class="section-inner">
-    <div class="section-tag">¿Te suena familiar?</div>
-    <h2 class="section-h2">El lunes se decide con datos…<br/><em>que llegan el miércoles</em></h2>
-    <div class="pain-grid">
-      <div class="pain-card fade-up"><span class="pain-icon">📅</span><p>El reporte de ventas del lunes se termina de armar el miércoles.</p></div>
-      <div class="pain-card fade-up"><span class="pain-icon">📊</span><p>Tres personas tienen "la versión final"… y los números no cuadran.</p></div>
-      <div class="pain-card fade-up"><span class="pain-icon">🌙</span><p>Tu contador vive haciendo copy-paste en vez de analizar.</p></div>
-      <div class="pain-card fade-up"><span class="pain-icon">❓</span><p>El presupuesto del próximo mes se decide con intuición, porque los datos llegan tarde.</p></div>
-    </div>
-    <p class="pain-close">No es culpa de tu equipo. Es que Excel no fue hecho para gerenciar una empresa.</p>
-  </div>
-</section>
-
-<!-- PROTOTIPO GRATIS -->
-<section id="prototipo">
-  <div class="proto-inner">
-    <div class="proto-gift">🎁</div>
-    <h2 class="proto-h2">Mándanos un Excel. En 48 horas ves <em>tu propio dashboard</em>.</h2>
-    <p class="proto-desc">No te pedimos que confíes en promesas: te lo demostramos con tus números. Gratis y sin compromiso.</p>
-    <div class="proto-steps">
-      <div class="proto-step"><b>PASO 1</b><span>Nos envías un Excel de tu empresa por WhatsApp (ventas, cobranzas, lo que quieras).</span></div>
-      <div class="proto-step"><b>PASO 2</b><span>En 48 horas armamos un dashboard real con tus propios datos.</span></div>
-      <div class="proto-step"><b>PASO 3</b><span>Te lo mostramos en una videollamada de 15 minutos.</span></div>
-    </div>
-    <div class="cta-buttons">
-      <a href="https://wa.me/51925079592?text=Hola,%20quiero%20el%20prototipo%20gratis%20con%20mis%20datos" target="_blank" class="btn-primary">Enviar mi Excel por WhatsApp →</a>
-    </div>
-    <p class="proto-note">Si te gusta, conversamos. Si no, el prototipo te lo quedas de recuerdo.</p>
-  </div>
-</section>
-
-<!-- CASOS -->
-<section id="casos">
-  <div class="section-inner">
-    <div class="section-tag">Dashboards reales</div>
-    <h2 class="section-h2">Mostrar vale más<br/><em>que prometer</em></h2>
-    <p class="section-desc">Tableros que hoy usan gerencias reales. Desliza para verlos:</p>
-    <div class="slider-wrap">
-        <div class="slider-track" id="sliderTrack">
-          <div class="slide" style="position:relative;">
-            <span class="slide-label">Cuentas por Cobrar</span>
-            <picture><source srcset="dash_cuentas_cobrar.webp" type="image/webp"/><img src="dash_cuentas_cobrar.png" alt="Dashboard Cuentas por Cobrar en Power BI" width="1268" height="714" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/></picture>
-          </div>
-          <div class="slide" style="position:relative;">
-            <span class="slide-label">Flujo de Caja</span>
-            <picture><source srcset="dash_flujo_caja.webp" type="image/webp"/><img src="dash_flujo_caja.png" alt="Dashboard Flujo de Caja en Power BI" width="1268" height="714" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/></picture>
-          </div>
-          <div class="slide" style="position:relative;">
-            <span class="slide-label">Gestión de Gastos RRHH</span>
-            <picture><source srcset="dash_rrhh.webp" type="image/webp"/><img src="dash_rrhh.png" alt="Dashboard Gastos Recursos Humanos en Power BI" width="1268" height="714" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/></picture>
-          </div>
-          <div class="slide" style="position:relative;">
-            <span class="slide-label">Galería de Dashboards</span>
-            <picture><source srcset="dash_galeria.webp" type="image/webp"/><img src="dash_galeria.png" alt="Galería de Dashboards Power BI" width="1268" height="714" loading="lazy" style="width:100%;height:380px;object-fit:cover;object-position:top;display:block;"/></picture>
-          </div>
+    <div class="section-tag">Conectividad total</div>
+    <h2 class="section-h2">Nos conectamos a<br/><em>donde vivan tus datos</em></h2>
+    <p class="section-desc">On-premise o en la nube, en un servidor o en un Excel: si tu información existe, la convertimos en un tablero que se actualiza solo.</p>
+    <div class="conn-grid">
+      <div class="hub-wrap fade-up">
+        <div class="hub" role="img" aria-label="Fuentes de datos conectadas a Power BI">
+          <div class="hub-ring"></div><div class="hub-ring"></div><div class="hub-ring"></div>
+          <svg class="lines" viewBox="0 0 380 380" aria-hidden="true"><line x1="190" y1="190" x2="190" y2="32"/><line x1="190" y1="190" x2="283" y2="62"/><line x1="190" y1="190" x2="340" y2="141"/><line x1="190" y1="190" x2="340" y2="239"/><line x1="190" y1="190" x2="283" y2="318"/><line x1="190" y1="190" x2="190" y2="348"/><line x1="190" y1="190" x2="97" y2="318"/><line x1="190" y1="190" x2="40" y2="239"/><line x1="190" y1="190" x2="40" y2="141"/><line x1="190" y1="190" x2="97" y2="62"/></svg>
+          <div class="src-chip" style="left:190px;top:32px;">🧊 Data Lake · Lakehouse</div><div class="src-chip" style="left:283px;top:62px;">💾 SQL Server</div><div class="src-chip" style="left:340px;top:141px;">🔶 Oracle</div><div class="src-chip" style="left:340px;top:239px;">🐬 MySQL · PostgreSQL</div><div class="src-chip" style="left:283px;top:318px;">🍃 MongoDB</div><div class="src-chip" style="left:190px;top:348px;">❄️ Snowflake · Databricks</div><div class="src-chip" style="left:97px;top:318px;">📁 SharePoint · OneDrive</div><div class="src-chip" style="left:40px;top:239px;">☁️ Azure · BigQuery · AWS</div><div class="src-chip" style="left:40px;top:141px;">🌐 APIs · Web pública</div><div class="src-chip" style="left:97px;top:62px;">📊 Excel · CSV</div>
+          <div class="hub-center"><b>Power BI</b><span>Tu tablero</span></div>
         </div>
-        <button class="slider-btn prev" onclick="moveSlide(-1)" aria-label="Dashboard anterior">&#8249;</button>
-        <button class="slider-btn next" onclick="moveSlide(1)" aria-label="Dashboard siguiente">&#8250;</button>
-        <div class="slider-nav" id="sliderNav"></div>
       </div>
-    <div class="casos-notes">
-      <div class="caso-note fade-up"><b>Cuentas por Cobrar</b><span>El gerente ve en 5 segundos quién debe, cuánto y desde cuándo. Antes: 2 horas de Excel semanales.</span></div>
-      <div class="caso-note fade-up"><b>Flujo de Caja</b><span>Proyección a 90 días conectada al sistema. La pregunta "¿llegamos a fin de mes?" se responde sola.</span></div>
-      <div class="caso-note fade-up"><b>Gastos RRHH</b><span>Planilla, horas extra y costos por área en un solo tablero para decidir contrataciones.</span></div>
-      <div class="caso-note fade-up"><b>Galería completa</b><span>Ventas, inventarios, operaciones: cada área de tu negocio puede verse así.</span></div>
+      <div class="conn-groups fade-up">
+        <div class="conn-group">
+          <b>Archivos</b>
+          <div class="conn-item">Excel y CSV <span>— el punto de partida del 80% de los proyectos</span></div>
+          <div class="conn-item">SharePoint y OneDrive <span>— tus archivos compartidos de Microsoft 365</span></div>
+          <div class="conn-item">Google Sheets</div>
+        </div>
+        <div class="conn-group">
+          <b>Bases de datos</b>
+          <div class="conn-item">SQL Server, Oracle, MySQL y PostgreSQL <span>— en tu servidor (on-premise) o en la nube</span></div>
+          <div class="conn-item">MongoDB y NoSQL <span>— las bases de las apps modernas</span></div>
+          <div class="conn-item">Tu ERP o sistema propio <span>— vía su base de datos o exportaciones</span></div>
+        </div>
+        <div class="conn-group">
+          <b>Data lakes y plataformas modernas</b>
+          <div class="conn-item">Data Lakes y Lakehouse <span>— Microsoft Fabric, OneLake, Azure Data Lake, Amazon S3</span></div>
+          <div class="conn-item">Snowflake y Databricks <span>— las plataformas de datos del momento</span></div>
+        </div>
+        <div class="conn-group">
+          <b>Nube y web</b>
+          <div class="conn-item">Azure, BigQuery y AWS</div>
+          <div class="conn-item">APIs y servicios web</div>
+          <div class="conn-item">Páginas web públicas <span>— tipo de cambio SUNAT, precios de mercado y más</span></div>
+        </div>
+        <p class="conn-note">¿No ves tu fuente? Power BI tiene más de 100 conectores — pregúntanos por la tuya.</p>
+      </div>
     </div>
-    <div class="cred-strip fade-up">🏆 <b>Experiencia corporativa real:</b> nuestro consultor principal lideró la reportería de un grupo de 50 empresas en 5 países, reduciendo el cierre contable de 15 a 7 días. Esa misma metodología, al alcance de tu empresa.</div>
   </div>
 </section>
+
 
 <!-- PAQUETES -->
 <section id="paquetes" style="background:white;">
@@ -607,6 +613,24 @@
       </div>
     </div>
     <p class="pkg-fine">* Los paquetes Express y Suite consideran datos en formato ordenado. La limpieza o reestructuración de archivos complejos se cotiza por separado antes de iniciar — siempre lo sabrás de antemano. Las licencias de Power BI (desde USD 10/usuario/mes, pagadas a Microsoft) no están incluidas; te asesoramos para usar solo las necesarias.</p>
+  </div>
+</section>
+
+<!-- PROTOTIPO GRATIS -->
+<section id="prototipo">
+  <div class="proto-inner">
+    <div class="proto-gift">🎁</div>
+    <h2 class="proto-h2">Mándanos un Excel. En 48 horas ves <em>tu propio dashboard</em>.</h2>
+    <p class="proto-desc">No te pedimos que confíes en promesas: te lo demostramos con tus números. Gratis y sin compromiso.</p>
+    <div class="proto-steps">
+      <div class="proto-step"><b>PASO 1</b><span>Nos envías un Excel de tu empresa por WhatsApp (ventas, cobranzas, lo que quieras).</span></div>
+      <div class="proto-step"><b>PASO 2</b><span>En 48 horas armamos un dashboard real con tus propios datos.</span></div>
+      <div class="proto-step"><b>PASO 3</b><span>Te lo mostramos en una videollamada de 15 minutos.</span></div>
+    </div>
+    <div class="cta-buttons">
+      <a href="https://wa.me/51925079592?text=Hola,%20quiero%20el%20prototipo%20gratis%20con%20mis%20datos" target="_blank" class="btn-primary">Enviar mi Excel por WhatsApp →</a>
+    </div>
+    <p class="proto-note">Si te gusta, conversamos. Si no, el prototipo te lo quedas de recuerdo.</p>
   </div>
 </section>
 
