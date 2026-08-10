@@ -4,11 +4,11 @@
 
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Consultoría Power BI en Latinoamérica — Pragma TI</title>
-  <meta name="description" content="Expertos en Power BI para toda Latinoamérica. Dashboards ejecutivos con IA, reportes operativos, migración desde Excel y capacitaciones online. Más de 15 años de experiencia. Pragma TI."/>
+  <title>Dashboards Power BI desde USD 150 y en 3 días — Pragma TI</title>
+  <meta name="description" content="Deja de armar reportes: convertimos tus Excel y tu sistema en dashboards que se actualizan solos. Prototipo gratis con tus datos en 48 horas. Desde USD 150 y en 3 días. Pragma TI."/>
   <meta name="keywords" content="Power BI Latinoamérica, consultoría Power BI LATAM, dashboards Power BI IA, capacitación Power BI online, reportes Power BI, migración Excel Power BI, analítica de datos inteligencia artificial, Business Intelligence LATAM, Power BI Peru Chile Colombia Mexico Argentina"/>
-  <meta property="og:title" content="Consultoría Power BI con IA para toda Latinoamérica — Pragma TI"/>
-  <meta property="og:description" content="Transformamos tus datos en decisiones con IA. Dashboards ejecutivos, capacitaciones y proyectos Power BI para empresas en toda Latinoamérica."/>
+  <meta property="og:title" content="Deja de armar reportes. Empieza a decidir. — Pragma TI"/>
+  <meta property="og:description" content="Tu primer dashboard Power BI funcionando en 3 días, desde USD 150. Prototipo gratis con tus propios datos en 48 horas."/>
   <meta property="og:url" content="https://www.pragma-ti.com/powerbi.html"/>
   <link rel="preload" as="image" href="dash_cuentas_cobrar.png"/>
   <link rel="canonical" href="https://www.pragma-ti.com/powerbi.html"/>
@@ -376,6 +376,55 @@
     /* ── FADE UP ── */
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── DOLOR ── */
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 18px; margin-bottom: 2rem; }
+    .pain-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; gap: 14px; align-items: flex-start; }
+    .pain-icon { font-size: 26px; flex-shrink: 0; }
+    .pain-card p { font-size: 14px; color: var(--ink); line-height: 1.6; }
+    .pain-close { font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: clamp(1.15rem,2vw,1.4rem); font-weight: 700; color: var(--accent); max-width: 640px; }
+
+    /* ── PROTOTIPO (gancho) ── */
+    #prototipo { background: linear-gradient(135deg, #0A2463 0%, #1A5BA8 55%, #2C7BE5 100%); position: relative; overflow: hidden; }
+    #prototipo::before { content:''; position:absolute; inset:0; background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 24px 24px; }
+    .proto-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .proto-gift { font-size: 40px; margin-bottom: .5rem; }
+    .proto-h2 { font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; color: white; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .proto-h2 em { font-style: italic; color: var(--pbi-yellow); }
+    .proto-desc { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; max-width: 620px; margin: 0 auto 2.2rem; }
+    .proto-steps { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 2.2rem; }
+    .proto-step { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius); padding: 1.1rem 1.3rem; max-width: 230px; text-align: left; }
+    .proto-step b { display: block; color: var(--pbi-yellow); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .12em; margin-bottom: 6px; }
+    .proto-step span { font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+    .proto-note { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 1.2rem; font-style: italic; }
+
+    /* ── MINI-CASOS bajo el slider ── */
+    .casos-notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 16px; margin-top: 1.8rem; }
+    .caso-note { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; }
+    .caso-note b { display:block; font-size: 13.5px; color: var(--ink); margin-bottom: 3px; }
+    .caso-note span { font-size: 12.5px; color: var(--ink-60); line-height: 1.55; }
+    .cred-strip { margin-top: 2.5rem; background: var(--accent-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.3rem 1.6rem; font-size: 14.5px; color: var(--ink); line-height: 1.65; }
+    .cred-strip b { color: var(--accent); }
+
+    /* ── PAQUETES ── */
+    .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 20px; align-items: stretch; }
+    .pkg-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1.6rem; display: flex; flex-direction: column; position: relative; }
+    .pkg-card.featured { border: 2px solid var(--accent); box-shadow: 0 12px 44px rgba(26,91,168,0.14); }
+    .pkg-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 11px; font-weight: 600; letter-spacing: .08em; padding: 4px 14px; border-radius: 12px; white-space: nowrap; }
+    .pkg-name { font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .pkg-for { font-size: 12.5px; color: var(--ink-60); margin-bottom: 1.2rem; min-height: 34px; }
+    .pkg-rows { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.4rem; }
+    .pkg-row { display: flex; gap: 8px; font-size: 13px; color: var(--ink); line-height: 1.5; }
+    .pkg-row::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .pkg-price { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .pkg-price .from { font-size: 11px; color: var(--ink-60); text-transform: uppercase; letter-spacing: .1em; }
+    .pkg-price .amount { font-family: 'Fraunces', 'Fraunces-fallback', serif; font-size: 30px; font-weight: 900; color: var(--ink); }
+    .pkg-price .plazo { font-size: 12.5px; color: var(--accent); font-weight: 600; margin-top: 2px; }
+    .pkg-cta { display: block; text-align: center; margin-top: 1.2rem; background: var(--accent); color: white; text-decoration: none; font-weight: 600; font-size: 14px; padding: 11px; border-radius: 24px; transition: background .2s; }
+    .pkg-cta:hover { background: var(--accent-mid); }
+    .pkg-card.featured .pkg-cta { background: var(--pbi-yellow); color: var(--pbi-dark); }
+    .pkg-card.featured .pkg-cta:hover { background: #e0b800; }
+    .pkg-fine { font-size: 11.5px; color: var(--ink-60); margin-top: 1.4rem; line-height: 1.6; }
   </style>
 
   <!-- Schema.org SEO -->
@@ -412,11 +461,11 @@
     <span class="logo-text">Pragma <span>TI</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#beneficios">Beneficios</a></li>
-    <li><a href="#conectividad">Conectividad</a></li>
+    <li><a href="#prototipo">Prototipo gratis</a></li>
+    <li><a href="#casos">Casos</a></li>
+    <li><a href="#paquetes">Paquetes</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#cta" class="nav-cta">Agendar consulta</a></li>
+    <li><a href="https://wa.me/51925079592?text=Hola,%20quiero%20un%20diagn%C3%B3stico%20gratis%20de%20mis%20reportes" target="_blank" class="nav-cta">Diagnóstico gratis</a></li>
   </ul>
 </nav>
 
@@ -424,193 +473,62 @@
 <main>
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Consultoría Power BI + IA · Toda Latinoamérica · Online</div>
-    <h1 class="hero-h1">Tus datos merecen<br><em>mejores decisiones</em></h1>
-    <p class="hero-desc">
-      En Pragma TI usamos Inteligencia Artificial para acelerar el análisis, diseño y construcción de dashboards en Power BI. Atendemos empresas en toda Latinoamérica — 100% online, sin barreras geográficas.
-    </p>
+    <div class="hero-tag">Power BI · Dashboards gerenciales</div>
+    <h1 class="hero-h1">Deja de armar reportes.<br/><em>Empieza a decidir.</em></h1>
+    <p class="hero-desc">Convertimos tus Excel y tu sistema en un tablero gerencial que se actualiza solo. Tu primer dashboard funcionando en 3 días, desde USD 150.</p>
     <div class="hero-actions">
-      <a href="#cta" class="btn-primary">📊 Solicitar diagnóstico gratis</a>
-      <a href="#servicios" class="btn-secondary">Ver servicios →</a>
+      <a href="https://wa.me/51925079592?text=Hola,%20quiero%20un%20diagn%C3%B3stico%20gratis%20de%20mis%20reportes" target="_blank" class="btn-primary">📊 Diagnóstico gratis por WhatsApp</a>
+      <a href="#prototipo" class="btn-secondary">🎁 Prototipo gratis con tus datos</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="stat-num">15+</div>
-        <div class="stat-lbl">Años en BI & Analytics</div>
-      </div>
-      <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-lbl">Orientado a resultados</div>
-      </div>
-      <div>
-        <div class="stat-num">3 días</div>
-        <div class="stat-lbl">Entrega por modelo de datos</div>
-      </div>
-      <div>
-        <div class="stat-num">LATAM</div>
-        <div class="stat-lbl">100% Online</div>
-      </div>
+      <div><div class="stat-num">3 días</div><div class="stat-lbl">tu primer dashboard</div></div>
+      <div><div class="stat-num">USD 150</div><div class="stat-lbl">inversión inicial</div></div>
+      <div><div class="stat-num">15+ años</div><div class="stat-lbl">de experiencia</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-lbl">online · LATAM</div></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICIOS POWER BI -->
-<section id="servicios">
+<!-- DOLOR -->
+<section id="dolor">
   <div class="section-inner">
-    <div class="section-tag">Lo que hacemos</div>
-    <h2 class="section-h2">Servicios <em>Power BI</em><br>para tu empresa</h2>
-    <p class="section-desc">Entregables concretos con tiempos definidos — desde dashboards nuevos hasta soporte de soluciones existentes.</p>
-    <div class="servicios-grid">
-
-      <div class="svc-card fade-up">
-        <div class="svc-icon">📊</div>
-        <div class="svc-title">Construcción de Dashboards</div>
-        <div class="svc-desc">Desarrollamos dashboards ejecutivos y operativos desde cero, adaptados a tu negocio. KPIs en tiempo real, alertas automáticas y visualizaciones que cuentan la historia de tus datos.</div>
-        <div class="svc-tags"><span class="tag">Ventas</span><span class="tag">Finanzas</span><span class="tag">Operaciones</span><span class="tag">RRHH</span><span class="tag">Almacén</span><span class="tag">Compras</span><span class="tag">Contabilidad</span></div>
-      </div>
-
-      <div class="svc-card fade-up" style="transition-delay:.1s">
-        <div class="svc-icon">🔧</div>
-        <div class="svc-title">Soporte a Dashboards Existentes</div>
-        <div class="svc-desc">¿Tienes dashboards en Power BI que no funcionan bien, son lentos o necesitan mejoras? Los auditamos, optimizamos y extendemos — sin necesidad de reconstruir desde cero.</div>
-        <div class="svc-tags"><span class="tag">Optimización</span><span class="tag">Corrección</span><span class="tag">Mejoras DAX</span><span class="tag">Performance</span></div>
-      </div>
-
-      <div class="svc-card fade-up" style="transition-delay:.2s">
-        <div class="svc-icon">🎓</div>
-        <div class="svc-title">Capacitaciones Power BI</div>
-        <div class="svc-desc">Formamos a tu equipo en Power BI desde usuarios básicos hasta analistas avanzados. Modalidad virtual o presencial, con casos reales de tu industria y evaluación incluida.</div>
-        <div class="svc-tags"><span class="tag">Básico</span><span class="tag">Intermedio</span><span class="tag">Avanzado</span><span class="tag">DAX</span><span class="tag">Virtual</span></div>
-      </div>
-
-      <div class="svc-card fade-up" style="transition-delay:.3s">
-        <div class="svc-icon">🔄</div>
-        <div class="svc-title">Migración Excel → Power BI</div>
-        <div class="svc-desc">Migramos tus archivos Excel a Power BI conservando toda la lógica de negocio. Proceso ordenado por fases, sin interrupciones operativas y con transferencia de conocimiento incluida.</div>
-        <div class="svc-tags"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Automatización</span><span class="tag">Sin downtime</span></div>
-      </div>
-
-      <div class="svc-card fade-up" style="transition-delay:.4s">
-        <div class="svc-icon">🗄️</div>
-        <div class="svc-title">Modelado de Datos</div>
-        <div class="svc-desc">Diseñamos y construimos el modelo de datos que sustenta todos tus reportes: esquema estrella, relaciones optimizadas, medidas DAX avanzadas y documentación completa del modelo.</div>
-        <div class="svc-tags"><span class="tag">Star Schema</span><span class="tag">DAX</span><span class="tag">SQL</span><span class="tag">Documentación</span></div>
-      </div>
-
-      <div class="svc-card fade-up" style="transition-delay:.5s">
-        <div class="svc-icon">🤖</div>
-        <div class="svc-title">Desarrollo Acelerado con IA</div>
-        <div class="svc-desc">Aplicamos inteligencia artificial en cada fase del proyecto para reducir tiempos de entrega hasta un 40%. Análisis exploratorio automático, generación de DAX asistida y detección de anomalías en tus datos.</div>
-        <div class="svc-tags"><span class="tag">Claude AI</span><span class="tag">Copilot</span><span class="tag">Entrega rápida</span><span class="tag">Calidad</span></div>
-      </div>
-
+    <div class="section-tag">¿Te suena familiar?</div>
+    <h2 class="section-h2">El lunes se decide con datos…<br/><em>que llegan el miércoles</em></h2>
+    <div class="pain-grid">
+      <div class="pain-card fade-up"><span class="pain-icon">📅</span><p>El reporte de ventas del lunes se termina de armar el miércoles.</p></div>
+      <div class="pain-card fade-up"><span class="pain-icon">📊</span><p>Tres personas tienen "la versión final"… y los números no cuadran.</p></div>
+      <div class="pain-card fade-up"><span class="pain-icon">🌙</span><p>Tu contador vive haciendo copy-paste en vez de analizar.</p></div>
+      <div class="pain-card fade-up"><span class="pain-icon">❓</span><p>El presupuesto del próximo mes se decide con intuición, porque los datos llegan tarde.</p></div>
     </div>
+    <p class="pain-close">No es culpa de tu equipo. Es que Excel no fue hecho para gerenciar una empresa.</p>
   </div>
 </section>
 
-
-<!-- BENEFICIOS -->
-<section id="beneficios">
-  <div class="section-inner">
-    <div class="section-tag">¿Por qué contratarnos?</div>
-    <h2 class="section-h2">Los beneficios concretos<br>de trabajar con <em>expertos</em></h2>
-    <p class="section-desc">No solo entregamos dashboards — entregamos soluciones analíticas que funcionan hoy y escalan mañana.</p>
-    <div class="beneficios-grid">
-
-      <div class="beneficio-card fade-up">
-        <div class="beneficio-icon">🏗️</div>
-        <div class="beneficio-title">Modelado de datos de alto nivel</div>
-        <div class="beneficio-desc">Diseñamos modelos estrella optimizados con relaciones correctas, tablas de hechos y dimensiones bien definidas. El resultado: reportes rápidos, sin ambigüedades y que soportan cualquier pregunta de negocio sin rediseñarse.</div>
-        <span class="beneficio-tag">Star Schema · DAX · Relaciones</span>
-      </div>
-
-      <div class="beneficio-card fade-up" style="transition-delay:.1s">
-        <div class="beneficio-icon">⚙️</div>
-        <div class="beneficio-title">ETL óptimos y robustos</div>
-        <div class="beneficio-desc">Construimos procesos de extracción, transformación y carga que son eficientes, mantenibles y tolerantes a errores. Tus datos llegan limpios, validados y actualizados automáticamente — sin intervención manual.</div>
-        <span class="beneficio-tag">Power Query · Automatización · Calidad</span>
-      </div>
-
-      <div class="beneficio-card fade-up" style="transition-delay:.2s">
-        <div class="beneficio-icon">🎯</div>
-        <div class="beneficio-title">KPIs e Indicadores consistentes</div>
-        <div class="beneficio-desc">Cada métrica se define una sola vez y se reutiliza en todos los reportes. El margen bruto en Ventas, Finanzas y Gerencia siempre muestra el mismo número — eliminamos el problema de "cada área tiene su propia versión del dato".</div>
-        <span class="beneficio-tag">Single Source of Truth · Medidas DAX</span>
-      </div>
-
-      <div class="beneficio-card fade-up" style="transition-delay:.3s">
-        <div class="beneficio-icon">⚡</div>
-        <div class="beneficio-title">Entrega hasta 40% más rápida con IA</div>
-        <div class="beneficio-desc">Usamos inteligencia artificial para acelerar el análisis exploratorio, generar medidas DAX complejas y detectar patrones en tus datos. Lo que antes tomaba semanas, hoy lo entregamos en días — sin sacrificar calidad.</div>
-        <span class="beneficio-tag">Claude AI · Copilot · Automatización</span>
-      </div>
-
-      <div class="beneficio-card fade-up" style="transition-delay:.4s">
-        <div class="beneficio-icon">📈</div>
-        <div class="beneficio-title">Modelos que escalan con tu empresa</div>
-        <div class="beneficio-desc">Diseñamos desde el inicio pensando en el crecimiento. Agregar nuevas fuentes de datos, áreas de negocio o usuarios no requiere reconstruir el modelo — solo extenderlo. Tu inversión inicial protege las futuras.</div>
-        <span class="beneficio-tag">Escalabilidad · Arquitectura · Reusabilidad</span>
-      </div>
-
-      <div class="beneficio-card fade-up" style="transition-delay:.5s">
-        <div class="beneficio-icon">🛡️</div>
-        <div class="beneficio-title">Cero dependencia post-entrega</div>
-        <div class="beneficio-desc">Tu equipo aprende a usar, mantener y extender todo lo que construimos. Documentamos el modelo, las medidas y los procesos ETL. No generamos dependencia — generamos autonomía y capacidad interna.</div>
-        <span class="beneficio-tag">Documentación · Capacitación · Autonomía</span>
-      </div>
-
+<!-- PROTOTIPO GRATIS -->
+<section id="prototipo">
+  <div class="proto-inner">
+    <div class="proto-gift">🎁</div>
+    <h2 class="proto-h2">Mándanos un Excel. En 48 horas ves <em>tu propio dashboard</em>.</h2>
+    <p class="proto-desc">No te pedimos que confíes en promesas: te lo demostramos con tus números. Gratis y sin compromiso.</p>
+    <div class="proto-steps">
+      <div class="proto-step"><b>PASO 1</b><span>Nos envías un Excel de tu empresa por WhatsApp (ventas, cobranzas, lo que quieras).</span></div>
+      <div class="proto-step"><b>PASO 2</b><span>En 48 horas armamos un dashboard real con tus propios datos.</span></div>
+      <div class="proto-step"><b>PASO 3</b><span>Te lo mostramos en una videollamada de 15 minutos.</span></div>
     </div>
+    <div class="cta-buttons">
+      <a href="https://wa.me/51925079592?text=Hola,%20quiero%20el%20prototipo%20gratis%20con%20mis%20datos" target="_blank" class="btn-primary">Enviar mi Excel por WhatsApp →</a>
+    </div>
+    <p class="proto-note">Si te gusta, conversamos. Si no, el prototipo te lo quedas de recuerdo.</p>
   </div>
 </section>
 
-<!-- POR QUÉ POWER BI -->
-<section id="porque">
+<!-- CASOS -->
+<section id="casos">
   <div class="section-inner">
-    <div class="porque-grid">
-      <div>
-        <div class="section-tag">Por qué elegirnos</div>
-        <h2 class="section-h2"><em>Expertos</em> en datos,<br>no solo en herramientas</h2>
-        <p class="section-desc">Cualquiera puede hacer un gráfico en Power BI. Nosotros entendemos tu negocio primero y construimos la analítica correcta.</p>
-        <div class="porque-items">
-          <div class="porque-item fade-up">
-            <div class="porque-num">01</div>
-            <div class="porque-text">
-              <h3>15+ años en BI corporativo</h3>
-              <p>Experiencia en empresas como Aenza, Accenture y Tgestiona. Sabemos lo que funciona en grandes volúmenes de datos.</p>
-            </div>
-          </div>
-          <div class="porque-item fade-up" style="transition-delay:.1s">
-            <div class="porque-num">02</div>
-            <div class="porque-text">
-              <h3>Enfoque en el negocio, no en la técnica</h3>
-              <p>No entregamos reportes bonitos sin impacto. Cada dashboard nace de un problema real de negocio que necesita solución.</p>
-            </div>
-          </div>
-          <div class="porque-item fade-up" style="transition-delay:.2s">
-            <div class="porque-num">03</div>
-            <div class="porque-text">
-              <h3>Capacitación incluida en cada proyecto</h3>
-              <p>Tu equipo aprende a usar y mantener lo que construimos. No generamos dependencia — generamos autonomía.</p>
-            </div>
-          </div>
-          <div class="porque-item fade-up" style="transition-delay:.3s">
-            <div class="porque-num">04</div>
-            <div class="porque-text">
-              <h3>IA que acelera cada etapa</h3>
-              <p>Usamos inteligencia artificial para automatizar el análisis inicial, generar DAX más rápido y detectar oportunidades en tus datos que el ojo humano no vería.</p>
-            </div>
-          </div>
-          <div class="porque-item fade-up" style="transition-delay:.4s">
-            <div class="porque-num">05</div>
-            <div class="porque-text">
-              <h3>100% online para toda Latinoamérica</h3>
-              <p>Trabajamos con empresas en Perú, Chile, Colombia, México, Argentina y toda la región. La distancia no es un límite cuando los datos son digitales.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="porque-visual fade-up" style="padding:0;overflow:hidden;background:transparent;">
-      <div class="slider-wrap">
+    <div class="section-tag">Dashboards reales</div>
+    <h2 class="section-h2">Mostrar vale más<br/><em>que prometer</em></h2>
+    <p class="section-desc">Tableros que hoy usan gerencias reales. Desliza para verlos:</p>
+    <div class="slider-wrap">
         <div class="slider-track" id="sliderTrack">
           <div class="slide" style="position:relative;">
             <span class="slide-label">Cuentas por Cobrar</span>
@@ -633,179 +551,115 @@
         <button class="slider-btn next" onclick="moveSlide(1)" aria-label="Dashboard siguiente">&#8250;</button>
         <div class="slider-nav" id="sliderNav"></div>
       </div>
+    <div class="casos-notes">
+      <div class="caso-note fade-up"><b>Cuentas por Cobrar</b><span>El gerente ve en 5 segundos quién debe, cuánto y desde cuándo. Antes: 2 horas de Excel semanales.</span></div>
+      <div class="caso-note fade-up"><b>Flujo de Caja</b><span>Proyección a 90 días conectada al sistema. La pregunta "¿llegamos a fin de mes?" se responde sola.</span></div>
+      <div class="caso-note fade-up"><b>Gastos RRHH</b><span>Planilla, horas extra y costos por área en un solo tablero para decidir contrataciones.</span></div>
+      <div class="caso-note fade-up"><b>Galería completa</b><span>Ventas, inventarios, operaciones: cada área de tu negocio puede verse así.</span></div>
     </div>
-    </div>
+    <div class="cred-strip fade-up">🏆 <b>Experiencia corporativa real:</b> nuestro consultor principal lideró la reportería de un grupo de 50 empresas en 5 países, reduciendo el cierre contable de 15 a 7 días. Esa misma metodología, al alcance de tu empresa.</div>
   </div>
 </section>
 
+<!-- PAQUETES -->
+<section id="paquetes" style="background:white;">
+  <div class="section-inner">
+    <div class="section-tag">Paquetes y precios</div>
+    <h2 class="section-h2">Precios claros,<br/><em>sin sorpresas</em></h2>
+    <p class="section-desc">Un tablero es una página de análisis de un tema (ventas, cobranzas, inventario…) con sus gráficos, indicadores y filtros interactivos.</p>
+    <div class="pkg-grid">
+      <div class="pkg-card fade-up">
+        <div class="pkg-name">Dashboard Express</div>
+        <div class="pkg-for">Para empezar hoy con el tema que más te duele</div>
+        <div class="pkg-rows">
+          <div class="pkg-row">1 tablero (1 página de análisis)</div>
+          <div class="pkg-row">1 fuente de información (Excel)</div>
+          <div class="pkg-row">Hasta 8 visualizaciones + filtros</div>
+          <div class="pkg-row">1 ronda de ajustes incluida</div>
+        </div>
+        <div class="pkg-price"><span class="from">Desde</span><div class="amount">USD 150</div><div class="plazo">Entrega: 3 días</div></div>
+        <a class="pkg-cta" href="https://wa.me/51925079592?text=Hola,%20me%20interesa%20el%20Dashboard%20Express" target="_blank">Lo quiero →</a>
+      </div>
+      <div class="pkg-card featured fade-up">
+        <div class="pkg-badge">⭐ El más elegido</div>
+        <div class="pkg-name">Suite Gerencial</div>
+        <div class="pkg-for">La vista completa del negocio para gerencia</div>
+        <div class="pkg-rows">
+          <div class="pkg-row">3 tableros integrados</div>
+          <div class="pkg-row">Hasta 3 fuentes (base de datos y Excel)</div>
+          <div class="pkg-row">Actualización automática programada</div>
+          <div class="pkg-row">Capacitación a tu equipo incluida</div>
+        </div>
+        <div class="pkg-price"><span class="from">Desde</span><div class="amount">USD 600</div><div class="plazo">Entrega: 1 a 2 semanas</div></div>
+        <a class="pkg-cta" href="https://wa.me/51925079592?text=Hola,%20me%20interesa%20la%20Suite%20Gerencial%20de%20Power%20BI" target="_blank">Lo quiero →</a>
+      </div>
+      <div class="pkg-card fade-up">
+        <div class="pkg-name">BI Corporativo</div>
+        <div class="pkg-for">Para empresas con múltiples áreas y sistemas</div>
+        <div class="pkg-rows">
+          <div class="pkg-row">Tableros por área y por rol</div>
+          <div class="pkg-row">Más de 3 fuentes (ERP, BD, APIs, Excel)</div>
+          <div class="pkg-row">Modelo de datos corporativo y seguridad</div>
+          <div class="pkg-row">Acompañamiento y soporte extendido</div>
+        </div>
+        <div class="pkg-price"><span class="from">Inversión</span><div class="amount">Cotización</div><div class="plazo">Plazo: a medida</div></div>
+        <a class="pkg-cta" href="https://wa.me/51925079592?text=Hola,%20necesito%20una%20cotizaci%C3%B3n%20de%20BI%20Corporativo" target="_blank">Cotizar →</a>
+      </div>
+    </div>
+    <p class="pkg-fine">* Los paquetes Express y Suite consideran datos en formato ordenado. La limpieza o reestructuración de archivos complejos se cotiza por separado antes de iniciar — siempre lo sabrás de antemano. Las licencias de Power BI (desde USD 10/usuario/mes, pagadas a Microsoft) no están incluidas; te asesoramos para usar solo las necesarias.</p>
+  </div>
+</section>
 
-
-
-
-
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="section-inner">
+    <div class="section-tag">Cómo trabajamos</div>
+    <h2 class="section-h2">Tres pasos,<br/><em>cero fricción</em></h2>
+    <div class="porque-items" style="max-width:640px;">
+      <div class="porque-item fade-up">
+        <div class="porque-num">1</div>
+        <div class="porque-text"><h3>Diagnóstico gratis (15 minutos)</h3><p>Nos cuentas qué reporte te quita más tiempo. Te decimos exactamente qué se puede automatizar y cuánto cuesta.</p></div>
+      </div>
+      <div class="porque-item fade-up">
+        <div class="porque-num">2</div>
+        <div class="porque-text"><h3>Construcción con avances visibles</h3><p>Ves tu dashboard tomando forma — nada de esperar semanas a ciegas. Ajustamos contigo sobre la marcha.</p></div>
+      </div>
+      <div class="porque-item fade-up">
+        <div class="porque-num">3</div>
+        <div class="porque-text"><h3>Entrega, capacitación y autonomía</h3><p>El tablero es tuyo, documentado, y tu equipo capacitado para usarlo. Sin dependencias ni mensualidades ocultas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" style="background:white;">
   <div class="section-inner">
     <div class="section-tag">Preguntas frecuentes</div>
-    <h2 class="section-h2">Todo lo que necesitas<br><em>saber</em> antes de empezar</h2>
+    <h2 class="section-h2">Lo que todos preguntan<br/><em>antes de empezar</em></h2>
     <div class="faq-list">
-      <details class="faq-item">
-        <summary class="faq-q">¿Cuánto tiempo toma implementar Power BI en mi empresa?</summary>
-        <div class="faq-a">Siendo sinceros: cada modelo de datos toma entre 3 y 4 días de trabajo efectivo. Un proyecto típico con 2-3 modelos y sus dashboards correspondientes puede estar listo en 1 a 2 semanas. Proyectos más complejos con múltiples fuentes, áreas y usuarios pueden extenderse a 3-4 semanas. Siempre empezamos con un diagnóstico gratuito para darte un estimado real basado en tus datos.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Necesito tener Power BI licenciado antes de contratar el servicio?</summary>
-        <div class="faq-a">No necesariamente. Te asesoramos en qué licencia conviene según el tamaño de tu empresa y cómo la usarás. Power BI Desktop es gratuito y Power BI Service tiene un plan gratuito individual. Te ayudamos a elegir la opción correcta sin pagar de más.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Pueden conectarse a nuestro sistema actual (ERP, CRM, etc.)?</summary>
-        <div class="faq-a">Sí. Power BI tiene más de 100 conectores nativos y nosotros tenemos experiencia con Oracle EBS, SQL Server, SAP, Salesforce, Google Sheets, APIs REST y muchos más. En el diagnóstico inicial evaluamos tus fuentes de datos.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Qué pasa si necesitamos cambios después de la entrega?</summary>
-        <div class="faq-a">Incluimos un período de soporte post-entrega y capacitamos a tu equipo para ajustes menores. Para cambios mayores ofrecemos soporte mensual o por paquete de horas. El objetivo siempre es que seas autónomo.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Trabajan solo en Perú o atienden otros países de Latinoamérica?</summary>
-        <div class="faq-a">Atendemos empresas en toda Latinoamérica — Perú, Chile, Colombia, México, Argentina, Ecuador y más. Todos nuestros proyectos se ejecutan 100% online sin perder calidad. Para capacitaciones presenciales evaluamos el traslado según el tamaño del proyecto.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Cómo usan Inteligencia Artificial en los proyectos Power BI?</summary>
-        <div class="faq-a">Usamos IA en varias etapas: análisis exploratorio automático de tus datos para detectar patrones y anomalías, generación asistida de medidas DAX complejas, sugerencia de visualizaciones óptimas según el tipo de dato, y narrativas inteligentes que explican automáticamente los cambios en tus métricas. Esto reduce el tiempo de desarrollo hasta un 40% y mejora la calidad del resultado final.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">¿Cuánto cuesta un proyecto Power BI?</summary>
-        <div class="faq-a">El costo varía según el alcance, número de fuentes de datos y cantidad de reportes. Ofrecemos desde proyectos puntuales hasta servicios recurrentes. El diagnóstico inicial es gratuito y sin compromiso — con esa información te damos un presupuesto exacto.</div>
-      </details>
+      <div class="faq-item"><div class="faq-q">¿Necesito comprar licencias caras?</div><div class="faq-a">No. Power BI cuesta desde USD 10 por usuario al mes (se paga a Microsoft), y te asesoramos para usar solo las licencias necesarias. Muchas empresas empiezan con 1 o 2.</div></div>
+      <div class="faq-item"><div class="faq-q">¿Sirve si todo lo tengo en Excel?</div><div class="faq-a">Excel es el punto de partida perfecto — es el caso más común que trabajamos. El paquete Express está diseñado exactamente para eso: tu Excel de siempre, convertido en un tablero interactivo.</div></div>
+      <div class="faq-item"><div class="faq-q">¿Mis datos están seguros?</div><div class="faq-a">Tus datos nunca salen de tu control: trabajamos con accesos que tú otorgas y puedes revocar en cualquier momento. Si lo prefieres, firmamos un acuerdo de confidencialidad.</div></div>
+      <div class="faq-item"><div class="faq-q">¿Y cuando el consultor se va?</div><div class="faq-a">Te entregamos todo documentado y capacitamos a tu equipo. El tablero es tuyo — sin dependencias ni cobros sorpresa por "mantenimiento obligatorio".</div></div>
+      <div class="faq-item"><div class="faq-q">¿Cuánto cuesta realmente?</div><div class="faq-a">Desde USD 150 el primer tablero, entregado en 3 días. Los precios de cada paquete están publicados arriba — y cualquier adicional se cotiza antes de empezar, nunca después.</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- CONECTIVIDAD -->
-<section id="conectividad">
-  <div class="section-inner">
-    <div class="section-tag" style="color:rgba(255,255,255,0.5)">Integración de datos</div>
-    <h2 class="section-h2" style="color:white;margin-bottom:.5rem">Nos conectamos a <em style="color:var(--pbi-yellow)">cualquier fuente</em><br>de datos de tu empresa</h2>
-    <p class="section-desc" style="color:rgba(255,255,255,0.5);margin-bottom:2.5rem">Con más de 15 años trabajando con bases de datos empresariales, dominamos la extracción, transformación y carga de datos desde sistemas on-premise y plataformas cloud hacia Power BI.</p>
-
-    <!-- ON PREMISE -->
-    <div class="fuentes-label">On-Premise · Sistemas locales</div>
-    <div class="fuentes-grid">
-      <div class="fuente-card fade-up">
-        <div class="fuente-icon">🗄️</div>
-        <div><div class="fuente-name">SQL Server</div><div class="fuente-type">Microsoft · On-Premise</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.05s">
-        <div class="fuente-icon">🔶</div>
-        <div><div class="fuente-name">Oracle Database</div><div class="fuente-type">Oracle · On-Premise</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.1s">
-        <div class="fuente-icon">🐬</div>
-        <div><div class="fuente-name">MySQL / MariaDB</div><div class="fuente-type">Open Source · On-Premise</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.15s">
-        <div class="fuente-icon">🐘</div>
-        <div><div class="fuente-name">PostgreSQL</div><div class="fuente-type">Open Source · On-Premise</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.2s">
-        <div class="fuente-icon">⚙️</div>
-        <div><div class="fuente-name">SAP HANA / BW</div><div class="fuente-type">SAP · On-Premise</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.25s">
-        <div class="fuente-icon">📊</div>
-        <div><div class="fuente-name">Oracle EBS</div><div class="fuente-type">Oracle ERP · On-Premise</div></div>
-      </div>
-    </div>
-
-    <!-- CLOUD -->
-    <div class="fuentes-label">Cloud · Plataformas en la nube</div>
-    <div class="fuentes-grid">
-      <div class="fuente-card fade-up">
-        <div class="fuente-icon">☁️</div>
-        <div><div class="fuente-name">Azure SQL / Synapse</div><div class="fuente-type">Microsoft Azure · Cloud</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.05s">
-        <div class="fuente-icon">🟠</div>
-        <div><div class="fuente-name">AWS Redshift / RDS</div><div class="fuente-type">Amazon Web Services · Cloud</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.1s">
-        <div class="fuente-icon">🟡</div>
-        <div><div class="fuente-name">Google BigQuery</div><div class="fuente-type">Google Cloud · Cloud</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.15s">
-        <div class="fuente-icon">☁️</div>
-        <div><div class="fuente-name">Snowflake</div><div class="fuente-type">Data Warehouse · Cloud</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.2s">
-        <div class="fuente-icon">💼</div>
-        <div><div class="fuente-name">Salesforce</div><div class="fuente-type">CRM · Cloud</div></div>
-      </div>
-      <div class="fuente-card fade-up" style="transition-delay:.25s">
-        <div class="fuente-icon">🔷</div>
-        <div><div class="fuente-name">Dynamics 365</div><div class="fuente-type">Microsoft ERP/CRM · Cloud</div></div>
-      </div>
-    </div>
-
-    <!-- ARCHIVOS Y APIs -->
-    <div class="fuentes-label">Archivos · APIs · SaaS</div>
-    <div class="db-badges-wrap">
-      <span class="db-badge">📁 Excel / CSV</span>
-      <span class="db-badge">📂 SharePoint</span>
-      <span class="db-badge">🔗 REST APIs</span>
-      <span class="db-badge">📊 Google Analytics</span>
-      <span class="db-badge">📋 Google Sheets</span>
-      <span class="db-badge">🗂️ JSON / XML</span>
-      <span class="db-badge">📧 Exchange Online</span>
-      <span class="db-badge">💰 QuickBooks</span>
-      <span class="db-badge">🏭 SAP Business One</span>
-      <span class="db-badge">⚡ OData</span>
-      <span class="db-badge">🐍 Python Scripts</span>
-      <span class="db-badge">🌐 Web Scraping</span>
-    </div>
-
-    <!-- EXPERTISE DB -->
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;">
-      <div>
-        <div style="font-size:24px;margin-bottom:8px;">🔍</div>
-        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Modelado avanzado de BD</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Diseñamos queries optimizados, stored procedures y vistas personalizadas para extraer exactamente los datos que necesitas.</div>
-      </div>
-      <div>
-        <div style="font-size:24px;margin-bottom:8px;">🔄</div>
-        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">ETL con Power Query</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Transformamos y limpiamos datos de múltiples fuentes en un único modelo analítico confiable y actualizado automáticamente.</div>
-      </div>
-      <div>
-        <div style="font-size:24px;margin-bottom:8px;">🔐</div>
-        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">Conexión segura On-Premise</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Configuramos el Data Gateway de Power BI para que tus servidores locales se actualicen de forma segura sin exponer datos a internet.</div>
-      </div>
-      <div>
-        <div style="font-size:24px;margin-bottom:8px;">⚡</div>
-        <div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px;">DirectQuery y Import Mode</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">Seleccionamos el modo de conexión óptimo según el volumen de datos y la frecuencia de actualización que necesita tu empresa.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
+<!-- CTA FINAL -->
 <section id="cta">
-  <div class="cta-inner">
-    <div class="cta-tag">¿Listo para empezar?</div>
-    <h2 class="cta-h2">Tu empresa merece<br>tomar <em>mejores decisiones</em></h2>
-    <p class="cta-desc">Agenda una sesión de diagnóstico gratuita — online, sin importar dónde estés en Latinoamérica. En 30 minutos evaluamos tus datos, identificamos oportunidades y te mostramos cómo la IA puede acelerar tu analítica.</p>
+  <div class="cta-inner" style="text-align:center;">
+    <div class="cta-tag">Empieza esta semana</div>
+    <h2 class="cta-h2">Cada semana sin datos es una semana <em>decidiendo a ciegas</em></h2>
+    <p class="cta-desc">El diagnóstico es gratis, el prototipo con tus datos también. Tu primer dashboard puede estar funcionando en 3 días.</p>
     <div class="cta-buttons">
-      <a href="https://wa.me/51925079592?text=Hola,%20me%20interesa%20una%20consultoría%20Power%20BI" class="btn-primary" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp directo</a>
+      <a href="https://wa.me/51925079592?text=Hola,%20me%20interesa%20una%20consultor%C3%ADa%20Power%20BI" class="btn-primary" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp directo</a>
       <a href="mailto:informes@pragma-ti.com?subject=Consultoría Power BI" class="btn-secondary">✉️ informes@pragma-ti.com</a>
     </div>
   </div>
 </section>
 
-</main>
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">
     <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
