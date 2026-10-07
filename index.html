@@ -67,6 +67,22 @@
       gtag('event', 'conversion', { 'send_to': label, 'value': 50.0, 'currency': 'PEN' });
     }, true);
   </script>
+  <!-- ===== PRAGMA TI: Píxel de Meta (conjunto de datos «Pragma TI» 2623831048053145) ===== -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2623831048053145');
+    fbq('track', 'PageView');
+    // Contacto: clic en cualquier enlace de WhatsApp o correo (delegado, igual que Google Ads)
+    document.addEventListener('click', function(e){
+      var a = e.target && e.target.closest && e.target.closest('a[href*="wa.me"], a[href^="mailto:"]');
+      if (!a) return;
+      fbq('track', 'Contact', { content_name: a.getAttribute('href').indexOf('wa.me') > -1 ? 'WhatsApp' : 'Email' });
+    }, true);
+  </script>
 </head>
 <body>
   <div id="__bundler_thumbnail">
