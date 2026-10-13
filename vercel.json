@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/whatsapp",
+      "destination": "/whatsapp.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
