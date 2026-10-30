@@ -3,6 +3,10 @@
     {
       "source": "/whatsapp",
       "destination": "/whatsapp.html"
+    },
+    {
+      "source": "/videos",
+      "destination": "/videos.html"
     }
   ],
   "headers": [
