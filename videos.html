@@ -196,8 +196,9 @@
          </button>`
       : '<div class="app-pronto">Videos próximamente</div>'
     const enlaceLista = app.lista
-      ? `<a href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">Ver lista en YouTube ↗</a>`
+      ? `<a href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">Tutoriales YouTube ↗</a>`
       : ''
+    const mensaje = encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)
     card.innerHTML = `
       <div class="app-media">${media}</div>
       <div class="app-body">
@@ -206,8 +207,13 @@
         <div class="app-links">
           <a href="${app.sitio}" target="_blank" rel="noopener">Visitar el sitio ↗</a>
           ${enlaceLista}
+          <a class="app-wa" href="https://wa.me/51925079592?text=${mensaje}" target="_blank" rel="noopener">Escribir WhatsApp ↗</a>
         </div>
       </div>`
+    card.querySelector('.app-wa').addEventListener('click', () => {
+      try { fbq('track', 'Contact', { content_name: 'WhatsApp', content_category: 'apps-en-video' }) } catch (e) {}
+      try { gtag('event', 'conversion', { send_to: 'AW-18223884875/7ttCCMPd79QcEMvU6fFD', value: 50.0, currency: 'PEN' }) } catch (e) {}
+    })
     const boton = card.querySelector('.app-play')
     if (boton) boton.addEventListener('click', () => {
       const iframe = document.createElement('iframe')
