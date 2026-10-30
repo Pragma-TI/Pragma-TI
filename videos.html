@@ -110,8 +110,9 @@
     .app-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
     .app-body h2 { font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; }
     .app-body p { font-size: 14.5px; line-height: 1.6; color: var(--ink-60); margin-bottom: 16px; flex: 1; }
-    .app-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-    .app-links a { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .app-links { display: flex; flex-wrap: wrap; gap: 8px 12px; }
+    .app-links a { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .app-links svg { width: 16px; height: 16px; flex: none; }
     .app-links a:hover { color: var(--accent-mid); text-decoration: underline; }
 
     /* CTA */
@@ -185,6 +186,9 @@
 
   const grid = document.getElementById('appsGrid')
   const iconoPlay = '<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
+  const iconoSitio = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.500 5.700 12 3z"/></svg>'
+  const iconoYouTube = '<svg viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true"><path d="M23 7.200a3 3 0 0 0-2.100-2.100C19 4.600 12 4.600 12 4.600s-7 0-8.900.500A3 3 0 0 0 1 7.200 31 31 0 0 0 .500 12 31 31 0 0 0 1 16.800a3 3 0 0 0 2.100 2.100c1.900.500 8.900.500 8.900.500s7 0 8.900-.500a3 3 0 0 0 2.100-2.100 31 31 0 0 0 .500-4.800 31 31 0 0 0-.500-4.800z"/><path fill="#fff" d="M9.800 15.300 15.600 12 9.800 8.700z"/></svg>'
+  const iconoWhatsApp = '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#25D366" d="M16 3C9.400 3 4 8.400 4 15c0 2.100.600 4.100 1.600 5.900L4 29l8.300-1.600c1.700.900 3.600 1.400 5.700 1.400 6.600 0 12-5.400 12-12S22.600 3 16 3z"/><path fill="#fff" d="M12.600 9.600c-.300-.600-.600-.600-.900-.600h-.800c-.300 0-.700.100-1 .500-.400.400-1.300 1.300-1.300 3.100s1.300 3.600 1.500 3.900c.200.200 2.600 4.100 6.400 5.600 3.200 1.300 3.800 1 4.500.900.700-.100 2.200-.900 2.500-1.800.300-.900.300-1.600.200-1.800-.100-.200-.300-.200-.700-.400l-2.300-1.100c-.300-.100-.600-.200-.800.200-.200.400-.900 1.100-1.100 1.400-.200.200-.400.300-.800.100-.400-.200-1.600-.600-3-1.900-1.100-1-1.900-2.200-2.100-2.600-.200-.400 0-.600.200-.800l.600-.700c.200-.200.200-.400.400-.700.100-.300 0-.500 0-.700l-1-2.600z"/></svg>'
 
   APPS.forEach(app => {
     const card = document.createElement('article')
@@ -196,7 +200,7 @@
          </button>`
       : '<div class="app-pronto">Videos próximamente</div>'
     const enlaceLista = app.lista
-      ? `<a href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">Tutoriales YouTube ↗</a>`
+      ? `<a href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">${iconoYouTube}Tutoriales YouTube</a>`
       : ''
     const mensaje = encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)
     card.innerHTML = `
@@ -205,9 +209,9 @@
         <h2>${app.nombre}</h2>
         <p>${app.desc}</p>
         <div class="app-links">
-          <a href="${app.sitio}" target="_blank" rel="noopener">Visitar el sitio ↗</a>
+          <a href="${app.sitio}" target="_blank" rel="noopener">${iconoSitio}Visitar el sitio</a>
           ${enlaceLista}
-          <a class="app-wa" href="https://wa.me/51925079592?text=${mensaje}" target="_blank" rel="noopener">Escribir WhatsApp ↗</a>
+          <a class="app-wa" href="https://wa.me/51925079592?text=${mensaje}" target="_blank" rel="noopener">${iconoWhatsApp}Escribir WhatsApp</a>
         </div>
       </div>`
     card.querySelector('.app-wa').addEventListener('click', () => {
