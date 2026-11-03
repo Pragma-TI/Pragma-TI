@@ -7,6 +7,10 @@
     {
       "source": "/videos",
       "destination": "/videos.html"
+    },
+    {
+      "source": "/soluciones",
+      "destination": "/videos.html"
     }
   ],
   "headers": [
