@@ -319,13 +319,15 @@
     check: '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
   }
 
-  // lista = id de la lista de YouTube; portada = un video de esa lista.
+  // lista = id de la lista de YouTube; inicio = primer video de la lista (el reproductor se abre en él y
+  // sigue con la lista; la forma «videoseries» fallaba al azar con «Video no disponible»);
+  // portada = un video de esa lista.
   // Sin lista, la tarjeta muestra «Videos próximamente».
   const APPS = [
     {
       id: 'asistenzia', tag: 'Asistencia y visitas', nombre: 'Asistenzia', sufijo: 'APP',
       para: 'empresas y pymes, obras y proyectos, clínicas y colegios, edificios y recepciones.',
-      sitio: 'https://asistenzia.app', lista: 'PLNiqJejKUFGY', portada: 'cSY4n4giEVA',
+      sitio: 'https://asistenzia.app', lista: 'PLNiqJejKUFGY', inicio: 'lynC4b8buSo', portada: 'cSY4n4giEVA',
       // Con infografía «Cómo funciona» (diseño de asistenzia-brand, rehecho en HTML para alinearse con la
       // columna izquierda): la ficha muestra etiqueta, título, «Para:», video y enlaces a la izquierda.
       proceso: {
@@ -353,7 +355,7 @@
       desc: 'Convocatoria con constancia, quórum en vivo, votación desde el celular (simple o ponderada) y acta automática.',
       funciones: [['mensaje', 'Convocatoria por WhatsApp'], ['personas', 'Quórum en vivo'], ['acta', 'Voto y acta automática']],
       para: 'asociaciones y juntas vecinales, cooperativas, clubes, gremios y sindicatos, directorios y juntas de accionistas.',
-      sitio: 'https://azamblea.app', lista: 'PLamHDec3hxIA', portada: 'EAMdZabqUGQ',
+      sitio: 'https://azamblea.app', lista: 'PLamHDec3hxIA', inicio: 'X5WpRR3V0wE', portada: 'EAMdZabqUGQ',
     },
     {
       id: 'junta-de-propietarios', tag: 'La administración', nombre: 'Junta De Propietarios', sufijo: 'ORG',
@@ -361,7 +363,7 @@
       desc: 'Cobranzas, presupuestos, mantenimientos y portal del propietario. Cada sol de la cuota, visible para todos.',
       funciones: [['recibo', 'Recibos y cobranzas'], ['escudo', 'Rondas con QR e incidencias'], ['llave', 'Medidores, reservas y mantenimientos']],
       para: 'edificios, condominios, administradores, junta directiva y propietarios.',
-      sitio: 'https://juntadepropietarios.org', lista: 'PLA1uFvDQmyz8', portada: 'rkkBbvxZI84',
+      sitio: 'https://juntadepropietarios.org', lista: 'PLA1uFvDQmyz8', inicio: 'rkkBbvxZI84', portada: 'rkkBbvxZI84',
     },
     {
       id: 'limpiadores', tag: 'La limpieza', nombre: 'Limpiadores', sufijo: 'APP',
@@ -369,7 +371,7 @@
       desc: 'Cada servicio de limpieza programado y ejecutado con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
       funciones: [['campana', 'Aviso al personal'], ['camara', 'Fotos antes y después'], ['grafico', 'Reporte diario e historial']],
       para: 'edificios, propiedades particulares, alquileres y personal de limpieza independiente.',
-      sitio: 'https://limpiadores.app', lista: 'PLNKK3srRKwV8', portada: '-3aQ9PvCN9M',
+      sitio: 'https://limpiadores.app', lista: 'PLNKK3srRKwV8', inicio: 'm8PMjO1KbRA', portada: '-3aQ9PvCN9M',
     },
     {
       id: 'renta-familiar', tag: 'Los huéspedes Airbnb', nombre: 'Check In Renta Familiar', sufijo: 'COM',
@@ -491,7 +493,7 @@
     const boton = card.querySelector('.app-play')
     if (boton) boton.addEventListener('click', () => {
       const iframe = document.createElement('iframe')
-      iframe.src = `https://www.youtube-nocookie.com/embed/videoseries?list=${app.lista}&autoplay=1&rel=0`
+      iframe.src = `https://www.youtube-nocookie.com/embed/${app.inicio}?list=${app.lista}&autoplay=1&rel=0`
       iframe.title = `Videos de ${app.nombre}`
       iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'
       iframe.allowFullscreen = true
