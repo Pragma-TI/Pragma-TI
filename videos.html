@@ -145,6 +145,17 @@
     .app-links a:hover { color: var(--accent-mid); text-decoration: underline; }
     .app-links svg { width: 16px; height: 16px; flex: none; }
 
+    /* Ficha con infografía del proceso (Asistenzia): desde 768 px, dos columnas iguales
+       (texto, enlaces y video a la izquierda; infografía a la derecha). En celular, una columna. */
+    .app-card.con-proceso { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .con-proceso .app-izq { display: flex; flex-direction: column; min-width: 0; }
+    .con-proceso .app-links { margin-top: 0; }
+    .con-proceso .app-media { align-self: stretch; }
+    .app-proceso { background: #f2f2f3; margin: 0; min-width: 0; }
+    @media (max-width: 767px) {
+      .app-card.con-proceso { grid-template-columns: minmax(0, 1fr); }
+    }
+
     /* PASOS */
     .pasos-wrap { background: var(--ink); color: white; padding: 3rem clamp(1rem, 5vw, 4rem); }
     .pasos-in { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
@@ -272,11 +283,16 @@
   const APPS = [
     {
       id: 'asistenzia', tag: 'Asistencia y visitas', nombre: 'Asistenzia', sufijo: 'APP',
-      lema: 'Control de visitas y del personal desde el celular.',
-      desc: 'Tu celular es el reloj marcador: asistencia del personal con foto y registro de visitas escaneando el documento.',
-      funciones: [['camara', 'Marcación con foto'], ['escaner', 'Visitas escaneando el documento'], ['reloj', 'Horarios y reportes en línea']],
       para: 'empresas y pymes, obras y proyectos, clínicas y colegios, edificios y recepciones.',
       sitio: 'https://asistenzia.app', lista: 'PLNiqJejKUFGY', portada: 'cSY4n4giEVA',
+      // Con infografía: la ficha muestra etiqueta, título, «Para:», enlaces y video a la izquierda.
+      proceso: `<picture>
+  <source srcset="/img/asistenzia-como-funciona.webp" type="image/webp">
+  <img src="/img/asistenzia-como-funciona.png"
+       alt="Cómo funciona Asistenzia: crea tu cuenta; Funcionalidad A, registro de visitas en 4 pasos; Funcionalidad B, asistencia del personal en 4 pasos; resultados: panel Hoy en vivo y reportes en Excel."
+       width="2160" height="2906" loading="lazy" decoding="async"
+       style="display:block;width:100%;height:auto">
+</picture>`,
     },
     {
       id: 'azamblea', tag: 'Las asambleas', nombre: 'Azamblea', sufijo: 'APP',
@@ -333,7 +349,7 @@
     indice.insertAdjacentHTML('beforeend', `<a href="#${app.id}"><b>${num}</b><strong>${app.nombre}</strong></a>`)
 
     const card = document.createElement('article')
-    card.className = 'app-card'
+    card.className = app.proceso ? 'app-card con-proceso' : 'app-card'
     card.id = app.id
     const media = app.lista
       ? `<button class="app-play" type="button" aria-label="Reproducir los videos de ${app.nombre}">
@@ -345,20 +361,31 @@
       ? `<a href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">${iconoYouTube}Tutoriales YouTube</a>`
       : ''
     const mensaje = encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)
-    card.innerHTML = `
-      <div class="app-media">${media}</div>
-      <div class="app-body">
-        <div class="app-num">${num} · ${app.tag}</div>
-        <h2>${app.nombre}<small>${app.sufijo}</small></h2>
-        <p class="app-lema">${app.lema}</p>
-        <p class="app-desc">${app.desc}</p>
-        <ul class="app-funciones">${app.funciones.map(([ic, txt]) => `<li>${icono(ic)}${txt}</li>`).join('')}</ul>
-        <p class="app-para"><b>Para:</b> ${app.para}</p>
+    const enlaces = `
         <div class="app-links">
           <a href="${app.sitio}" target="_blank" rel="noopener">${iconoSitio}Visitar el sitio</a>
           ${enlaceLista}
           <a class="app-wa" href="https://wa.me/51925079592?text=${mensaje}" target="_blank" rel="noopener">${iconoWhatsApp}Escribir WhatsApp</a>
+        </div>`
+    const encabezado = `
+        <div class="app-num">${num} · ${app.tag}</div>
+        <h2>${app.nombre}<small>${app.sufijo}</small></h2>`
+    card.innerHTML = app.proceso
+      ? `
+      <div class="app-izq">
+        <div class="app-body">${encabezado}
+          <p class="app-para"><b>Para:</b> ${app.para}</p>${enlaces}
         </div>
+        <div class="app-media">${media}</div>
+      </div>
+      <figure class="app-proceso">${app.proceso}</figure>`
+      : `
+      <div class="app-media">${media}</div>
+      <div class="app-body">${encabezado}
+        <p class="app-lema">${app.lema}</p>
+        <p class="app-desc">${app.desc}</p>
+        <ul class="app-funciones">${app.funciones.map(([ic, txt]) => `<li>${icono(ic)}${txt}</li>`).join('')}</ul>
+        <p class="app-para"><b>Para:</b> ${app.para}</p>${enlaces}
       </div>`
     card.querySelector('.app-wa').addEventListener('click', registrarContacto)
     const boton = card.querySelector('.app-play')
