@@ -145,13 +145,16 @@
     .app-links a:hover { color: var(--accent-mid); text-decoration: underline; }
     .app-links svg { width: 16px; height: 16px; flex: none; }
 
-    /* Ficha con infografía del proceso (Asistenzia). Desde 768 px, dos columnas iguales y dos filas:
+    /* Ficha con infografía del proceso (Asistenzia, Azamblea…). Desde 768 px, dos columnas iguales y dos filas:
        arriba el texto frente a «Crea tu cuenta» y los títulos; abajo el video y los enlaces frente a los
        pasos y resultados, de modo que los pasos empiezan a la altura del video y los resultados terminan
        a la altura de los enlaces. En celular, una columna. */
     .app-card.con-proceso {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       grid-template-areas: "body cabeza" "abajo pasos";
+      /* Colores de la infografía; cada solución los cambia con proceso.colores. */
+      --cf-oscuro: #1d2d3d; --cf-acento: #5980a6; --cf-claro: #94bce3;
+      --cf-tinta: #1d1f20; --cf-texto: #3b4148; --cf-borde: #dde3ea; --cf-linea: #eef1f4;
     }
     .con-proceso .app-body { grid-area: body; padding-bottom: 14px; }
     .con-proceso .app-abajo { grid-area: abajo; display: flex; flex-direction: column; min-width: 0; }
@@ -160,31 +163,31 @@
     .con-proceso .app-links { margin-top: 0; padding-top: 0; border-top: 0; }
     .cf-cabeza { grid-area: cabeza; background: #f2f2f3; padding: 18px 18px 10px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0; }
     .cf-pasos { grid-area: pasos; background: #f2f2f3; padding: 0 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-    .cf-cuenta { background: #1d2d3d; border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 12px; }
-    .cf-cuenta-ic { width: 34px; height: 34px; flex: none; border-radius: 50%; background: #5980a6; display: flex; align-items: center; justify-content: center; }
+    .cf-cuenta { background: var(--cf-oscuro); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 12px; }
+    .cf-cuenta-ic { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--cf-acento); display: flex; align-items: center; justify-content: center; }
     .cf-cuenta-txt { flex: 1; min-width: 0; }
     .cf-cuenta-fila { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
     .cf-cuenta b { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 19px; line-height: 1.05; color: #fff; }
-    .cf-cuenta small { display: block; font-family: 'Barlow', sans-serif; font-weight: 400; font-size: 14px; color: #94bce3; margin-top: 2px; }
-    .cf-minuto { display: inline-flex; align-items: center; gap: 5px; border: 1.5px solid #94bce3; border-radius: 999px; padding: 2px 10px; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.2; }
+    .cf-cuenta small { display: block; font-family: 'Barlow', sans-serif; font-weight: 400; font-size: 14px; color: var(--cf-claro); margin-top: 2px; }
+    .cf-minuto { display: inline-flex; align-items: center; gap: 5px; border: 1.5px solid var(--cf-claro); border-radius: 999px; padding: 2px 10px; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.2; }
     .cf-dos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
-    .cf-tit span { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #5980a6; }
-    .cf-tit strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.05; color: #1d2d3d; }
+    .cf-tit span { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--cf-acento); }
+    .cf-tit strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.05; color: var(--cf-oscuro); }
     .cf-tit-dentro { display: none; }
     .cf-listas { flex: 1; align-items: stretch; }
     .cf-col { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-    .cf-lista { flex: 1; list-style: none; background: #fff; border: 1px solid #dde3ea; border-radius: 11px; padding: 2px 10px; display: flex; flex-direction: column; }
-    .cf-lista li { flex: 1; display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid #eef1f4; font-family: 'Barlow', sans-serif; }
+    .cf-lista { flex: 1; list-style: none; background: #fff; border: 1px solid var(--cf-borde); border-radius: 11px; padding: 2px 10px; display: flex; flex-direction: column; }
+    .cf-lista li { flex: 1; display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--cf-linea); font-family: 'Barlow', sans-serif; }
     .cf-lista li:last-child { border-bottom: 0; }
-    .cf-n { width: 23px; height: 23px; flex: none; border-radius: 50%; background: #1d2d3d; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; }
+    .cf-n { width: 23px; height: 23px; flex: none; border-radius: 50%; background: var(--cf-oscuro); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; }
     .cf-paso { flex: 1; min-width: 0; }
-    .cf-paso b { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.1; color: #1d1f20; }
-    .cf-paso small { display: block; font-size: 12px; line-height: 1.3; color: #3b4148; }
+    .cf-paso b { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.1; color: var(--cf-tinta); }
+    .cf-paso small { display: block; font-size: 12px; line-height: 1.3; color: var(--cf-texto); }
     .cf-lista svg { width: 17px; height: 17px; flex: none; }
-    .cf-resultado { background: #fff; border: 1px solid #dde3ea; border-radius: 11px; padding: 10px 12px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px 9px; align-items: center; }
+    .cf-resultado { background: #fff; border: 1px solid var(--cf-borde); border-radius: 11px; padding: 10px 12px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px 9px; align-items: center; }
     .cf-resultado i { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .cf-resultado b { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 19px; line-height: 1.05; color: #1d1f20; }
-    .cf-resultado small { grid-column: 1 / -1; font-family: 'Barlow', sans-serif; font-size: 13px; line-height: 1.3; color: #3b4148; }
+    .cf-resultado b { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 19px; line-height: 1.05; color: var(--cf-tinta); }
+    .cf-resultado small { grid-column: 1 / -1; font-family: 'Barlow', sans-serif; font-size: 13px; line-height: 1.3; color: var(--cf-texto); }
     @media (max-width: 767px) {
       .app-card.con-proceso { grid-template-columns: minmax(0, 1fr); grid-template-areas: "body" "abajo" "cabeza" "pasos"; }
       .cf-cabeza { padding-top: 18px; }
@@ -336,7 +339,7 @@
           ['Funcionalidad A', 'Registro de visitas', [
             ['Llega la visita', 'Visita, proveedor o delivery.', 'puerta'],
             ['Foto a su DNI', 'Los datos se llenan solos.', 'dni'],
-            ['Ingreso registrado', 'Con hora, foto y ubicación.', 'ok'],
+            ['Ingreso registrado', 'Con hora, foto y ubicación.', 'ok', '#16a34a'],
             ['Marca su salida', 'Sabes quién sigue dentro.', 'salida']]],
           ['Funcionalidad B', 'Asistencia del personal', [
             ['Registra a tu personal', 'Tres fotos del rostro.', 'rostro'],
@@ -345,17 +348,34 @@
             ['Tardanzas y horas', 'Se calculan solas.', 'reloj']]],
         ],
         resultados: [
-          ['Panel “Hoy” en vivo', 'Quién trabaja y quién llegó tarde.', 'senal', '#1d2d3d'],
-          ['Reportes en Excel', 'Listos para la junta o la planilla.', 'excel', '#16a34a']],
+          ['Panel “Hoy” en vivo', 'Quién trabaja y quién llegó tarde.', 'senal', '#1d2d3d', '#94bce3'],
+          ['Reportes en Excel', 'Listos para la junta o la planilla.', 'excel', '#16a34a', '#fff']],
       },
     },
     {
       id: 'azamblea', tag: 'Las asambleas', nombre: 'Azamblea', sufijo: 'APP',
-      lema: 'Decidir juntos, con cuentas claras.',
-      desc: 'Convocatoria con constancia, quórum en vivo, votación desde el celular (simple o ponderada) y acta automática.',
-      funciones: [['mensaje', 'Convocatoria por WhatsApp'], ['personas', 'Quórum en vivo'], ['acta', 'Voto y acta automática']],
       para: 'asociaciones y juntas vecinales, cooperativas, clubes, gremios y sindicatos, directorios y juntas de accionistas.',
       sitio: 'https://azamblea.app', lista: 'PLamHDec3hxIA', inicio: 'X5WpRR3V0wE', portada: 'EAMdZabqUGQ',
+      // Infografía de marca-azamblea/Cómo funciona Azamblea/export-catalogo, con los colores de Azamblea.
+      proceso: {
+        colores: { oscuro: '#16262A', acento: '#0F6E7A', claro: '#5FC4CF', tinta: '#16262A', texto: '#536568', borde: '#DDE6E7', linea: '#EEF2F3' },
+        cuenta: ['Crea tu organización y tu padrón', 'Pégalo desde Excel.', '2 minutos'],
+        funcionalidades: [
+          ['El administrador', 'Convoca y controla', [
+            ['Crea la reunión', 'Fecha, quórum y puntos.', 'calendario'],
+            ['Convoca a todos', 'Por correo y WhatsApp.', 'enviar'],
+            ['Quórum en vivo', 'Sube mientras llegan.', 'medidor'],
+            ['Abre cada votación', 'Y ciérrala al terminar.', 'votacion']]],
+          ['El participante', 'Se registra y vota', [
+            ['Abre su enlace', 'Desde su celular.', 'celular'],
+            ['Escribe su DNI', 'Sin crear una cuenta.', 'documento'],
+            ['Vota con un toque', 'Y confirma su voto.', 'okFino', '#15803D'],
+            ['¿No puede ir?', 'Delega con carta poder.', 'carta']]],
+        ],
+        resultados: [
+          ['Resultados en vivo', 'En % de los presentes, para todos.', 'ondas', '#16262A', '#5FC4CF'],
+          ['Acta en Word', 'Lista para firmar al cerrar.', 'word', '#2B579A', '#fff']],
+      },
     },
     {
       id: 'junta-de-propietarios', tag: 'La administración', nombre: 'Junta De Propietarios', sufijo: 'ORG',
@@ -397,29 +417,39 @@
 
   // Infografía «Cómo funciona» en HTML: devuelve la cabecera (cuenta + títulos) y los pasos con resultados.
   const CF_ICONOS = {
-    usuarios: ['#fff', '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.870"/><path d="M16 3.130a4 4 0 0 1 0 7.750"/>'],
-    reloj: ['#5980a6', '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'],
-    relojClaro: ['#94bce3', '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'],
-    puerta: ['#5980a6', '<path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.970L19 20V5.562a2 2 0 0 0-1.515-1.940l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.010"/><path d="M22 20h-3"/>'],
-    dni: ['#5980a6', '<path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.170 15a3 3 0 0 1 5.660 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/>'],
-    ok: ['#16a34a', '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'],
-    salida: ['#5980a6', '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/>'],
-    rostro: ['#5980a6', '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.500 2 4 2 4-2 4-2"/><path d="M9 9h.010"/><path d="M15 9h.010"/>'],
-    horario: ['#5980a6', '<path d="M21 7.500V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.500"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.500 17.500 16 16.300V14"/><circle cx="16" cy="16" r="6"/>'],
-    camara: ['#5980a6', '<path d="M14.500 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.500-3z"/><circle cx="12" cy="13" r="3"/>'],
-    senal: ['#94bce3', '<path d="M4.900 19.100C1 15.200 1 8.800 4.900 4.900"/><path d="M7.800 16.200c-2.300-2.300-2.300-6.100 0-8.500"/><circle cx="12" cy="12" r="2"/><path d="M16.200 7.800c2.300 2.300 2.300 6.100 0 8.500"/><path d="M19.100 4.900C23 8.800 23 15.100 19.100 19"/>'],
-    excel: ['#fff', '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/><line x1="9" x2="9" y1="9" y2="21"/><line x1="15" x2="15" y1="9" y2="21"/>'],
+    usuarios: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.870"/><path d="M16 3.130a4 4 0 0 1 0 7.750"/>',
+    reloj: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+    puerta: '<path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.970L19 20V5.562a2 2 0 0 0-1.515-1.940l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.010"/><path d="M22 20h-3"/>',
+    dni: '<path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.170 15a3 3 0 0 1 5.660 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/>',
+    ok: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    salida: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/>',
+    rostro: '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.500 2 4 2 4-2 4-2"/><path d="M9 9h.010"/><path d="M15 9h.010"/>',
+    horario: '<path d="M21 7.500V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.500"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.500 17.500 16 16.300V14"/><circle cx="16" cy="16" r="6"/>',
+    camara: '<path d="M14.500 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.500-3z"/><circle cx="12" cy="13" r="3"/>',
+    senal: '<path d="M4.900 19.100C1 15.200 1 8.800 4.900 4.900"/><path d="M7.800 16.200c-2.300-2.300-2.300-6.100 0-8.500"/><circle cx="12" cy="12" r="2"/><path d="M16.200 7.800c2.300 2.300 2.300 6.100 0 8.500"/><path d="M19.100 4.900C23 8.800 23 15.100 19.100 19"/>',
+    excel: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/><line x1="9" x2="9" y1="9" y2="21"/><line x1="15" x2="15" y1="9" y2="21"/>',
+    // Azamblea
+    calendario: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/>',
+    enviar: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+    medidor: '<path d="m12 14 4-4"/><path d="M3.340 19a10 10 0 1 1 17.320 0"/>',
+    votacion: '<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8M13 12h8M13 18h8"/>',
+    celular: '<rect x="6" y="2" width="12" height="20" rx="2.500"/><path d="M11 18h2"/>',
+    documento: '<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M5 16c.600-1.400 1.700-2 3-2s2.400.600 3 2M14 10h5M14 14h4"/>',
+    okFino: '<circle cx="12" cy="12" r="10"/><path d="m8.500 12 2.500 2.500 4.500-5"/>',
+    carta: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 17c1-1.500 2-1.500 3 0s2 1.500 3 0"/>',
+    ondas: '<circle cx="12" cy="12" r="2"/><path d="M16.240 7.760a6 6 0 0 1 0 8.490M7.760 16.240a6 6 0 0 1 0-8.490M19.070 4.930a10 10 0 0 1 0 14.140M4.930 19.070a10 10 0 0 1 0-14.140"/>',
+    word: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m8 12 1.500 5 2.500-4 2.500 4 1.500-5"/>',
   }
-  const cfIcono = (n, t) => `<svg width="${t}" height="${t}" viewBox="0 0 24 24" fill="none" stroke="${CF_ICONOS[n][0]}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CF_ICONOS[n][1]}</svg>`
+  const cfIcono = (n, t, color = 'var(--cf-acento)') => `<svg width="${t}" height="${t}" viewBox="0 0 24 24" fill="none" style="stroke:${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CF_ICONOS[n]}</svg>`
   function infografia(p) {
     const titulo = ([eti, nom]) => `<span>${eti}</span><strong>${nom}</strong>`
     const [cuenta, sub, tiempo] = p.cuenta
     return `
       <div class="cf-cabeza">
         <h3 class="cf-cuenta">
-          <span class="cf-cuenta-ic">${cfIcono('usuarios', 19)}</span>
+          <span class="cf-cuenta-ic">${cfIcono('usuarios', 19, '#fff')}</span>
           <span class="cf-cuenta-txt">
-            <span class="cf-cuenta-fila"><b>${cuenta}</b><span class="cf-minuto">${cfIcono('relojClaro', 14)}${tiempo}</span></span>
+            <span class="cf-cuenta-fila"><b>${cuenta}</b><span class="cf-minuto">${cfIcono('reloj', 14, 'var(--cf-claro)')}${tiempo}</span></span>
             <small>${sub}</small>
           </span>
         </h3>
@@ -429,13 +459,13 @@
         <div class="cf-dos cf-listas">${p.funcionalidades.map(f => `
           <div class="cf-col">
             <div class="cf-tit cf-tit-dentro">${titulo(f)}</div>
-            <ol class="cf-lista" aria-label="${f[0]}: ${f[1]}">${f[2].map(([t, d, ic], i) => `
-              <li><span class="cf-n">${i + 1}</span><span class="cf-paso"><b>${t}</b><small>${d}</small></span>${cfIcono(ic, 17)}</li>`).join('')}
+            <ol class="cf-lista" aria-label="${f[0]}: ${f[1]}">${f[2].map(([t, d, ic, color], i) => `
+              <li><span class="cf-n">${i + 1}</span><span class="cf-paso"><b>${t}</b><small>${d}</small></span>${cfIcono(ic, 17, color)}</li>`).join('')}
             </ol>
           </div>`).join('')}
         </div>
-        <div class="cf-dos cf-resultados">${p.resultados.map(([t, d, ic, color]) => `
-          <div class="cf-resultado"><i style="background:${color}">${cfIcono(ic, 18)}</i><b>${t}</b><small>${d}</small></div>`).join('')}
+        <div class="cf-dos cf-resultados">${p.resultados.map(([t, d, ic, fondo, color]) => `
+          <div class="cf-resultado"><i style="background:${fondo}">${cfIcono(ic, 18, color)}</i><b>${t}</b><small>${d}</small></div>`).join('')}
         </div>
       </div>`
   }
@@ -450,6 +480,7 @@
 
     const card = document.createElement('article')
     card.className = app.proceso ? 'app-card con-proceso' : 'app-card'
+    if (app.proceso && app.proceso.colores) Object.entries(app.proceso.colores).forEach(([k, v]) => card.style.setProperty('--cf-' + k, v))
     card.id = app.id
     const media = app.lista
       ? `<button class="app-play" type="button" aria-label="Reproducir los videos de ${app.nombre}">
