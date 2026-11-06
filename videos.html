@@ -146,10 +146,12 @@
     .app-links svg { width: 16px; height: 16px; flex: none; }
 
     /* Ficha con infografía del proceso (Asistenzia): desde 768 px, dos columnas iguales
-       (texto, enlaces y video a la izquierda; infografía a la derecha). En celular, una columna. */
+       (texto, video y enlaces a la izquierda; infografía a la derecha). En celular, una columna. */
     .app-card.con-proceso { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .con-proceso .app-izq { display: flex; flex-direction: column; min-width: 0; }
-    .con-proceso .app-links { margin-top: 0; }
+    .con-proceso .app-body { padding-bottom: 6px; }
+    .app-pie { padding: 14px 24px 18px; }
+    .con-proceso .app-links { margin-top: 0; padding-top: 0; border-top: 0; }
     .con-proceso .app-media { align-self: stretch; }
     .app-proceso { background: #f2f2f3; margin: 0; min-width: 0; }
     @media (max-width: 767px) {
@@ -189,6 +191,7 @@
     @media (max-width: 520px) {
       .nav-demo .txt-largo { display: none; }
       .app-body { padding: 18px 16px; }
+      .app-pie { padding: 14px 16px 16px; }
       .medida .btn-sec { margin: 14px 0 0; }
     }
 
@@ -285,7 +288,7 @@
       id: 'asistenzia', tag: 'Asistencia y visitas', nombre: 'Asistenzia', sufijo: 'APP',
       para: 'empresas y pymes, obras y proyectos, clínicas y colegios, edificios y recepciones.',
       sitio: 'https://asistenzia.app', lista: 'PLNiqJejKUFGY', portada: 'cSY4n4giEVA',
-      // Con infografía: la ficha muestra etiqueta, título, «Para:», enlaces y video a la izquierda.
+      // Con infografía: la ficha muestra etiqueta, título, «Para:», video y enlaces a la izquierda.
       proceso: `<picture>
   <source srcset="/img/asistenzia-como-funciona.webp?v=2" type="image/webp">
   <img src="/img/asistenzia-como-funciona.png?v=2"
@@ -374,9 +377,11 @@
       ? `
       <div class="app-izq">
         <div class="app-body">${encabezado}
-          <p class="app-para"><b>Para:</b> ${app.para}</p>${enlaces}
+          <p class="app-para"><b>Para:</b> ${app.para}</p>
         </div>
         <div class="app-media">${media}</div>
+        <div class="app-pie">${enlaces}
+        </div>
       </div>
       <figure class="app-proceso">${app.proceso}</figure>`
       : `
