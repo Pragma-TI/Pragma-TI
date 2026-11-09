@@ -163,7 +163,9 @@
     .con-proceso .app-links { margin-top: 0; padding-top: 0; border-top: 0; }
     .cf-cabeza { grid-area: cabeza; background: #f2f2f3; padding: 18px 18px 10px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0; }
     .cf-pasos { grid-area: pasos; background: #f2f2f3; padding: 0 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-    .cf-cuenta { background: var(--cf-oscuro); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 12px; }
+    /* «Crea tu cuenta» crece hasta los títulos: así no queda un hueco cuando el texto de la izquierda
+       (título, frase y «Para:») es más alto. */
+    .cf-cuenta { flex: 1; background: var(--cf-oscuro); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 12px; }
     .cf-cuenta-ic { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--cf-acento); display: flex; align-items: center; justify-content: center; }
     .cf-cuenta-txt { flex: 1; min-width: 0; }
     .cf-cuenta-fila { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
