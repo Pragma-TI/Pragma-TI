@@ -22,7 +22,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soluciones para edificios, condominios y propiedades — Pragma TI</title>
-  <meta name="description" content="Catálogo de Pragma TI: 5 soluciones digitales para edificios, condominios, asociaciones y propietarios. Asistenzia, Azamblea, Junta de Propietarios, Limpiadores y Check In Renta Familiar, con sus videos paso a paso." />
+  <meta name="description" content="Catálogo de Pragma TI: 5 soluciones digitales para edificios, condominios, asociaciones y propietarios. Asistenzia, Azamblea, Junta de Propietarios, Limpiadores y Renta Corta, con sus videos paso a paso." />
   <link rel="canonical" href="https://pragma-ti.com/soluciones" />
   <meta property="og:title" content="5 soluciones digitales para tu edificio, comunidad o propiedad — Pragma TI" />
   <meta property="og:description" content="Asistencia y visitas, asambleas, administración del edificio, limpieza con evidencia y rentas cortas. Míralas funcionando en video." />
@@ -274,7 +274,6 @@
     <span>Asociaciones y cooperativas</span>
     <span>Propietarios particulares</span>
   </div>
-  <p class="page-desc">Sin comprar equipos ni instalar nada. Funciona con el celular que ya tienes.</p>
 </header>
 
 <div class="indice-wrap">
@@ -334,6 +333,7 @@
   const APPS = [
     {
       id: 'asistenzia', tag: 'Asistencia y visitas', nombre: 'Asistenzia', sufijo: 'APP',
+      desc: 'Aplicación para el control de asistencias del personal del trabajo, y registro de ingreso y salida de visitas.',
       para: 'empresas y pymes, obras y proyectos, clínicas y colegios, edificios y recepciones.',
       sitio: 'https://asistenzia.app', lista: 'PLNiqJejKUFGY', inicio: 'lynC4b8buSo', portada: 'cSY4n4giEVA',
       // Con infografía «Cómo funciona» (diseño de asistenzia-brand, rehecho en HTML para alinearse con la
@@ -359,6 +359,7 @@
     },
     {
       id: 'azamblea', tag: 'Las asambleas', nombre: 'Azamblea', sufijo: 'APP',
+      desc: 'Aplicación para gestionar una reunión de forma dinámica. Desde la convocatoria, quórum en vivo, votaciones en tiempo real, publicación de resultados en acta.',
       para: 'asociaciones y juntas vecinales, cooperativas, clubes, gremios y sindicatos, directorios y juntas de accionistas.',
       sitio: 'https://azamblea.app', lista: 'PLamHDec3hxIA', inicio: 'X5WpRR3V0wE', portada: 'EAMdZabqUGQ',
       // Infografía de marca-azamblea/Cómo funciona Azamblea/export-catalogo, con los colores de Azamblea.
@@ -384,6 +385,7 @@
     },
     {
       id: 'junta-de-propietarios', tag: 'La administración', nombre: 'Junta De Propietarios', sufijo: 'ORG',
+      desc: 'Plataforma de administración y mantenimiento para edificios residenciales: padrón, reuniones y votaciones, presupuesto, cuotas y recibos, todo en un solo lugar.',
       para: 'edificios, condominios, administradores, junta directiva y propietarios.',
       sitio: 'https://juntadepropietarios.org', lista: 'PLA1uFvDQmyz8', inicio: 'rkkBbvxZI84', portada: 'rkkBbvxZI84',
       // Infografía de edimant/export-catalogo, con los colores de Junta de Propietarios. La administración
@@ -414,19 +416,55 @@
     },
     {
       id: 'limpiadores', tag: 'La limpieza', nombre: 'Limpiadores', sufijo: 'APP',
-      lema: 'Cada limpieza, con evidencia.',
-      desc: 'Cada servicio de limpieza programado y ejecutado con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
-      funciones: [['campana', 'Aviso al personal'], ['camara', 'Fotos antes y después'], ['grafico', 'Reporte diario e historial']],
+      desc: 'Uber de limpieza: Cada servicio de limpieza programado y ejecutado con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
       para: 'edificios, propiedades particulares, alquileres y personal de limpieza independiente.',
-      sitio: 'https://limpiadores.app', lista: 'PLNKK3srRKwV8', inicio: 'm8PMjO1KbRA', portada: '-3aQ9PvCN9M',
+      sitio: 'https://limpiadores.app', lista: 'PLNKK3srRKwV8', inicio: 'm8PMjO1KbRA', portada: 'm8PMjO1KbRA',
+      // Infografía armada con los pasos de la app (los dos lados: propietario y personal), colores de limpiadores.app.
+      proceso: {
+        colores: { oscuro: '#10202F', acento: '#416180', claro: '#94BCE3', tinta: '#1D1F20', texto: '#5D5D60', borde: '#D6E4F2', linea: '#EEF6FF' },
+        cuenta: ['Crea tu cuenta con tu celular', 'Gratis, con un código por mensaje.', '1 minuto', 'celular'],
+        funcionalidades: [
+          ['El propietario', 'Programa y revisa', [
+            ['Crea su inmueble', 'Y qué se limpia en cada ambiente.', 'casa'],
+            ['Invita al personal', 'Por WhatsApp, con un enlace.', 'enviar'],
+            ['Programa la limpieza', 'Una vez o con horario fijo.', 'calendario'],
+            ['Revisa la evidencia', 'Fotos y acta de cada servicio.', 'okFino', '#1E5B3C']]],
+          ['El personal de limpieza', 'Limpia con evidencia', [
+            ['Recibe el aviso', 'Por WhatsApp, con el horario.', 'campana'],
+            ['Foto de cómo lo encontró', 'Antes de empezar.', 'camara'],
+            ['Olvidados y daños', 'Cada uno con su foto.', 'alerta'],
+            ['Foto de cómo lo dejó', 'Y cierra el servicio.', 'ok', '#1E5B3C']]],
+        ],
+        resultados: [
+          ['Acta en PDF', 'Se comparte con un enlace por 7 días.', 'informe', '#10202F', '#94BCE3'],
+          ['Historial y perfil', 'Cada servicio suma a su reputación.', 'tendencia', '#1E5B3C', '#fff']],
+      },
     },
     {
-      id: 'renta-familiar', tag: 'Los huéspedes Airbnb', nombre: 'Check In Renta Familiar', sufijo: 'COM',
-      lema: 'Rentas cortas, coordinación automática.',
+      id: 'renta-corta', tag: 'Los huéspedes Airbnb', nombre: 'Renta Corta', sufijo: 'APP',
       desc: 'Rentas cortas en piloto automático: sincronización con Airbnb, registro de huéspedes, limpiezas programadas y avisos por WhatsApp.',
-      funciones: [['huesped', 'Huésped registra acompañantes'], ['acta', 'Mantenimiento registra limpieza'], ['check', 'Conserje marca la llegada']],
       para: 'anfitriones y propietarios de departamentos en alquiler temporal.',
-      sitio: 'https://rentafamiliar.com/sistema', lista: null,
+      sitio: 'https://rentacorta.app', lista: 'PLK-3aSlpwZns', inicio: 'hmUYkZTktDE', portada: 'hmUYkZTktDE',
+      // Infografía con los colores del kit rentacorta.app (acero y profundo).
+      proceso: {
+        colores: { oscuro: '#1D2D3D', acento: '#5980A6', claro: '#94BCE3', tinta: '#1D1F20', texto: '#4F5A66', borde: '#D4D4D7', linea: '#EEF6FF' },
+        cuenta: ['Crea tu cuenta y tu marca', 'Con Google o tu correo.', '2 minutos'],
+        funcionalidades: [
+          ['El anfitrión', 'Configura una vez', [
+            ['Vincula tus anuncios', 'El calendario iCal de Airbnb.', 'calendario'],
+            ['Registra a tu equipo', 'Conserje y limpieza.', 'usuarios'],
+            ['Ponle tu marca', 'Logo, colores y nombre.', 'paleta'],
+            ['Recibe los avisos', 'Por WhatsApp y correo.', 'campana']]],
+          ['Cada reserva', 'Corre en automático', [
+            ['Entra sola de Airbnb', 'En segundos, sin copiar nada.', 'senal'],
+            ['El huésped se registra', 'Con su documento, desde su enlace.', 'dni'],
+            ['El conserje marca la llegada', 'Con su cochera asignada.', 'puerta'],
+            ['Limpieza deja sus fotos', 'Antes y después.', 'camara', '#12844A']]],
+        ],
+        resultados: [
+          ['Huéspedes registrados', 'Antes de llegar al edificio.', 'okFino', '#1D2D3D', '#94BCE3'],
+          ['Reporte diario', 'Llegadas y limpiezas del día.', 'informe', '#12844A', '#fff']],
+      },
     },
   ]
 
@@ -470,6 +508,9 @@
     torta: '<path d="M21.210 15.890A10 10 0 1 1 8 2.830"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>',
     tendencia: '<path d="m22 7-8.500 8.500-5-5L2 17"/><path d="M16 7h6v6"/>',
     informe: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 18v-3M12 18v-6M16 18v-2"/>',
+    // Limpiadores y Renta Corta
+    casa: '<path d="M3 10.500 12 3l9 7.500"/><path d="M5 9.500V21h14V9.500"/><path d="M10 21v-6h4v6"/>',
+    paleta: '<circle cx="13.500" cy="6.500" r="1"/><circle cx="17.500" cy="10.500" r="1"/><circle cx="8.500" cy="7.500" r="1"/><circle cx="6.500" cy="12.500" r="1"/><path d="M12 2C6.500 2 2 6.500 2 12s4.500 10 10 10c.900 0 1.600-.700 1.600-1.700 0-.400-.200-.800-.400-1.100-.300-.300-.400-.700-.400-1.100a1.600 1.600 0 0 1 1.600-1.700h2c3 0 5.600-2.500 5.600-5.600C22 6 17.500 2 12 2z"/>',
     // Azamblea
     calendario: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/>',
     enviar: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
@@ -546,6 +587,7 @@
     card.innerHTML = app.proceso
       ? `
       <div class="app-body">${encabezado}
+        ${app.desc ? `<p class="app-desc">${app.desc}</p>` : ''}
         <p class="app-para"><b>Para:</b> ${app.para}</p>
       </div>
       <div class="app-abajo">
