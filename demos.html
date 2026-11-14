@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18223884875"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18223884875');
+  </script>
+  <!-- Píxel de Meta: conjunto de datos «Pragma TI» -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2623831048053145');
+    fbq('track', 'PageView');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demos de IA e integraciones en vivo — Pragma TI</title>
+  <meta name="description" content="Prueba gratis 10 funciones de inteligencia artificial e integraciones que ya funcionan en las aplicaciones de Pragma TI: lectura de documentos y boletas, reconocimiento facial, actas desde audio, comparador de cotizaciones y más." />
+  <link rel="canonical" href="https://pragma-ti.com/demos" />
+  <meta property="og:title" content="Pruébalo tú mismo: lo que la IA ya hace en nuestras apps — Pragma TI" />
+  <meta property="og:description" content="10 demos en vivo con tus propias fotos, audios y preguntas. Cada una se puede usar 3 veces y no guardamos nada de lo que subes." />
+  <meta property="og:image" content="https://pragma-ti.com/og-image.png" />
+  <meta property="og:url" content="https://pragma-ti.com/demos" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F2F6FC; --white: #FFFFFF; --ink: #0D1F3C;
+      --ink-60: #4A6080; --accent: #1A5BA8; --accent-light: #E0EBFA;
+      --orange: #FF6B35; --orange-light: #FFF1EA;
+      --border: #C8DCF0; --wa: #25D366; --verde: #0F8A4B; --verde-claro: #E3F6EC;
+      --ambar: #A86500; --ambar-claro: #FFF4D6; --rojo: #C0392B; --rojo-claro: #FDECEA;
+      --radius: 12px;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.5; }
+    button, input, textarea { font: inherit; color: inherit; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,246,252,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1rem, 5vw, 4rem); height: 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 700; color: var(--ink); }
+    .logo-text span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 14px; }
+    .nav-links a.txt { color: var(--ink-60); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a.txt:hover { color: var(--accent); }
+    .nav-demo {
+      display: inline-flex; align-items: center; gap: 8px; flex: none;
+      background: var(--wa); color: #063118; text-decoration: none;
+      font-size: 14px; font-weight: 600; padding: 9px 16px; border-radius: 8px;
+    }
+
+    .hero { padding: 7rem clamp(1rem, 5vw, 4rem) 1.5rem; text-align: center; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .tag::before { content: ''; width: 20px; height: 1.5px; background: var(--accent); }
+    h1 {
+      font-family: 'Fraunces', serif; font-size: clamp(2rem, 4.4vw, 3.2rem);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero p { font-size: 17px; color: var(--ink-60); max-width: 660px; margin: 0 auto; }
+    .hero p b { color: var(--ink); }
+    .garantias { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 1.2rem; }
+    .garantias span {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+      background: var(--white); border: 1px solid var(--border); color: var(--accent);
+      padding: 6px 10px; border-radius: 999px;
+    }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 1.5rem clamp(1rem, 5vw, 4rem) 3rem; }
+    .demos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .demo {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+    }
+    .demo.abierta { grid-column: 1 / -1; }
+    .demo-cab { display: flex; align-items: flex-start; gap: 14px; }
+    .demo-num {
+      flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-weight: 500;
+    }
+    .demo h2 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+    .demo-sol { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .chip { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: var(--cream); color: var(--ink-60); }
+    .chip.ia { background: var(--orange-light); color: #B5461A; }
+    .chip.api { background: var(--accent-light); color: var(--accent); }
+    .demo-desc { font-size: 15px; color: var(--ink-60); }
+    .demo-pie { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 4px; }
+    .usos { font-size: 13px; color: var(--ink-60); }
+    .usos b { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+      background: var(--accent); color: #fff; border: 0; border-radius: 8px; padding: 10px 18px; font-weight: 600; font-size: 14.5px;
+      text-decoration: none;
+    }
+    .btn:hover { background: #154C8C; }
+    .btn:disabled { background: #9DB3CE; cursor: not-allowed; }
+    .btn.sec { background: var(--white); color: var(--accent); border: 1.5px solid var(--border); }
+    .btn.sec:hover { border-color: var(--accent); }
+    .btn.naranja { background: var(--orange); }
+    .btn.naranja:hover { background: #E85A27; }
+    .pronto { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-60); background: var(--cream); padding: 8px 12px; border-radius: 8px; }
+
+    .panel { display: none; border-top: 1px dashed var(--border); padding-top: 14px; margin-top: 4px; }
+    .demo.abierta .panel { display: block; }
+    .panel-in { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 22px; align-items: start; }
+    .entrada { display: flex; flex-direction: column; gap: 10px; }
+    .nota { font-size: 13px; color: var(--ink-60); background: var(--cream); border-radius: 8px; padding: 9px 11px; }
+    .archivo {
+      position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      border: 1.5px dashed var(--border); border-radius: 10px; padding: 16px 12px; text-align: center; cursor: pointer;
+      font-size: 14px; color: var(--ink-60); background: #FAFCFF; min-height: 92px;
+    }
+    .archivo:hover { border-color: var(--accent); }
+    .archivo b { color: var(--accent); }
+    .archivo input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .archivo img { max-width: 100%; max-height: 150px; border-radius: 6px; }
+    .campo { width: 100%; border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 12px; background: #fff; font-size: 15px; }
+    .campo:focus { outline: none; border-color: var(--accent); }
+    .ejemplos { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ejemplos button { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 5px 10px; font-size: 12.5px; cursor: pointer; color: var(--accent); }
+    .ejemplos button:hover { border-color: var(--accent); }
+
+    .salida { min-height: 120px; background: #FAFCFF; border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 14.5px; overflow-x: auto; }
+    .salida .vacio { color: #8AA0BC; font-size: 14px; }
+    .salida h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; margin: 2px 0 8px; }
+    .salida h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-60); margin: 14px 0 6px; }
+    .salida ul { padding-left: 18px; }
+    .salida li { margin: 3px 0; }
+    .form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .form label { display: flex; flex-direction: column; gap: 3px; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-60); }
+    .form label span { font-size: 15px; text-transform: none; letter-spacing: 0; color: var(--ink); background: #fff; border: 1.5px solid #BFE3CD; border-radius: 7px; padding: 7px 10px; min-height: 37px; animation: llenar .5s ease both; }
+    .form label span.nulo { color: #A0B2C8; border-color: var(--border); }
+    @keyframes llenar { from { background: var(--verde-claro); } to { background: #fff; } }
+    table.t { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+    table.t th, table.t td { border-bottom: 1px solid var(--border); padding: 6px 8px; text-align: left; vertical-align: top; }
+    table.t th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-60); font-weight: 600; background: var(--cream); }
+    table.t td.num { text-align: right; white-space: nowrap; }
+    .error { color: var(--rojo); background: var(--rojo-claro); border-radius: 8px; padding: 10px 12px; }
+    .cargando { display: flex; align-items: center; gap: 10px; color: var(--ink-60); }
+    .cargando::before { content: ''; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid var(--border); border-top-color: var(--accent); animation: gira 0.8s linear infinite; }
+    @keyframes gira { to { transform: rotate(360deg); } }
+    .veredicto { display: flex; align-items: center; gap: 12px; border-radius: 10px; padding: 12px 14px; font-weight: 600; }
+    .veredicto big { font-family: 'Fraunces', serif; font-size: 1.8rem; }
+    .v-bien { background: var(--verde-claro); color: var(--verde); }
+    .v-atencion { background: var(--ambar-claro); color: var(--ambar); }
+    .v-alerta { background: var(--rojo-claro); color: var(--rojo); }
+    .v-sin_datos { background: var(--cream); color: var(--ink-60); }
+    .marcador { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+    .marcador .pt { width: 12px; height: 12px; border-radius: 50%; margin-top: 5px; }
+    .pt.bien { background: var(--verde); } .pt.atencion { background: #E0A100; } .pt.alerta { background: var(--rojo); } .pt.sin_datos { background: #A0B2C8; }
+    .marcador a { font-size: 12.5px; color: var(--accent); word-break: break-all; }
+    .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+    .tile { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; }
+    .tile small { display: block; font-size: 11px; color: var(--ink-60); text-transform: uppercase; letter-spacing: .05em; }
+    .tile b { font-family: 'Fraunces', serif; font-size: 1.4rem; }
+    .barra { height: 10px; border-radius: 99px; background: var(--cream); overflow: hidden; margin: 4px 0 2px; }
+    .barra i { display: block; height: 100%; background: var(--accent); }
+    details summary { cursor: pointer; color: var(--accent); font-size: 13px; margin-top: 12px; }
+    details p { font-size: 13px; color: var(--ink-60); margin-top: 6px; white-space: pre-wrap; }
+    .rec { display: inline-flex; align-items: center; gap: 8px; }
+    .rec i { width: 10px; height: 10px; border-radius: 50%; background: #fff; }
+    .grabando .rec i { background: #fff; animation: late 1s infinite; }
+    @keyframes late { 50% { opacity: .2; } }
+
+    /* Chat estilo WhatsApp */
+    .chat { background: #EFE7DD; border-radius: 10px; height: 340px; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .msg { max-width: 82%; padding: 7px 10px; border-radius: 9px; font-size: 14.5px; box-shadow: 0 1px 1px rgba(0,0,0,.08); white-space: pre-wrap; }
+    .msg.bot { background: #fff; align-self: flex-start; border-top-left-radius: 2px; }
+    .msg.huesped { background: #D9FDD3; align-self: flex-end; border-top-right-radius: 2px; }
+    .msg.escribiendo { color: var(--ink-60); font-style: italic; }
+    .chat-cab { display: flex; align-items: center; gap: 10px; background: #075E54; color: #fff; padding: 8px 12px; border-radius: 10px 10px 0 0; font-weight: 600; font-size: 14px; }
+    .chat-cab i { width: 30px; height: 30px; border-radius: 50%; background: #F2C811; display: flex; align-items: center; justify-content: center; font-style: normal; color: #0D1F3C; }
+    .chat-cab + .chat { border-radius: 0 0 10px 10px; }
+    .chat-entrada { display: flex; gap: 8px; margin-top: 8px; }
+
+    /* Listado completo */
+    .todo { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .todo h2.sec { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: .4rem; }
+    .todo .sub { color: var(--ink-60); margin-bottom: 1.2rem; }
+    .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
+    .filtros button { border: 1.5px solid var(--border); background: #fff; border-radius: 999px; padding: 6px 12px; font-size: 13.5px; cursor: pointer; }
+    .filtros button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .grupo { margin-bottom: 1.4rem; }
+    .grupo h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; margin-bottom: .5rem; display: flex; align-items: baseline; gap: 8px; }
+    .grupo h3 small { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-60); font-weight: 400; }
+    .items { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; }
+    .items li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; padding: 8px 0; border-bottom: 1px solid #E6EEF8; font-size: 14.5px; }
+    .items li small { display: block; color: var(--ink-60); font-size: 12.5px; }
+    .items li a { font-size: 12.5px; color: var(--orange); font-weight: 600; text-decoration: none; }
+
+    .cta { text-align: center; padding: 3rem clamp(1rem, 5vw, 4rem); }
+    .cta h2 { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; margin-bottom: .6rem; }
+    .cta p { color: var(--ink-60); max-width: 560px; margin: 0 auto 1.2rem; }
+    footer { text-align: center; font-size: 13px; color: var(--ink-60); padding: 1.5rem 1rem 2.5rem; }
+    footer a { color: var(--accent); }
+    #ts { position: fixed; bottom: 12px; right: 12px; z-index: 200; }
+
+    @media (max-width: 900px) {
+      .panel-in { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 767px) {
+      .demos { grid-template-columns: 1fr; }
+      .items { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links a.txt { display: none; }
+    }
+    @media (max-width: 480px) {
+      .form { grid-template-columns: 1fr; }
+      .demo { padding: 16px; }
+      .txt-largo { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html?sin_intro=1" class="nav-logo">
+    <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="logoGradD" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0A2463"/><stop offset="100%" stop-color="#2C7BE5"/>
+        </linearGradient>
+      </defs>
+      <rect x="15" y="15" width="70" height="70" rx="10" fill="url(#logoGradD)" transform="rotate(45 50 50)"/>
+      <text x="30" y="66" font-family="Georgia,serif" font-size="46" font-weight="700" fill="white" text-anchor="start">P</text>
+      <rect x="56" y="60" width="19" height="6" rx="3" fill="#FF6B35"/>
+    </svg>
+    <span class="logo-text">Pragma <span>TI</span></span>
+  </a>
+  <div class="nav-links">
+    <a class="txt" href="/soluciones">Soluciones</a>
+    <a class="txt" href="#todo">Todo lo integrado</a>
+    <a class="nav-demo" href="https://wa.me/51925079592?text=Hola%20Pragma%20TI%2C%20prob%C3%A9%20las%20demos%20y%20quiero%20algo%20as%C3%AD%20para%20mi%20negocio." target="_blank" rel="noopener">Quiero algo así<span class="txt-largo"> para mi negocio</span></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="tag">Demos en vivo</div>
+  <h1>Pruébalo tú mismo: <em>lo que la IA ya hace</em><br>en nuestras aplicaciones</h1>
+  <p>Diez funciones <b>reales</b> de nuestras 5 soluciones. Úsalas con tus propias fotos, audios y preguntas, e imagina qué podría hacer una app así <b>en tu negocio</b>.</p>
+  <div class="garantias">
+    <span>3 usos por demo</span>
+    <span>No guardamos lo que subes</span>
+    <span>Gratis, sin registrarte</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="demos" id="demos">
+
+    <!-- 1 -->
+    <article class="demo" data-demo="documento">
+      <div class="demo-cab"><div class="demo-num">01</div><div>
+        <h2>Foto de un documento → formulario lleno</h2>
+        <div class="demo-sol"><span class="chip ia">IA · visión</span><span class="chip">Asistenzia</span><span class="chip">Renta Corta</span></div>
+      </div></div>
+      <p class="demo-desc">Toma una foto a un DNI, carné de extranjería o pasaporte y mira cómo se llenan solos los datos del registro. Así recibimos a visitas y huéspedes sin escribir nada.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <label class="archivo"><input type="file" accept="image/*,application/pdf" data-campo="archivo"><b>Elegir o tomar foto</b>del documento</label>
+          <p class="nota">Puedes usar tu propio documento o uno de ejemplo. La foto se procesa y se descarta: no la guardamos.</p>
+          <button class="btn naranja ejecutar">Leer documento</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerá el formulario lleno.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 2 -->
+    <article class="demo" data-demo="facial">
+      <div class="demo-cab"><div class="demo-num">02</div><div>
+        <h2>Reconocimiento facial</h2>
+        <div class="demo-sol"><span class="chip ia">IA · en tu equipo</span><span class="chip">Asistenzia</span></div>
+      </div></div>
+      <p class="demo-desc">Sube una foto de referencia y una selfie: el sistema dice si es la misma persona. Lo usamos para marcar asistencia del personal sin tarjetas ni huelleros.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <label class="archivo"><input type="file" accept="image/*" data-campo="foto1"><b>Foto de referencia</b>(documento o foto de perfil)</label>
+          <label class="archivo"><input type="file" accept="image/*" capture="user" data-campo="foto2"><b>Selfie</b>tómala ahora o elige una</label>
+          <p class="nota">Todo ocurre en tu celular o computadora: las fotos <b>no salen de tu equipo</b>. La primera vez descarga el modelo (unos 12 MB).</p>
+          <button class="btn naranja ejecutar">Comparar rostros</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí verás si es la misma persona.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 3 -->
+    <article class="demo" data-demo="acta">
+      <div class="demo-cab"><div class="demo-num">03</div><div>
+        <h2>Audio de una reunión → acta con acuerdos</h2>
+        <div class="demo-sol"><span class="chip ia">IA · voz a texto</span><span class="chip">Junta de Propietarios</span></div>
+      </div></div>
+      <p class="demo-desc">Graba unos segundos como si estuvieras en una reunión. La IA transcribe, resume y saca los acuerdos con su responsable y su fecha.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <button class="btn sec grabar"><span class="rec"><i></i><span class="rec-txt">Grabar (máx. 2 min)</span></span></button>
+          <label class="archivo"><input type="file" accept="audio/*" data-campo="archivo"><b>…o sube un audio</b>MP3, M4A, WAV, OGG</label>
+          <p class="nota">Idea para probar: «Acordamos pintar la fachada en enero. El presidente pedirá tres cotizaciones antes del 15 de diciembre y la tesorera revisará a los morosos.»</p>
+          <button class="btn naranja ejecutar">Hacer el acta</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerá el acta.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 4 -->
+    <article class="demo" data-demo="boleta">
+      <div class="demo-cab"><div class="demo-num">04</div><div>
+        <h2>Foto de una boleta → gasto registrado</h2>
+        <div class="demo-sol"><span class="chip ia">IA · visión</span><span class="chip">Junta de Propietarios</span></div>
+      </div></div>
+      <p class="demo-desc">Fotografía cualquier boleta, factura o ticket. La IA saca el RUC, el proveedor, cada ítem, el IGV y el total, y sugiere en qué rubro va.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <label class="archivo"><input type="file" accept="image/*,application/pdf" data-campo="archivo"><b>Elegir o tomar foto</b>de la boleta o factura</label>
+          <p class="nota">Sirve cualquier comprobante que tengas a mano. No guardamos la foto.</p>
+          <button class="btn naranja ejecutar">Registrar gasto</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerá el gasto registrado.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 5 -->
+    <article class="demo" data-demo="cotizaciones">
+      <div class="demo-cab"><div class="demo-num">05</div><div>
+        <h2>Comparador de cotizaciones</h2>
+        <div class="demo-sol"><span class="chip ia">IA</span><span class="chip">Junta de Propietarios</span></div>
+      </div></div>
+      <p class="demo-desc">Sube 2 o 3 cotizaciones del mismo servicio. La IA arma el cuadro comparativo, detecta lo que una incluye y otra no, y recomienda la mejor.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <label class="archivo"><input type="file" accept="image/*,application/pdf" data-campo="c1"><b>Cotización 1</b>foto o PDF</label>
+          <label class="archivo"><input type="file" accept="image/*,application/pdf" data-campo="c2"><b>Cotización 2</b>foto o PDF</label>
+          <label class="archivo"><input type="file" accept="image/*,application/pdf" data-campo="c3"><b>Cotización 3</b>(opcional)</label>
+          <button class="btn naranja ejecutar">Comparar</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerá el cuadro comparativo.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 6 -->
+    <article class="demo" data-demo="datos">
+      <div class="demo-cab"><div class="demo-num">06</div><div>
+        <h2>Pregúntale a tus datos</h2>
+        <div class="demo-sol"><span class="chip ia">IA</span><span class="chip">Junta de Propietarios</span></div>
+      </div></div>
+      <p class="demo-desc">Haz una pregunta en palabras normales sobre pagos, deudas y gastos de un edificio, y recibe la respuesta con sus números. Sin reportes ni Excel.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <p class="nota">Usa un edificio de ejemplo: «Residencial Las Brisas», 24 departamentos, de junio a noviembre de 2026 (datos ficticios).</p>
+          <textarea class="campo" rows="3" maxlength="300" data-campo="pregunta" placeholder="Escribe tu pregunta…"></textarea>
+          <div class="ejemplos">
+            <button>¿Quiénes son los morosos y cuánto deben?</button>
+            <button>¿En qué mes se gastó más y por qué?</button>
+            <button>¿Cuánto se gastó en vigilancia en el semestre?</button>
+            <button>¿Qué porcentaje de las cuotas de octubre se cobró?</button>
+          </div>
+          <button class="btn naranja ejecutar">Preguntar</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerá la respuesta.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 7 -->
+    <article class="demo" data-demo="proveedor">
+      <div class="demo-cab"><div class="demo-num">07</div><div>
+        <h2>Investigador de proveedores</h2>
+        <div class="demo-sol"><span class="chip ia">IA · búsqueda web</span><span class="chip">Junta de Propietarios</span></div>
+      </div></div>
+      <p class="demo-desc">Escribe el nombre o RUC de una empresa. La IA busca en internet su estado en SUNAT, sanciones y reclamos, y te da cada hallazgo con su fuente.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <input class="campo" maxlength="120" data-campo="consulta" placeholder="Nombre o RUC de la empresa">
+          <p class="nota">Tarda alrededor de un minuto: la IA hace varias búsquedas y lee los resultados.</p>
+          <button class="btn naranja ejecutar">Investigar</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerán los hallazgos.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 8 -->
+    <article class="demo" data-demo="identidad">
+      <div class="demo-cab"><div class="demo-num">08</div><div>
+        <h2>Busca un DNI, carné de extranjería o RUC</h2>
+        <div class="demo-sol"><span class="chip api">API · RENIEC, Migraciones y SUNAT</span><span class="chip">Junta</span><span class="chip">Limpiadores</span><span class="chip">Renta Corta</span></div>
+      </div></div>
+      <p class="demo-desc">Escribe un número y el sistema trae el nombre o la razón social al instante, sin que nadie lo tipee. Así validamos visitas, personal y empresas.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <input class="campo" inputmode="text" maxlength="12" data-campo="numero" placeholder="DNI, carné o RUC">
+          <p class="nota">Para proteger a las personas, en el DNI y el carné mostramos el nombre <b>enmascarado</b> (JUAN C**** P**** G****). El RUC sale completo porque es información pública de SUNAT. No guardamos el número consultado.</p>
+          <button class="btn naranja ejecutar">Buscar</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerá el resultado.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 9 -->
+    <article class="demo" data-demo="calendario">
+      <div class="demo-cab"><div class="demo-num">09</div><div>
+        <h2>Tu calendario de Airbnb → tus reservas ordenadas</h2>
+        <div class="demo-sol"><span class="chip api">API · iCal</span><span class="chip">Renta Corta</span></div>
+      </div></div>
+      <p class="demo-desc">Pega el enlace del calendario de tu alojamiento en Airbnb o Booking y mira tus próximas reservas, las noches ocupadas y tu ocupación del mes.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <input class="campo" data-campo="url" placeholder="https://www.airbnb.com/calendar/ical/…">
+          <p class="nota">En Airbnb: Calendario → Disponibilidad → Sincronizar calendarios → Exportar calendario. Solo leemos fechas: el calendario no trae nombres de huéspedes.</p>
+          <button class="btn naranja ejecutar">Leer mi calendario</button>
+          <button class="btn sec ejecutar" data-ejemplo="1">Usar un calendario de ejemplo</button>
+        </div>
+        <div class="salida"><p class="vacio">Aquí aparecerán tus reservas.</p></div>
+      </div></div>
+    </article>
+
+    <!-- 10 -->
+    <article class="demo" data-demo="bot">
+      <div class="demo-cab"><div class="demo-num">10</div><div>
+        <h2>Bot de WhatsApp que entiende lenguaje libre</h2>
+        <div class="demo-sol"><span class="chip ia">IA</span><span class="chip api">WhatsApp</span><span class="chip">Renta Corta</span></div>
+      </div></div>
+      <p class="demo-desc">Conversa como lo haría un huésped: «llegamos el viernes como a las 3, somos dos y un bebé». El bot entiende y va llenando el registro solo.</p>
+      <div class="demo-pie"><span class="usos"></span><button class="btn abrir">Probar</button></div>
+      <div class="panel"><div class="panel-in">
+        <div class="entrada">
+          <div>
+            <div class="chat-cab"><i>☾</i>Casa Luna · asistente</div>
+            <div class="chat"></div>
+          </div>
+          <div class="chat-entrada"><input class="campo" maxlength="300" data-campo="mensaje" placeholder="Escribe como huésped…"><button class="btn naranja ejecutar">Enviar</button></div>
+          <p class="nota">Cada conversación cuenta como 1 uso (hasta 8 mensajes). «Casa Luna» es un alojamiento de ejemplo.</p>
+        </div>
+        <div class="salida"><h3>Lo que el bot entendió</h3><div class="form" data-bot-form></div></div>
+      </div></div>
+    </article>
+
+  </div>
+</main>
+
+<section class="todo" id="todo">
+  <div class="wrap">
+    <div class="tag">Todo lo integrado</div>
+    <h2 class="sec">Cada integración y función de IA de nuestras 5 soluciones</h2>
+    <p class="sub">Esto ya funciona en producción. Lo que hicimos para edificios, asambleas, limpieza, recepción y alquileres lo podemos combinar para tu negocio.</p>
+    <div class="filtros" id="filtros"></div>
+    <div id="listado"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>¿Te imaginas esto en tu negocio?</h2>
+  <p>Cuéntanos qué haces a mano hoy y te mostramos, gratis, cómo se vería tu aplicación con IA.</p>
+  <a class="btn naranja" href="https://wa.me/51925079592?text=Hola%20Pragma%20TI%2C%20prob%C3%A9%20las%20demos%20y%20quiero%20algo%20as%C3%AD%20para%20mi%20negocio." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+</section>
+
+<footer>Pragma TI · Lima, Perú · <a href="mailto:informes@pragma-ti.com">informes@pragma-ti.com</a> · <a href="/soluciones">Ver las 5 soluciones</a></footer>
+<div id="ts"></div>
+
+<script>
+// ===================== Inventario (todo lo integrado) =====================
+const INVENTARIO = [["Junta de Propietarios", "Lee boletas, facturas y recibos y llena el gasto de caja chica", "IA", "Claude (visión)", "boleta"], ["Junta de Propietarios", "Detecta el importe total de un comprobante para el recibo", "IA", "Claude (visión)", null], ["Junta de Propietarios", "Lee la lectura del medidor de agua sin confundirla con el número de serie", "IA", "Claude (visión)", null], ["Junta de Propietarios", "Lee el número de un contómetro de agua, luz o gas (conserje)", "IA", "Claude (visión)", null], ["Junta de Propietarios", "Lee el recibo de Sedapal: importe, consumo y lecturas", "IA", "Claude (visión)", null], ["Junta de Propietarios", "Lee el saldo final y el periodo del estado de cuenta bancario (PDF del BCP con cifras en imagen)", "IA", "Claude (visión) + validación propia", null], ["Junta de Propietarios", "Lee la constancia de transferencia: quién pagó, su cuenta, DNI y N° de operación", "IA", "Claude (visión)", null], ["Junta de Propietarios", "Lee el reglamento interno y saca el listado de unidades con su % de participación", "IA", "Claude (documentos PDF)", null], ["Junta de Propietarios", "Compara cotizaciones con IA: alcance, plazo, costo y garantía, con puntaje y recomendación", "IA", "Claude", "cotizaciones"], ["Junta de Propietarios", "Verifica a un proveedor antes de contratarlo: RUC, sanciones y reclamos con enlaces", "IA", "Claude + búsqueda web + Factiliza (RUC)", "proveedor"], ["Junta de Propietarios", "Chat de consulta sobre deudas, pagos y recibos de la comunidad", "IA", "Claude con herramientas de lectura", "datos"], ["Junta de Propietarios", "Convierte el audio de una reunión presencial en acta con resumen y acuerdos", "IA", "OpenAI Whisper + Claude", "acta"], ["Junta de Propietarios", "Acta de reunión virtual: un bot graba la videollamada y luego arma el acta", "IA", "Fireflies.ai + Claude", null], ["Junta de Propietarios", "Trae el nombre completo con el DNI (RENIEC) o carné de extranjería (Migraciones)", "API", "Factiliza", "identidad"], ["Junta de Propietarios", "Envía por WhatsApp recibos, estados de cuenta, encuestas, convocatorias, anuncios, pedidos de cotización y avisos de ronda", "API", "WhatsApp Cloud API (Meta)", null], ["Junta de Propietarios", "Envía correos (recibos, convocatorias, actas) y recibe si se entregaron o rebotaron", "API", "Resend", null], ["Junta de Propietarios", "Cobra la suscripción con tarjeta y la renueva sola", "API", "Izipay", null], ["Junta de Propietarios", "Importa el extracto bancario de BCP, BBVA, Interbank y Scotiabank y sugiere el proveedor", "Propia", "Lector propio de Excel/CSV", null], ["Junta de Propietarios", "Lee el archivo de recaudación del BCP (CREP)", "Propia", "Lector propio", null], ["Junta de Propietarios", "Cargas masivas desde Excel: padrón, inmuebles, áreas, equipos, contactos y cuotas, con aviso de lo que se sobrescribe", "Propia", "Lector propio de Excel", null], ["Junta de Propietarios", "PDF de esquela de cobranza, estado de cuenta y carta poder", "Propia", "pdf-lib", null], ["Junta de Propietarios", "Acta en Word de una reunión de Junta", "Propia", "docx", null], ["Junta de Propietarios", "Hoja de etiquetas QR para áreas comunes y rondas", "Propia", "Generador de QR propio", null], ["Junta de Propietarios", "Imagen de los resultados de una votación para compartir", "Propia", "html2canvas", null], ["Asistenzia", "Lee de 1 a 4 documentos de identidad en una foto (DNI, carné, PTP, pasaporte, licencia) y llena el registro de visitas", "IA", "Claude (visión)", "documento"], ["Asistenzia", "Asistencia con reconocimiento facial: sugiere quién es y una persona confirma", "IA", "face-api.js (en el navegador)", "facial"], ["Asistenzia", "Dirección aproximada del lugar donde se marcó o se tomó la foto", "API", "OpenStreetMap Nominatim + GPS del celular", null], ["Asistenzia", "Marca de agua con hora, lugar y comunidad en las fotos de evidencia", "Propia", "Canvas del navegador", null], ["Asistenzia", "Consulta de DNI para el personal y las visitas", "API", "Factiliza", "identidad"], ["Asistenzia", "Suscripción con tarjeta", "API", "Izipay", null], ["Azamblea", "Acta en Word con quórum, poderes y resultado de cada votación", "Propia", "docx", null], ["Azamblea", "Convocatorias por correo con constancia", "API", "Resend", null], ["Azamblea", "Quórum en vivo y votación simple o ponderada desde el celular", "Propia", "Supabase (tiempo real)", null], ["Limpiadores", "Ingreso con el celular: el código llega por WhatsApp", "API", "Supabase Auth + WhatsApp Cloud API", null], ["Limpiadores", "Avisos por WhatsApp: invitación, limpieza terminada, conformidad y recordatorio del día", "API", "WhatsApp Cloud API", null], ["Limpiadores", "Valida el DNI o carné de quien limpia comparando el nombre sin mostrarlo", "API", "Factiliza", null], ["Limpiadores", "Valida empresas por RUC: dígito verificador y estado ACTIVO/HABIDO en SUNAT", "API", "Factiliza + cálculo propio", "identidad"], ["Limpiadores", "Foto de evidencia sellada en el celular: código, fecha y hora grabados, comprimida y con huella SHA-256", "Propia", "Canvas + WebCrypto del navegador", null], ["Limpiadores", "Sello de integridad: una huella une todas las fotos y delata si se cambió una", "Propia", "Hash propio", null], ["Limpiadores", "Acta PDF del servicio con fotos antes/después, objetos olvidados, deterioros y QR de verificación", "Propia", "fpdf2 + QR", null], ["Limpiadores", "Verificación pública de que un acta es auténtica", "Propia", "Supabase", null], ["Limpiadores", "Quita GPS y metadatos de la foto de perfil, en el celular y otra vez en el servidor", "Propia", "JS + Python propio", null], ["Limpiadores", "Captura sin conexión: guarda las fotos y las sube al volver la señal", "Propia", "IndexedDB + Service Worker", null], ["Limpiadores", "Borrado automático de fotos y actas a los 12 meses", "Propia", "Supabase Storage + tarea programada", null], ["Limpiadores", "Compartir el acta por WhatsApp sin API (enlace con mensaje escrito)", "Propia", "Enlaces wa.me", null], ["Renta Corta (Check In)", "Lee DNI, carné o pasaporte (hasta 4 por foto), verifica el número y ubica el rostro", "IA", "Claude (visión)", null], ["Renta Corta (Check In)", "Recorta el rostro y sella la foto del documento para que no sirva para otro trámite", "Propia", "Canvas del navegador", null], ["Renta Corta (Check In)", "Nombre automático al escribir DNI, carné o RUC", "API", "Factiliza", "identidad"], ["Renta Corta (Check In)", "Sincroniza las reservas de Airbnb desde su calendario", "API", "Airbnb iCal", "calendario"], ["Renta Corta (Check In)", "Sincronización al instante reenviando los correos de Airbnb", "API", "Cloudflare Email Routing + Resend", null], ["Renta Corta (Check In)", "Enlaces cortos y redirección del dominio antiguo", "API", "Cloudflare Workers", null], ["Renta Corta (Check In)", "Avisos por WhatsApp al huésped, conserje y limpieza, con instrucciones de check-in/out", "API", "WhatsApp Cloud API", null], ["Renta Corta (Check In)", "Bot de registro por WhatsApp que entiende horas como «3 pm» o «11 de la mañana»", "API", "WhatsApp Cloud API (webhook) + reglas propias", "bot"], ["Renta Corta (Check In)", "Correos automáticos: check-in a colaboradores, resumen de limpieza, alerta de reserva sin huéspedes", "API", "Resend", null], ["Renta Corta (Check In)", "Ingreso del anfitrión con Google o con código por correo", "API", "Google OAuth + Supabase Auth", null], ["Renta Corta (Check In)", "Paletas de color de la marca a partir del logo del anfitrión", "Propia", "Lector PNG propio", null], ["Renta Corta (Check In)", "Plantillas de mensaje con variables que generan la página del huésped y el texto de WhatsApp", "Propia", "Reglas propias + enlaces de Maps y YouTube", null], ["Renta Corta (Check In)", "Tareas programadas: sincronización, envío diario y bot", "API", "Supabase pg_cron", null], ["Todas", "«Continuar con Google» para entrar", "API", "Google Identity + Supabase", null], ["Todas", "Base de datos, permisos por usuario y archivos privados con enlaces que vencen", "API", "Supabase", null], ["Todas", "App instalable en el celular (PWA)", "Propia", "Manifiesto + Service Worker", null]];
+
+(function listado() {
+  const sols = [...new Set(INVENTARIO.map(f => f[0]))]
+  const filtros = document.getElementById('filtros'), cont = document.getElementById('listado')
+  let actual = 'Todas las soluciones'
+  const tipos = { IA: ['ia', 'IA'], API: ['api', 'Integración'], Propia: ['', 'Desarrollo propio'] }
+  function pintar() {
+    cont.innerHTML = ''
+    for (const s of sols) {
+      if (actual !== 'Todas las soluciones' && s !== actual) continue
+      const filas = INVENTARIO.filter(f => f[0] === s)
+      const g = document.createElement('div'); g.className = 'grupo'
+      g.innerHTML = `<h3>${s}<small>${filas.length} funciones</small></h3><ul class="items">${filas.map(f => {
+        const [cl, et] = tipos[f[2]] || ['', f[2]]
+        const demo = f[4] ? `<a href="#" data-ir="${f[4]}">Pruébala ↑</a>` : ''
+        return `<li><span class="chip ${cl}">${et}</span><div>${f[1]}<small>${f[3]}</small>${demo}</div></li>`
+      }).join('')}</ul>`
+      cont.appendChild(g)
+    }
+  }
+  for (const s of ['Todas las soluciones', ...sols]) {
+    const b = document.createElement('button'); b.textContent = s; if (s === actual) b.className = 'on'
+    b.onclick = () => { actual = s; filtros.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); pintar() }
+    filtros.appendChild(b)
+  }
+  cont.addEventListener('click', e => {
+    const a = e.target.closest('[data-ir]'); if (!a) return
+    e.preventDefault(); abrir(document.querySelector(`.demo[data-demo="${a.dataset.ir}"]`))
+  })
+  pintar()
+})()
+
+// ===================== Utilidades =====================
+const $ = (el, s) => el.querySelector(s)
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+const soles = (n, m) => n == null ? '—' : `${m && !/PEN|S\/|sol/i.test(m) ? m + ' ' : 'S/ '}${Number(n).toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+const fechaBonita = f => { if (!f) return '—'; const d = new Date(f + 'T12:00:00'); return isNaN(d) ? f : d.toLocaleDateString('es-PE', { weekday: 'short', day: 'numeric', month: 'short' }) }
+let ESTADO = null
+const QUEDAN = {}
+
+function abrir(card) {
+  if (!card) return
+  document.querySelectorAll('.demo.abierta').forEach(c => { if (c !== card) c.classList.remove('abierta') })
+  card.classList.add('abierta')
+  $(card, '.abrir').textContent = 'Cerrar'
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  if (typeof gtag === 'function') gtag('event', 'abrir_demo', { demo: card.dataset.demo })
+}
+document.querySelectorAll('.demo .abrir').forEach(b => b.addEventListener('click', () => {
+  const card = b.closest('.demo')
+  if (card.classList.contains('abierta')) { card.classList.remove('abierta'); b.textContent = 'Probar' } else abrir(card)
+}))
+document.addEventListener('click', e => { if (!e.target.closest('.demo')) document.querySelectorAll('.demo .abrir').forEach(b => { if (!b.closest('.demo').classList.contains('abierta')) b.textContent = 'Probar' }) })
+
+function pintarUsos(demo, quedan) {
+  const card = document.querySelector(`.demo[data-demo="${demo}"]`); if (!card) return
+  const info = ESTADO?.demos?.[demo]
+  const u = $(card, '.usos')
+  if (info && !info.activa) {
+    u.innerHTML = ''; $(card, '.abrir').outerHTML = '<span class="pronto">Muy pronto</span>'; return
+  }
+  if (quedan == null) return
+  QUEDAN[demo] = quedan
+  u.innerHTML = quedan > 0 ? `Te quedan <b>${quedan} de ${ESTADO?.limite || 3}</b> usos` : '<b>Ya usaste tus 3 pruebas</b>'
+  card.querySelectorAll('.ejecutar').forEach(b => { b.disabled = quedan <= 0 && !(demo === 'bot' && SESION_BOT) })
+}
+
+// Captcha invisible (Cloudflare Turnstile), solo si el servidor lo tiene configurado.
+let tsId = null, tsResolver = null
+function cargarCaptcha(key) {
+  window.onTs = () => {
+    tsId = turnstile.render('#ts', {
+      sitekey: key, execution: 'execute', appearance: 'interaction-only', language: 'es',
+      callback: t => tsResolver && tsResolver(t), 'error-callback': () => tsResolver && tsResolver(null),
+    })
+  }
+  const s = document.createElement('script')
+  s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTs&render=explicit'; s.async = true
+  document.head.appendChild(s)
+}
+function captcha() {
+  if (tsId === null) return Promise.resolve(null)
+  return new Promise(r => { tsResolver = t => { tsResolver = null; r(t) }; turnstile.reset(tsId); turnstile.execute(tsId) })
+}
+
+async function llamar(demo, datos) {
+  const cuerpo = { demo, ...datos }
+  if (!(demo === 'bot' && datos.sesion)) cuerpo.captcha = await captcha()
+  const r = await fetch('/api/demo', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(cuerpo) })
+  const j = await r.json().catch(() => ({ error: 'Respuesta inesperada del servidor.' }))
+  if (j.quedan != null) pintarUsos(demo, j.quedan)
+  else if (j.codigo === 'SIN_USOS') pintarUsos(demo, 0)
+  if (!r.ok) throw new Error(j.error || 'Algo falló. Vuelve a intentarlo.')
+  if (typeof gtag === 'function') gtag('event', 'usar_demo', { demo })
+  return j
+}
+
+// Reduce las fotos en el navegador (máx. 1600 px) antes de enviarlas.
+async function aBase64(file) {
+  if (!file) return null
+  if (file.type === 'application/pdf' || file.type.startsWith('audio/')) {
+    if (file.size > 3_000_000) throw new Error('El archivo pesa más de 3 MB. Prueba con uno más liviano.')
+    const b = await new Promise((ok, mal) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.onerror = mal; fr.readAsDataURL(file) })
+    return { archivo: String(b).split(',')[1], mime: file.type }
+  }
+  if (!file.type.startsWith('image/')) throw new Error('Ese archivo no es una imagen.')
+  const img = await createImageBitmap(file)
+  const k = Math.min(1, 1600 / Math.max(img.width, img.height))
+  const c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k)
+  c.getContext('2d').drawImage(img, 0, 0, c.width, c.height)
+  return { archivo: c.toDataURL('image/jpeg', 0.85).split(',')[1], mime: 'image/jpeg' }
+}
+
+// Vista previa de las fotos elegidas
+document.querySelectorAll('.archivo input').forEach(inp => inp.addEventListener('change', () => {
+  const f = inp.files[0], lab = inp.parentElement
+  lab.querySelectorAll('img, em').forEach(x => x.remove())
+  if (!f) return
+  if (f.type.startsWith('image/')) { const im = document.createElement('img'); im.src = URL.createObjectURL(f); lab.appendChild(im) }
+  else { const em = document.createElement('em'); em.textContent = f.name; lab.appendChild(em) }
+}))
+
+const campo = (card, n) => $(card, `[data-campo="${n}"]`)
+const cargando = (sal, t) => { sal.innerHTML = `<p class="cargando">${t}</p>` }
+const formulario = pares => `<div class="form">${pares.map(([k, v]) => `<label>${k}<span class="${v == null || v === '' ? 'nulo' : ''}">${v == null || v === '' ? '—' : esc(v)}</span></label>`).join('')}</div>`
+
+// ===================== Cada demo =====================
+const DEMO = {
+  async documento(card, sal) {
+    const a = await aBase64(campo(card, 'archivo').files[0]); if (!a) throw new Error('Primero elige la foto del documento.')
+    cargando(sal, 'Leyendo el documento…')
+    const d = (await llamar('documento', a)).resultado
+    if (!d.es_documento) return sal.innerHTML = '<p class="error">No parece un documento de identidad. Prueba con la foto de un DNI, carné o pasaporte.</p>'
+    sal.innerHTML = '<h3>Registro de visita</h3>' + formulario([
+      ['Tipo de documento', d.tipo_documento], ['Número', d.numero], ['Nombres', d.nombres], ['Apellidos', d.apellidos],
+      ['Nacionalidad', d.nacionalidad], ['Fecha de nacimiento', d.fecha_nacimiento], ['Sexo', d.sexo], ['Vence', d.fecha_vencimiento],
+    ]) + (d.observacion ? `<p class="nota" style="margin-top:10px">${esc(d.observacion)}</p>` : '')
+  },
+
+  async facial(card, sal) {
+    const f1 = campo(card, 'foto1').files[0], f2 = campo(card, 'foto2').files[0]
+    if (!f1 || !f2) throw new Error('Elige las dos fotos: la de referencia y la selfie.')
+    cargando(sal, 'Cargando el modelo de reconocimiento…')
+    await cargarFaceApi()
+    await llamar('facial', {})
+    cargando(sal, 'Buscando los rostros…')
+    const [d1, d2] = await Promise.all([descriptor(f1), descriptor(f2)])
+    if (!d1 || !d2) return sal.innerHTML = `<p class="error">No encontramos un rostro en ${!d1 ? 'la foto de referencia' : 'la selfie'}. Prueba con una foto de frente y con buena luz.</p>`
+    const dist = faceapi.euclideanDistance(d1, d2)
+    const sim = Math.round(Math.max(0, Math.min(100, dist < 0.6 ? 100 - dist * 50 : 70 - (dist - 0.6) * 175)))
+    const [cl, txt] = dist < 0.5 ? ['bien', 'Es la misma persona'] : dist < 0.6 ? ['atencion', 'Se parecen: conviene que una persona lo confirme'] : ['alerta', 'Son personas distintas']
+    sal.innerHTML = `<div class="veredicto v-${cl}"><big>${sim}%</big><span>${txt}</span></div>
+      <p class="nota" style="margin-top:10px">En Asistenzia el sistema <b>sugiere</b> quién es y una persona confirma. Así nadie marca por otro y no se depende solo de la máquina.</p>`
+  },
+
+  async acta(card, sal) {
+    let a = AUDIO_GRABADO
+    if (!a) a = await aBase64(campo(card, 'archivo').files[0])
+    if (!a) throw new Error('Graba un audio o sube un archivo.')
+    cargando(sal, 'Escuchando y redactando el acta… (puede tardar unos 30 segundos)')
+    const d = (await llamar('acta', a)).resultado
+    sal.innerHTML = `<h3>${esc(d.titulo)}</h3><p>${esc(d.resumen)}</p>
+      ${d.temas?.length ? `<h4>Temas tratados</h4><ul>${d.temas.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+      <h4>Acuerdos</h4>${d.acuerdos?.length ? `<table class="t"><tr><th>Acuerdo</th><th>Responsable</th><th>Fecha</th></tr>${d.acuerdos.map(x => `<tr><td>${esc(x.acuerdo)}</td><td>${esc(x.responsable || '—')}</td><td>${esc(x.fecha_limite || '—')}</td></tr>`).join('')}</table>` : '<p class="vacio">No se mencionaron acuerdos.</p>'}
+      ${d.pendientes?.length ? `<h4>Pendientes</h4><ul>${d.pendientes.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+      <details><summary>Ver la transcripción</summary><p>${esc(d.transcripcion)}</p></details>`
+  },
+
+  async boleta(card, sal) {
+    const a = await aBase64(campo(card, 'archivo').files[0]); if (!a) throw new Error('Primero elige la foto del comprobante.')
+    cargando(sal, 'Leyendo el comprobante…')
+    const d = (await llamar('boleta', a)).resultado
+    if (!d.es_comprobante) return sal.innerHTML = '<p class="error">No parece un comprobante de pago. Prueba con una boleta, factura o ticket.</p>'
+    sal.innerHTML = '<h3>Gasto registrado</h3>' + formulario([
+      ['Proveedor', d.proveedor], ['RUC', d.ruc_emisor], ['Comprobante', [d.tipo, d.serie_numero].filter(Boolean).join(' ')], ['Fecha', d.fecha],
+      ['Rubro sugerido', d.categoria_sugerida], ['Concepto', d.concepto], ['IGV', d.igv == null ? null : soles(d.igv, d.moneda)], ['Total', d.total == null ? null : soles(d.total, d.moneda)],
+    ]) + (d.items?.length ? `<h4>Detalle</h4><table class="t"><tr><th>Descripción</th><th>Cant.</th><th>Importe</th></tr>${d.items.map(i => `<tr><td>${esc(i.descripcion)}</td><td class="num">${i.cantidad ?? ''}</td><td class="num">${i.importe == null ? '' : soles(i.importe, d.moneda)}</td></tr>`).join('')}</table>` : '')
+  },
+
+  async cotizaciones(card, sal) {
+    const archivos = []
+    for (const n of ['c1', 'c2', 'c3']) { const f = campo(card, n).files[0]; if (f) archivos.push(await aBase64(f)) }
+    if (archivos.length < 2) throw new Error('Sube al menos 2 cotizaciones.')
+    cargando(sal, 'Comparando las cotizaciones… (unos 30 segundos)')
+    const d = (await llamar('cotizaciones', { archivos })).resultado
+    const cs = d.cotizaciones || []
+    const fila = (t, f) => `<tr><th>${t}</th>${cs.map(c => `<td>${f(c)}</td>`).join('')}</tr>`
+    const lis = a => a?.length ? `<ul>${a.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '—'
+    sal.innerHTML = `<h3>${esc(d.servicio)}</h3>
+      <table class="t"><tr><th></th>${cs.map(c => `<th>${c.numero === d.recomendada ? '★ ' : ''}Cotización ${c.numero}</th>`).join('')}</tr>
+      ${fila('Proveedor', c => esc(c.proveedor || '—'))}${fila('Total', c => `<b>${c.total == null ? '—' : soles(c.total, c.moneda)}</b>`)}
+      ${fila('Plazo', c => esc(c.plazo || '—'))}${fila('Garantía', c => esc(c.garantia || '—'))}${fila('Forma de pago', c => esc(c.forma_pago || '—'))}
+      ${fila('Incluye', c => lis(c.incluye))}${fila('No incluye', c => lis(c.no_incluye))}</table>
+      ${d.diferencias_clave?.length ? `<h4>Diferencias que importan</h4><ul>${d.diferencias_clave.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      <h4>Recomendación</h4><div class="veredicto v-bien"><span>${d.recomendada ? `Cotización ${d.recomendada}: ` : ''}${esc(d.motivo)}</span></div>
+      ${d.advertencias?.length ? `<h4>Advertencias</h4><ul>${d.advertencias.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}`
+  },
+
+  async datos(card, sal) {
+    const pregunta = campo(card, 'pregunta').value.trim(); if (!pregunta) throw new Error('Escribe una pregunta o elige un ejemplo.')
+    cargando(sal, 'Revisando los datos del edificio…')
+    const d = (await llamar('datos', { pregunta })).resultado
+    sal.innerHTML = `<p style="color:var(--ink-60);font-size:13px;margin-bottom:8px">«${esc(pregunta)}»</p>
+      ${d.cifra_clave ? `<div class="veredicto v-bien" style="margin-bottom:10px"><big>${esc(d.cifra_clave)}</big></div>` : ''}
+      <p style="white-space:pre-line">${esc(d.respuesta)}</p>
+      ${d.tabla?.columnas?.length ? `<table class="t" style="margin-top:10px"><tr>${d.tabla.columnas.map(c => `<th>${esc(c)}</th>`).join('')}</tr>${d.tabla.filas.map(f => `<tr>${f.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>` : ''}`
+  },
+
+  async proveedor(card, sal) {
+    const consulta = campo(card, 'consulta').value.trim(); if (!consulta) throw new Error('Escribe el nombre o RUC de la empresa.')
+    cargando(sal, 'Buscando en internet… (alrededor de un minuto)')
+    const d = (await llamar('proveedor', { consulta })).resultado
+    const et = { bien: 'Bien', atencion: 'Atención', alerta: 'Alerta', sin_datos: 'Sin datos' }
+    sal.innerHTML = `<h3>${esc(d.empresa)}${d.ruc ? ` <small style="font-family:DM Mono;font-size:12px;color:var(--ink-60)">RUC ${esc(d.ruc)}</small>` : ''}</h3>
+      ${(d.marcadores || []).map(m => `<div class="marcador"><span class="pt ${m.estado}"></span><div><b>${esc(m.tema)}</b> · <span style="color:var(--ink-60)">${et[m.estado] || ''}</span><br>${esc(m.detalle)}${m.fuente && /^https?:\/\//.test(m.fuente) ? `<br><a href="${esc(m.fuente)}" target="_blank" rel="noopener nofollow">${esc(m.fuente)}</a>` : ''}</div></div>`).join('')}
+      <h4>Conclusión</h4><p>${esc(d.conclusion)}</p>`
+  },
+
+  async identidad(card, sal) {
+    const numero = campo(card, 'numero').value.replace(/\s/g, ''); if (!numero) throw new Error('Escribe un número de documento.')
+    cargando(sal, 'Consultando…')
+    const d = (await llamar('identidad', { numero })).resultado
+    if (!d.encontrado) return sal.innerHTML = `<p class="error">No encontramos ese ${d.tipo === 'CE' ? 'carné' : d.tipo}.</p>`
+    if (d.tipo === 'RUC') {
+      const ok = /activo/i.test(d.estado || '') && /habido/i.test(d.condicion || '') && !/no habido/i.test(d.condicion || '')
+      sal.innerHTML = `<h3>${esc(d.razon_social)}</h3>
+        <div class="veredicto ${ok ? 'v-bien' : 'v-alerta'}" style="margin-bottom:10px"><span>${esc(d.estado || '—')} · ${esc(d.condicion || '—')}</span></div>
+        ${formulario([['RUC', d.numero], ['Dirección', d.direccion], ['Distrito', d.distrito], ['Departamento', d.departamento]])}`
+    } else {
+      sal.innerHTML = `<h3>${d.tipo === 'DNI' ? 'DNI' : 'Carné de extranjería'} encontrado</h3>
+        ${formulario([['Nombre', d.nombre]])}
+        <p class="nota" style="margin-top:10px">En la aplicación real el nombre llega completo y se llena solo en el registro. Aquí lo enmascaramos para proteger a la persona.</p>`
+    }
+  },
+
+  async calendario(card, sal, boton) {
+    const ejemplo = !!boton.dataset.ejemplo
+    const url = campo(card, 'url').value.trim()
+    if (!ejemplo && !url) throw new Error('Pega el enlace de tu calendario o usa el de ejemplo.')
+    cargando(sal, 'Leyendo el calendario…')
+    const d = (await llamar('calendario', ejemplo ? { ejemplo: true } : { url })).resultado
+    const ev = d.eventos || []
+    sal.innerHTML = `<div class="tiles">
+        <div class="tile"><small>Ocupación 30 días</small><b>${d.mes.porcentaje}%</b><div class="barra"><i style="width:${d.mes.porcentaje}%"></i></div></div>
+        <div class="tile"><small>Noches reservadas</small><b>${d.mes.reservadas}</b></div>
+        <div class="tile"><small>Noches libres</small><b>${d.mes.disponibles}</b></div>
+        <div class="tile"><small>Ocupación 90 días</small><b>${d.trimestre.porcentaje}%</b></div></div>
+      ${ev.length ? `<table class="t"><tr><th>Llega</th><th>Sale</th><th>Noches</th><th></th></tr>${ev.map(e => `<tr><td>${fechaBonita(e.inicio)}</td><td>${fechaBonita(e.fin)}</td><td class="num">${e.noches}</td><td>${e.tipo === 'reserva' ? '<span class="chip api">Reserva</span>' : '<span class="chip">Bloqueado</span>'}</td></tr>`).join('')}</table>` : '<p class="vacio">No hay reservas próximas en este calendario.</p>'}
+      <p class="nota" style="margin-top:10px">En Renta Corta esto se sincroniza solo y, con cada reserva, se avisa al conserje y a limpieza por WhatsApp.</p>`
+  },
+
+  async bot(card, sal) {
+    const inp = campo(card, 'mensaje'), texto = inp.value.trim(); if (!texto) return
+    inp.value = ''
+    HISTORIAL.push({ rol: 'huesped', texto }); pintarChat(card, true)
+    try {
+      const j = await llamar('bot', { historial: HISTORIAL, sesion: SESION_BOT })
+      SESION_BOT = j.sesion
+      HISTORIAL.push({ rol: 'bot', texto: j.resultado.respuesta }); pintarChat(card)
+      const d = j.resultado.datos
+      $(sal, '[data-bot-form]').innerHTML = formulario([['Titular', d.titular], ['Huéspedes', d.huespedes], ['Llega', d.fecha_llegada], ['Hora', d.hora_llegada], ['Mascota', d.mascota]]).replace(/^<div class="form">|<\/div>$/g, '')
+      if (j.resultado.completo) {
+        SESION_BOT = null
+        $(sal, '[data-bot-form]').insertAdjacentHTML('afterend', `<div class="bot-fin"><div class="veredicto v-bien" style="margin-top:10px"><span>¡Registro completo! En Renta Corta esto llega al anfitrión y al conserje.</span></div>
+          ${QUEDAN.bot > 0 ? '<button class="btn sec" style="margin-top:10px" data-reiniciar>Empezar otra conversación</button>' : ''}</div>`)
+      }
+    } catch (e) {
+      HISTORIAL.pop(); pintarChat(card); throw e
+    }
+  },
+}
+
+// ----- Bot -----
+const SALUDO = '¡Hola! 👋 Soy el asistente de Casa Luna. Para preparar tu llegada, ¿a nombre de quién está la reserva?'
+let HISTORIAL = [{ rol: 'bot', texto: SALUDO }], SESION_BOT = null
+function pintarChat(card, escribiendo) {
+  const c = $(card, '.chat')
+  c.innerHTML = HISTORIAL.map(m => `<div class="msg ${m.rol}">${esc(m.texto)}</div>`).join('') + (escribiendo ? '<div class="msg bot escribiendo">escribiendo…</div>' : '')
+  c.scrollTop = c.scrollHeight
+}
+;(() => {
+  const card = document.querySelector('.demo[data-demo="bot"]')
+  pintarChat(card)
+  $(card, '[data-bot-form]').innerHTML = formulario([['Titular'], ['Huéspedes'], ['Llega'], ['Hora'], ['Mascota']]).replace(/^<div class="form">|<\/div>$/g, '')
+  card.addEventListener('click', e => {
+    if (!e.target.closest('[data-reiniciar]')) return
+    HISTORIAL = [{ rol: 'bot', texto: SALUDO }]; SESION_BOT = null; pintarChat(card)
+    $(card, '.bot-fin')?.remove()
+    $(card, '[data-bot-form]').innerHTML = formulario([['Titular'], ['Huéspedes'], ['Llega'], ['Hora'], ['Mascota']]).replace(/^<div class="form">|<\/div>$/g, '')
+  })
+  campo(card, 'mensaje').addEventListener('keydown', e => { if (e.key === 'Enter') $(card, '.ejecutar').click() })
+})()
+
+// ----- Grabación de audio -----
+let AUDIO_GRABADO = null
+;(() => {
+  const card = document.querySelector('.demo[data-demo="acta"]'), b = $(card, '.grabar'), txt = $(card, '.rec-txt')
+  let rec = null, partes = [], tope = null, t0 = 0, reloj = null
+  b.addEventListener('click', async () => {
+    if (rec) { rec.stop(); return }
+    try {
+      const flujo = await navigator.mediaDevices.getUserMedia({ audio: true })
+      partes = []; AUDIO_GRABADO = null
+      rec = new MediaRecorder(flujo)
+      rec.ondataavailable = e => partes.push(e.data)
+      rec.onstop = async () => {
+        flujo.getTracks().forEach(t => t.stop()); clearTimeout(tope); clearInterval(reloj)
+        const blob = new Blob(partes, { type: rec.mimeType || 'audio/webm' })
+        rec = null; card.classList.remove('grabando')
+        AUDIO_GRABADO = await aBase64(new File([blob], 'grabacion', { type: blob.type.split(';')[0] }))
+        txt.textContent = `Audio listo (${Math.round((Date.now() - t0) / 1000)} s) · grabar otra vez`
+      }
+      rec.start(); t0 = Date.now(); card.classList.add('grabando')
+      reloj = setInterval(() => { txt.textContent = `Grabando… ${Math.round((Date.now() - t0) / 1000)} s · tocar para terminar` }, 500)
+      tope = setTimeout(() => rec && rec.stop(), 120000)
+    } catch { $(card, '.salida').innerHTML = '<p class="error">No pudimos usar el micrófono. Revisa el permiso del navegador o sube un archivo de audio.</p>' }
+  })
+  campo(card, 'archivo').addEventListener('change', () => { AUDIO_GRABADO = null; txt.textContent = 'Grabar (máx. 2 min)' })
+})()
+
+// ----- Reconocimiento facial (face-api en el navegador) -----
+const FACE = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.15'
+let faceListo = null
+function cargarFaceApi() {
+  return faceListo ??= new Promise((ok, mal) => {
+    const s = document.createElement('script'); s.src = FACE + '/dist/face-api.js'
+    s.onload = async () => {
+      try {
+        await Promise.all([
+          faceapi.nets.ssdMobilenetv1.loadFromUri(FACE + '/model'),
+          faceapi.nets.faceLandmark68Net.loadFromUri(FACE + '/model'),
+          faceapi.nets.faceRecognitionNet.loadFromUri(FACE + '/model'),
+        ]); ok()
+      } catch (e) { faceListo = null; mal(new Error('No se pudo descargar el modelo de reconocimiento. Revisa tu conexión.')) }
+    }
+    s.onerror = () => { faceListo = null; mal(new Error('No se pudo cargar el reconocimiento facial.')) }
+    document.head.appendChild(s)
+  })
+}
+async function descriptor(file) {
+  const img = await createImageBitmap(file)
+  const k = Math.min(1, 1024 / Math.max(img.width, img.height))
+  const c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k)
+  c.getContext('2d').drawImage(img, 0, 0, c.width, c.height)
+  const r = await faceapi.detectSingleFace(c, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.4 })).withFaceLandmarks().withFaceDescriptor()
+  return r?.descriptor || null
+}
+
+// ----- Ejemplos de preguntas -----
+document.querySelectorAll('.demo[data-demo="datos"] .ejemplos button').forEach(b => b.addEventListener('click', () => {
+  const card = b.closest('.demo'); campo(card, 'pregunta').value = b.textContent; $(card, '.ejecutar').click()
+}))
+
+// ----- Botón «ejecutar» de cada demo -----
+document.querySelectorAll('.demo .ejecutar').forEach(b => b.addEventListener('click', async () => {
+  const card = b.closest('.demo'), demo = card.dataset.demo, sal = $(card, '.salida')
+  const botones = card.querySelectorAll('.ejecutar'); botones.forEach(x => x.disabled = true)
+  try { await DEMO[demo](card, sal, b) }
+  catch (e) {
+    const msj = `<p class="error">${esc(e.message || 'Algo falló. Vuelve a intentarlo.')}</p>`
+    if (demo === 'bot') { $(card, '.chat').insertAdjacentHTML('beforeend', `<div class="msg bot" style="color:var(--rojo)">${esc(e.message)}</div>`); $(card, '.chat').scrollTop = 1e6 }
+    else sal.innerHTML = msj
+  }
+  finally {
+    const sinUsos = QUEDAN[demo] <= 0 && !(demo === 'bot' && SESION_BOT)
+    botones.forEach(x => x.disabled = sinUsos)
+  }
+}))
+
+// ----- Estado inicial: qué demos están activas y cuántos usos quedan -----
+fetch('/api/demo').then(r => r.json()).then(j => {
+  ESTADO = j
+  for (const [d, info] of Object.entries(j.demos || {})) pintarUsos(d, info.quedan)
+  if (j.captcha) cargarCaptcha(j.captcha)
+}).catch(() => {})
+</script>
+</body>
+</html>
