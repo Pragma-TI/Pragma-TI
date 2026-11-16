@@ -25,7 +25,8 @@ async function rpc(nombre, args) {
   if (!url || !key) throw new ErrorDemo('El contador de usos no está configurado.', 'SIN_CONTADOR', 503)
   const r = await fetch(`${url}/rest/v1/rpc/${nombre}`, {
     method: 'POST',
-    headers: { apikey: key, Authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+    // Las llaves nuevas de Supabase (sb_secret_…) van solo en «apikey»; las antiguas (JWT) también en Authorization.
+    headers: { apikey: key, ...(key.startsWith('eyJ') ? { Authorization: `Bearer ${key}` } : {}), 'content-type': 'application/json' },
     body: JSON.stringify(args),
   })
   const j = await r.json().catch(() => null)
