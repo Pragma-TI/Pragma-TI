@@ -21,7 +21,7 @@ export function huellaIp(ip) {
 // ---------- Conteo de usos en Supabase (funciones de la migración demo_usos) ----------
 
 async function rpc(nombre, args) {
-  const url = process.env.SUPABASE_URL, key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  const url = String(process.env.SUPABASE_URL || '').trim().replace(/\/+$/, ''), key = String(process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim()
   if (!url || !key) throw new ErrorDemo('El contador de usos no está configurado.', 'SIN_CONTADOR', 503)
   const r = await fetch(`${url}/rest/v1/rpc/${nombre}`, {
     method: 'POST',
@@ -59,7 +59,7 @@ export async function usados(huella) {
 // ---------- Captcha invisible de Cloudflare Turnstile ----------
 
 export async function verificarCaptcha(token, ip, { obligatorio = false } = {}) {
-  const secreto = process.env.TURNSTILE_SECRET
+  const secreto = String(process.env.TURNSTILE_SECRET || '').trim()
   if (!secreto) {
     if (obligatorio) throw new ErrorDemo('Esta demo aún no está habilitada.', 'SIN_CAPTCHA', 503)
     return

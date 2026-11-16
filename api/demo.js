@@ -13,7 +13,7 @@ import { ICAL_EJEMPLO } from './_lib/ical-ejemplo.js'
 
 const MODELO = 'claude-opus-5-5'
 let _cliente
-const claude = () => (_cliente ??= new Anthropic())
+const claude = () => (_cliente ??= new Anthropic({ apiKey: String(process.env.ANTHROPIC_API_KEY || '').trim() }))
 
 // Qué necesita cada demo para funcionar (si falta la variable, la página la muestra como «pronto»).
 const REQUISITOS = {
@@ -29,6 +29,11 @@ const REQUISITOS = {
   bot: ['ANTHROPIC_API_KEY'],
 }
 // Sin el contador de usos ninguna demo se abre: así nunca queda una demo sin límite.
+// Las llaves se leen sin espacios ni saltos de línea (un salto pegado por error rompía la cabecera
+// Authorization y el mensaje de error terminaba mostrando la llave en el registro).
+const clave = n => String(process.env[n] || '').trim()
+const tapar = m => String(m || '').replace(/(sk-|sb_secret_|eyJ)[A-Za-z0-9._-]+/g, '$1…').replace(/Bearer\s+\S+/g, 'Bearer …')
+
 const activa = d => ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY', 'DEMO_SAL', ...(REQUISITOS[d] || [])].every(v => !!process.env[v])
 
 // ---------- Llamada a Claude con salida JSON validada ----------
@@ -90,7 +95,7 @@ const DEMOS = {
     fd.append('file', new Blob([Buffer.from(b.archivo, 'base64')], { type: mime }), 'reunion.' + ext)
     fd.append('model', 'whisper-1')
     fd.append('language', 'es')
-    const r = await fetch('https://api.openai.com/v1/audio/transcriptions', { method: 'POST', headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}` }, body: fd })
+    const r = await fetch('https://api.openai.com/v1/audio/transcriptions', { method: 'POST', headers: { Authorization: `Bearer ${clave('OPENAI_API_KEY')}` }, body: fd })
     const j = await r.json().catch(() => ({}))
     if (!r.ok) throw new ErrorDemo('No se pudo transcribir el audio. Prueba con otro archivo.', 'WHISPER', 502, j?.error?.message)
     const transcripcion = String(j.text || '').trim()
@@ -179,7 +184,7 @@ const DEMOS = {
     if (!tipo) throw new ErrorDemo('Escribe un DNI (8 dígitos), un carné de extranjería (9 a 12) o un RUC (11 dígitos).', 'NUMERO')
     if (tipo === 'RUC' && !rucValido(numero)) throw new ErrorDemo('Ese RUC no es válido: revisa el último dígito.', 'RUC_INVALIDO')
     const ruta = { DNI: 'dni', CE: 'cee', RUC: 'ruc' }[tipo]
-    const r = await fetch(`https://api.factiliza.com/v1/${ruta}/info/${encodeURIComponent(numero)}`, { headers: { Authorization: `Bearer ${process.env.FACTILIZA_TOKEN}`, Accept: 'application/json' } })
+    const r = await fetch(`https://api.factiliza.com/v1/${ruta}/info/${encodeURIComponent(numero)}`, { headers: { Authorization: `Bearer ${clave('FACTILIZA_TOKEN')}`, Accept: 'application/json' } })
     const j = await r.json().catch(() => ({}))
     if (r.status === 404 || r.status === 400 || j?.success === false || (r.ok && !j?.data)) return { tipo, encontrado: false }
     if (!r.ok) throw new ErrorDemo('El servicio de consulta no respondió. Inténtalo en un momento.', 'FACTILIZA', 502)
@@ -278,10 +283,10 @@ export default async function handler(req, res) {
     // Si la demo no llegó a dar un resultado (dato mal ingresado, IA o servicio caído), el uso se devuelve.
     if (consumido) await devolver(huella, demo)
     if (e instanceof ErrorDemo) {
-      if (e.detalle) console.error(`demo ${demo}:`, e.codigo, e.detalle)
+      if (e.detalle) console.error(`demo ${demo}:`, e.codigo, tapar(e.detalle))
       return res.status(e.estado).json({ error: e.message, codigo: e.codigo })
     }
-    console.error(`demo ${demo}:`, e?.status || '', e?.message || e)
+    console.error(`demo ${demo}:`, e?.status || '', tapar(e?.message || e))
     const ocupado = e?.status === 429 || e?.status === 529
     return res.status(502).json({ error: ocupado ? 'La IA está muy ocupada ahora. Vuelve a intentarlo en un minuto.' : 'Algo falló de nuestro lado. Vuelve a intentarlo.', codigo: 'ERROR' })
   }
