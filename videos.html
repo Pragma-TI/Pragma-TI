@@ -60,39 +60,41 @@
     .boton:hover { color: #fff; background: #1B3358; }
 
     /* Portada */
-    .hero { padding-top: 88px; padding-bottom: 56px; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-end; }
+    .hero { padding-top: 56px; padding-bottom: 36px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; }
     .hero-txt { flex: 3 1 560px; min-width: 0; }
-    .hero h1 { margin-top: 20px; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(40px, 5.2vw, 64px); line-height: 1.06; letter-spacing: -.02em; }
+    .hero h1 { margin-top: 20px; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(36px, 4.4vw, 54px); line-height: 1.06; letter-spacing: -.02em; }
     .hero h1 em { color: var(--acento); }
     .hero-txt > p:last-child { margin-top: 24px; max-width: 560px; font-size: 19px; line-height: 1.6; color: var(--texto); }
-    .para-quien { flex: 2 1 340px; min-width: 0; background: var(--blanco); border: 1px solid var(--borde); border-radius: 20px; padding: 28px 28px 12px; }
+    .para-quien { flex: 2 1 340px; min-width: 0; background: var(--blanco); border: 1px solid var(--borde); border-radius: 18px; padding: 20px 24px 6px; }
     .para-quien p { margin-bottom: 8px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
-    .para-quien div { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-top: 1px solid var(--linea); font-size: 16px; font-weight: 600; }
+    .para-quien div { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--linea); font-size: 16px; font-weight: 600; }
     .para-quien div::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--naranja); flex-shrink: 0; }
 
     /* Índice */
-    .indice { padding-bottom: 72px; }
-    .indice-in { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
-    .indice a { display: flex; flex-direction: column; gap: 6px; padding: 22px 22px 20px; background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; color: var(--tinta); transition: border-color .2s, transform .2s; }
-    .indice a:hover { border-color: var(--acento); transform: translateY(-2px); }
-    .indice .num { font-size: 13px; font-weight: 700; color: var(--etiqueta); letter-spacing: .06em; }
-    .indice .nom { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; letter-spacing: -.01em; margin-top: 6px; }
-    .indice .cat { font-size: 14px; color: var(--suave); }
-    .indice .dom { font-size: 13px; font-weight: 600; color: var(--acento); margin-top: 8px; }
+    /* Pestañas: una por app; solo se ve la tarjeta de la pestaña activa */
+    .pestanas { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 16px; }
+    .pestana { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; min-height: 44px; padding: 16px 18px; border-radius: 14px; cursor: pointer; font-family: inherit; background: var(--blanco); color: var(--tinta); border: 1px solid var(--borde); transition: border-color .2s; }
+    .pestana:hover { border-color: var(--acento); }
+    .pestana .num { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--etiqueta); }
+    .pestana .nom { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+    .pestana .cat { font-size: 13px; color: var(--suave); }
+    .pestana[aria-selected="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+    .pestana[aria-selected="true"] .num { color: #FF8A5C; }
+    .pestana[aria-selected="true"] .cat { color: var(--claro-oscuro); }
+    .app[hidden] { display: none; }
 
     /* Tarjeta de cada app */
-    .apps { display: flex; flex-direction: column; gap: 40px; }
-    .app { background: var(--blanco); border: 1px solid var(--borde); border-radius: 24px; overflow: hidden; }
-    .intro { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; padding: 56px; }
-    .app:nth-child(even) .intro { flex-direction: row-reverse; }
+    .apps { display: block; }
+    .app { background: var(--blanco); border: 1px solid var(--borde); border-radius: 20px; overflow: hidden; }
+    .intro { display: flex; flex-wrap: wrap; gap: 36px; align-items: center; padding: 36px 40px; }
     .intro-txt { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; }
-    .intro h2 { margin-top: 18px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-family: 'Fraunces', serif; font-weight: 600; font-size: 44px; line-height: 1.05; letter-spacing: -.02em; }
+    .intro h2 { margin-top: 12px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-family: 'Fraunces', serif; font-weight: 600; font-size: 36px; line-height: 1.05; letter-spacing: -.02em; }
     .tld { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--acento); background: var(--acento-suave); padding: 4px 10px; border-radius: 999px; }
-    .desc { margin-top: 18px; font-size: 18px; line-height: 1.6; color: var(--texto); }
-    .ideal { margin: 26px 0 10px; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
+    .desc { margin-top: 14px; font-size: 17px; line-height: 1.55; color: var(--texto); }
+    .ideal { margin: 18px 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chips span { font-size: 14px; color: var(--tinta); background: var(--fondo); border: 1px solid var(--borde); padding: 6px 12px; border-radius: 999px; }
-    .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
+    .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: 24px; }
     .acciones .boton { min-height: 48px; padding: 0 22px; }
     .acciones a.sec { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--tinta); }
     .acciones a.sec:hover { color: var(--acento); }
@@ -100,7 +102,7 @@
 
     /* Video 16:9. Los videos son verticales: la miniatura se recorta a 9:16 al centro y los costados
        quedan en azul oscuro, sin los bordes borrosos que pone YouTube. */
-    .intro-video { flex: 1 1 460px; min-width: 0; position: relative; }
+    .intro-video { flex: 1 1 400px; min-width: 0; max-width: 500px; position: relative; }
     .intro-video::before { content: ''; display: block; padding-top: 56.25%; }  /* 16:9 que también funciona apilado en celular */
     .video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: var(--tinta); color: #fff; border: 0; padding: 0; cursor: pointer; font: inherit; }
     .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -113,7 +115,7 @@
     .video .demo { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: var(--naranja); color: var(--tinta); padding: 4px 10px; border-radius: 999px; }
 
     /* Primer paso */
-    .franja { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; padding: 22px 56px; background: var(--fondo); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+    .franja { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; padding: 16px 40px; background: var(--fondo); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
     .franja-ic { width: 40px; height: 40px; border-radius: 12px; background: var(--acento); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .franja-txt { flex: 1 1 280px; min-width: 0; }
     .franja-txt b { display: block; font-size: 16px; }
@@ -121,27 +123,27 @@
     .tiempo { font-size: 14px; font-weight: 600; background: var(--blanco); border: 1px solid var(--borde); padding: 8px 14px; border-radius: 999px; }
 
     /* Funcionalidades */
-    .grupos { display: flex; flex-wrap: wrap; gap: 40px 56px; padding: 44px 56px 48px; }
+    .grupos { display: flex; flex-wrap: wrap; gap: 28px 48px; padding: 28px 40px; }
     .grupo { flex: 1 1 340px; min-width: 0; }
     .grupo.ancho2 { flex: 2 1 560px; }
     .grupo .etiqueta { font-size: 12px; margin-bottom: 6px; }
-    .grupo h3 { margin-bottom: 18px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px; letter-spacing: -.01em; }
+    .grupo h3 { margin-bottom: 10px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; letter-spacing: -.01em; }
     .grupo ol { list-style: none; padding: 0; display: grid; column-gap: 32px; grid-template-columns: minmax(0, 1fr); }
     .grupo.ancho2 ol { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .grupo li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--linea); }
+    .grupo li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--linea); }
     .grupo li i { width: 28px; height: 28px; border-radius: 50%; background: var(--acento-suave); color: var(--acento); font-style: normal; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .grupo li b { display: block; font-size: 16px; font-weight: 600; line-height: 1.35; }
     .grupo li span { display: block; margin-top: 2px; font-size: 14px; line-height: 1.45; color: var(--suave); }
 
     /* Resultados */
-    .resultados { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding: 0 56px 48px; }
-    .resultado { display: flex; gap: 16px; align-items: center; padding: 20px 22px; border-radius: 16px; background: var(--tinta); color: #fff; }
+    .resultados { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; padding: 0 40px 36px; }
+    .resultado { display: flex; gap: 16px; align-items: center; padding: 16px 20px; border-radius: 14px; background: var(--tinta); color: #fff; }
     .resultado i { width: 40px; height: 40px; border-radius: 12px; background: var(--oscuro2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #FF8A5C; }
     .resultado b { display: block; font-size: 16px; }
     .resultado span { display: block; margin-top: 2px; font-size: 14px; color: var(--claro-oscuro); }
 
     /* Cómo empezar */
-    .empieza { padding-top: 104px; padding-bottom: 40px; }
+    .empieza { padding-top: 64px; padding-bottom: 32px; }
     .empieza-in { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
     .empieza-tit { flex: 1 1 360px; min-width: 0; }
     .empieza h2, .medida h2 { margin-top: 16px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 44px; line-height: 1.1; letter-spacing: -.02em; }
@@ -155,8 +157,8 @@
     .organizacion .boton { min-height: 48px; padding: 0 22px; }
 
     /* A medida */
-    .medida-wrap { padding-top: 40px; padding-bottom: 96px; }
-    .medida { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between; padding: 64px; border-radius: 28px; background: var(--tinta); color: #fff; }
+    .medida-wrap { padding-top: 24px; padding-bottom: 64px; }
+    .medida { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between; padding: 48px; border-radius: 24px; background: var(--tinta); color: #fff; }
     .medida-txt { flex: 1 1 520px; min-width: 0; }
     .medida .etiqueta { color: #FF8A5C; letter-spacing: .14em; }
     .medida-txt p:last-child { margin-top: 18px; max-width: 560px; font-size: 18px; line-height: 1.6; color: var(--claro-oscuro); }
@@ -177,20 +179,20 @@
       .intro-txt, .intro-video { flex: none; }
       .video .play { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
       .video .pie { left: 12px; right: 12px; bottom: 10px; font-size: 12.5px; }
-      .indice { padding-bottom: 48px; }
-      .indice-in { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-      .indice a { padding: 16px; }
-      .indice .nom { font-size: 18px; }
-      .apps { gap: 24px; }
+      .pestanas { grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 8px; }
+      .pestana { padding: 12px; border-radius: 12px; }
+      .pestana .nom { font-size: 16px; }
+      .pestana .cat { font-size: 12px; }
       .app { border-radius: 18px; }
-      .intro, .app:nth-child(even) .intro { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 28px; padding: 28px 20px; }
-      .intro h2 { font-size: 34px; }
+      .intro { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 24px; padding: 24px 20px; }
+      .intro-video { max-width: none; }
+      .intro h2 { font-size: 30px; }
       .desc { font-size: 16px; }
-      .franja { padding: 18px 20px; }
-      .grupos { gap: 32px; padding: 28px 20px 32px; }
+      .franja { padding: 14px 20px; }
+      .grupos { gap: 24px; padding: 22px 20px 24px; }
       .grupo.ancho2 ol { grid-template-columns: minmax(0, 1fr); }
-      .resultados { grid-template-columns: minmax(0, 1fr); padding: 0 20px 28px; }
-      .empieza { padding-top: 64px; }
+      .resultados { grid-template-columns: minmax(0, 1fr); padding: 0 20px 24px; }
+      .empieza { padding-top: 48px; }
       .empieza h2, .medida h2 { font-size: 34px; }
       .organizacion { padding: 22px 20px; }
       .medida { padding: 36px 24px; border-radius: 22px; }
@@ -235,11 +237,10 @@
   </div>
 </section>
 
-<nav class="ancho indice" id="soluciones" aria-label="Soluciones">
-  <div class="indice-in" id="indice"></div>
-</nav>
-
-<main class="ancho apps" id="apps"></main>
+<main class="ancho" id="soluciones">
+  <div class="pestanas" role="tablist" aria-label="Soluciones" id="pestanas"></div>
+  <div class="apps" id="apps"></div>
+</main>
 
 <section class="ancho empieza" id="empieza">
   <div class="empieza-in">
@@ -352,14 +353,15 @@
     try { gtag('event', 'conversion', { send_to: 'AW-18223884875/7ttCCMPd79QcEMvU6fFD', value: 50.0, currency: 'PEN' }) } catch (e) {}
   }
 
-  const indice = document.getElementById('indice'), contenedor = document.getElementById('apps')
+  const pestanas = document.getElementById('pestanas'), contenedor = document.getElementById('apps')
   APPS.forEach((app, i) => {
     const num = String(i + 1).padStart(2, '0')
-    indice.insertAdjacentHTML('beforeend', `<a href="#${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="cat">${app.categoria}</span><span class="dom">${app.dominio}</span></a>`)
+    pestanas.insertAdjacentHTML('beforeend', `<button type="button" class="pestana" role="tab" id="tab-${app.id}" aria-controls="${app.id}" aria-selected="false" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="cat">${app.categoria}</span></button>`)
     const msj = encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)
     const [cTit, cSub, cTiempo] = app.inicioCuenta
     const art = document.createElement('article')
     art.className = 'app'; art.id = app.id
+    art.setAttribute('role', 'tabpanel'); art.setAttribute('aria-labelledby', 'tab-' + app.id)
     art.innerHTML = `
       <div class="intro">
         <div class="intro-txt">
@@ -398,15 +400,41 @@
         <div class="resultado"><i>${ICO.grafico}</i><div><b>${r.t}</b><span>${r.d}</span></div></div>`).join('')}
       </div>`
     art.querySelector('.app-wa').addEventListener('click', registrarContacto)
-    const boton = art.querySelector('.video')
-    boton.addEventListener('click', () => {
+    const miniatura = art.querySelector('.video').outerHTML
+    // Al hacer clic la miniatura se cambia por el reproductor; al cambiar de pestaña vuelve la miniatura
+    // (así el video de una pestaña oculta deja de sonar).
+    art.querySelector('.intro-video').addEventListener('click', e => {
+      const boton = e.target.closest('button.video'); if (!boton) return
       const marco = document.createElement('div')
       marco.className = 'video'
       marco.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${app.inicio}?list=${app.lista}&autoplay=1&rel=0" title="Videos de ${app.nombre}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`
       boton.replaceWith(marco)
     })
+    art.restaurarMiniatura = () => { const v = art.querySelector('div.video'); if (v) v.outerHTML = miniatura }
     contenedor.appendChild(art)
   })
+
+  // Pestañas: muestra solo la app elegida. Respeta los enlaces con #id (p. ej. /soluciones#renta-corta).
+  function mostrar(id, enfocar) {
+    const app = APPS.find(a => a.id === id) || APPS[0]
+    document.querySelectorAll('.pestana').forEach(t => t.setAttribute('aria-selected', String(t.dataset.app === app.id)))
+    document.querySelectorAll('.app').forEach(a => { if (a.id !== app.id) { a.hidden = true; a.restaurarMiniatura() } else a.hidden = false })
+    if (enfocar) document.getElementById('soluciones').scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  pestanas.addEventListener('click', e => {
+    const t = e.target.closest('.pestana'); if (!t) return
+    mostrar(t.dataset.app)
+    history.replaceState(null, '', '#' + t.dataset.app)
+  })
+  pestanas.addEventListener('keydown', e => {
+    if (!['ArrowRight', 'ArrowLeft'].includes(e.key)) return
+    const ts = [...pestanas.querySelectorAll('.pestana')], i = ts.findIndex(t => t.getAttribute('aria-selected') === 'true')
+    const sig = ts[(i + (e.key === 'ArrowRight' ? 1 : ts.length - 1)) % ts.length]
+    sig.focus(); sig.click()
+  })
+  const desdeHash = () => { const id = location.hash.slice(1); if (APPS.some(a => a.id === id)) { mostrar(id, true); return true } return false }
+  if (!desdeHash()) mostrar(APPS[0].id)
+  window.addEventListener('hashchange', desdeHash)
 
   // Botones generales de WhatsApp (cabecera, cómo empezar y a medida).
   document.querySelectorAll('.wa-contacto').forEach(a => {
