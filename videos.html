@@ -80,36 +80,23 @@
     .apps { display: block; }
     .principal { padding-bottom: 48px; }
     .app { background: var(--blanco); border: 1px solid var(--borde); border-radius: 20px; overflow: hidden; }
-    .intro { display: flex; flex-wrap: wrap; gap: 36px; align-items: center; padding: 36px 40px; }
-    .intro-txt { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; }
+    .intro { display: flex; gap: 32px; align-items: center; padding: 32px 36px; }
+    .app:nth-child(even) .intro { flex-direction: row-reverse; }
+    .intro-txt { flex: 0 1 340px; min-width: 0; display: flex; flex-direction: column; }
+    .intro-diag { flex: 1 1 0; min-width: 0; background: #F7F7F8; border: 1px solid var(--borde); border-radius: 16px; overflow: hidden; }
     .intro h2 { margin-top: 12px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-family: 'Fraunces', serif; font-weight: 600; font-size: 36px; line-height: 1.05; letter-spacing: -.02em; }
     .tld { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--acento); background: var(--acento-suave); padding: 4px 10px; border-radius: 999px; }
     .desc { margin-top: 14px; font-size: 17px; line-height: 1.55; color: var(--texto); }
     .ideal { margin: 18px 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chips span { font-size: 14px; color: var(--tinta); background: var(--fondo); border: 1px solid var(--borde); padding: 6px 12px; border-radius: 999px; }
-    .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: 24px; }
-    .acciones .boton { min-height: 48px; padding: 0 22px; }
-    .acciones a.sec { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--tinta); }
-    .acciones a.sec:hover { color: var(--acento); }
+    .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 22px; }
+    .icono { width: 46px; height: 46px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--borde); background: var(--blanco); color: var(--tinta); transition: border-color .2s, transform .2s; }
+    .icono:hover { border-color: var(--acento); transform: translateY(-2px); color: var(--tinta); }
     .acciones svg { flex-shrink: 0; }
 
-    /* Video 16:9. Los videos son verticales: la miniatura se recorta a 9:16 al centro y los costados
-       quedan en azul oscuro, sin los bordes borrosos que pone YouTube. */
-    .intro-video { flex: 1 1 400px; min-width: 0; max-width: 500px; position: relative; }
-    .intro-video::before { content: ''; display: block; padding-top: 56.25%; }  /* 16:9 que también funciona apilado en celular */
-    .video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: var(--tinta); color: #fff; border: 0; padding: 0; cursor: pointer; font: inherit; }
-    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .video .mini { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); height: 100%; aspect-ratio: 9 / 16; overflow: hidden; }
-    .video .mini img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); display: block; transition: opacity .2s; }
-    .video:hover .mini img { opacity: .85; }
-    .video .play { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(13,31,60,.35); }
-    .video .pie { position: absolute; left: 20px; bottom: 18px; right: 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; text-align: left; }
-    .video .pie > span:first-child { background: rgba(13,31,60,.82); padding: 4px 10px; border-radius: 8px; }
-    .video .demo { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: var(--naranja); color: var(--tinta); padding: 4px 10px; border-radius: 999px; }
 
     /* Diagrama de proceso de cada app (lienzo de 1120 px que se escala al ancho de la tarjeta) */
-    .proceso { background: #F7F7F8; border-top: 1px solid var(--borde); padding: 8px 0; }
     .diag-marco { width: min(1120px, 100%); margin: 0 auto; overflow: hidden; }
     .diag { position: relative; width: 1120px; transform-origin: 0 0; font-family: 'DM Sans', system-ui, sans-serif; color: #2B2F36; }
     .diag > svg { position: absolute; left: 0; top: 0; pointer-events: none; }
@@ -123,10 +110,12 @@
     .d-num { width: 32px; height: 32px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.15); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
     .d-leyenda { padding: 20px 28px; display: grid; grid-auto-flow: column; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; row-gap: 7px; background: #fff; border: 1.5px solid #E3E5E9; border-radius: 12px; }
     .d-leyenda p { margin: 0; font-size: 14.5px; line-height: 20px; color: #2B2F36; }
-    .proceso-img { max-width: 1120px; margin: 0 auto; padding: 16px 20px; }
+    .proceso-img { padding: 8px 8px 10px; }
     .proceso-img img { display: block; width: 100%; height: auto; }
-    .proceso-nota { display: none; margin: 0; padding: 0 8px 12px; }
-    .proceso-nota::before { content: 'Toca el diagrama para verlo en grande'; }
+    .proceso-img a::after { content: 'Haz clic en la imagen para verla en grande'; display: block; margin-top: 6px; text-align: center; font-size: 12.5px; color: var(--suave); }
+    .proceso-nota { margin: 0; padding: 0 8px 10px; }
+    .proceso-nota::before { content: 'Haz clic en el diagrama para verlo en grande'; display: block; text-align: center; font-size: 12.5px; color: var(--suave); }
+    .diag-marco { cursor: zoom-in; }
     /* Diagrama en grande (celular): se puede desplazar en las dos direcciones */
     .diag-zoom { position: fixed; inset: 0; z-index: 1000; background: #F7F7F8; overflow: auto; -webkit-overflow-scrolling: touch; }
     .diag-zoom .diag { margin: 0; transform: none !important; }
@@ -137,9 +126,7 @@
       .ancho { padding-left: 16px; padding-right: 16px; }
       .menu { gap: 16px; }
       .hero { padding-top: 28px; padding-bottom: 20px; }
-      .intro-txt, .intro-video { flex: none; }
-      .video .play { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
-      .video .pie { left: 12px; right: 12px; bottom: 10px; font-size: 12.5px; }
+      .intro-txt, .intro-diag { flex: none; }
       /* Las 5 pestañas en una sola fila: número y nombre corto, sin la categoría */
       .pestanas { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
       .pestana { align-items: center; justify-content: center; text-align: center; gap: 3px; min-height: 58px; padding: 8px 2px; border-radius: 10px; }
@@ -149,14 +136,11 @@
       .app { border-radius: 18px; }
       .principal { padding-bottom: 28px; }
       /* Diagrama en celular: se ve completo y reducido, como la imagen de Renta Corta; al tocarlo se abre en grande */
-      .proceso { padding: 0; }
-      .diag-marco { cursor: zoom-in; }
-      .proceso-nota { display: block; }
+      .proceso-nota::before { content: 'Toca el diagrama para verlo en grande'; }
       .proceso-img a::after, .proceso-nota::before { display: block; margin-top: 6px; text-align: center; font-size: 12.5px; color: var(--suave); }
       .proceso-img a::after { content: 'Toca la imagen para verla en grande'; }
       .proceso-img { padding: 12px 8px; }
-      .intro { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 24px; padding: 24px 20px; }
-      .intro-video { max-width: none; }
+      .intro, .app:nth-child(even) .intro { flex-direction: column; align-items: stretch; gap: 20px; padding: 24px 16px; }
       .intro h2 { font-size: 30px; }
       .desc { font-size: 16px; }
     }
@@ -218,9 +202,9 @@
   ]
 
   const ICO = {
-    flecha: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>',
-    youtube: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg>',
-    play: '<svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1F3C" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>',
+    web: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>',
+    youtube: '<svg width="23" height="23" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0000" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z"/><path fill="#fff" d="M9.8 15.3 15.5 12 9.8 8.7z"/></svg>',
+    whatsapp: '<svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path fill="#25D366" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3z"/><path fill="#fff" d="M12.6 9.6c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.2 2.6 4.1 6.4 5.6 3.2 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5l-2.4-1.2c-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.2-2.8z"/></svg>',
   }
 
   // Diagramas de proceso (geometría copiada de catalogo/soluciones-procesos-v2/ProcesoX.dc.html,
@@ -261,13 +245,14 @@
   addEventListener('resize', ajustarDiagramas)
   document.addEventListener('click', e => {
     const marco = e.target.closest('.diag-marco')
-    if (!marco || !movil.matches) return
+    if (!marco) return
     const capa = document.createElement('div')
     capa.className = 'diag-zoom'
     capa.setAttribute('role', 'dialog'); capa.setAttribute('aria-label', 'Diagrama en grande')
     const copia = marco.querySelector('.diag').cloneNode(true)
     copia.style.transform = ''
     capa.innerHTML = '<button type="button">Cerrar ✕</button>'
+    if (!movil.matches) copia.style.margin = '56px auto 32px'
     capa.appendChild(copia)
     const tecla = ev => { if (ev.key === 'Escape') cerrar() }
     const cerrar = () => { capa.remove(); document.body.style.overflow = ''; removeEventListener('keydown', tecla) }
@@ -299,30 +284,14 @@
           <p class="ideal">Ideal para</p>
           <div class="chips">${app.para.map(p => `<span>${p}</span>`).join('')}</div>
           <div class="acciones">
-            <a class="boton" href="https://${app.dominio}" target="_blank" rel="noopener">Visitar ${app.dominio} ${ICO.flecha}</a>
-            <a class="sec" href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">${ICO.youtube}Ver tutoriales</a>
+            <a class="icono" href="https://${app.dominio}" target="_blank" rel="noopener" aria-label="Visitar ${app.dominio}" title="${app.dominio}">${ICO.web}</a>
+            <a class="icono" href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener" aria-label="Ver los tutoriales de ${app.nombre} en YouTube" title="Tutoriales en YouTube">${ICO.youtube}</a>
+            <a class="icono app-wa" href="https://wa.me/51925079592?text=${encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp sobre ${app.nombre}" title="WhatsApp +51 925 079 592">${ICO.whatsapp}</a>
           </div>
         </div>
-        <div class="intro-video">
-          <button class="video" type="button" aria-label="Ver los videos de ${app.nombre}">
-            <span class="mini"><img src="https://i.ytimg.com/vi/${app.portada}/maxresdefault.jpg" alt="" loading="lazy"></span>
-            <span class="play">${ICO.play}</span>
-            <span class="pie"><span>Mira cómo funciona ${app.nombre}</span><span class="demo">Demo</span></span>
-          </button>
-        </div>
-      </div>
-      <section class="proceso" aria-label="Cómo funciona ${app.nombre}">${diagrama(app)}</section>`
-    const miniatura = art.querySelector('.video').outerHTML
-    // Al hacer clic la miniatura se cambia por el reproductor; al cambiar de pestaña vuelve la miniatura
-    // (así el video de una pestaña oculta deja de sonar).
-    art.querySelector('.intro-video').addEventListener('click', e => {
-      const boton = e.target.closest('button.video'); if (!boton) return
-      const marco = document.createElement('div')
-      marco.className = 'video'
-      marco.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${app.inicio}?list=${app.lista}&autoplay=1&rel=0" title="Videos de ${app.nombre}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`
-      boton.replaceWith(marco)
-    })
-    art.restaurarMiniatura = () => { const v = art.querySelector('div.video'); if (v) v.outerHTML = miniatura }
+        <section class="intro-diag" aria-label="Cómo funciona ${app.nombre}">${diagrama(app)}</section>
+      </div>`
+    art.querySelector('.app-wa').addEventListener('click', registrarContacto)
     contenedor.appendChild(art)
   })
 
@@ -330,7 +299,7 @@
   function mostrar(id, enfocar) {
     const app = APPS.find(a => a.id === id) || APPS[0]
     document.querySelectorAll('.pestana').forEach(t => t.setAttribute('aria-selected', String(t.dataset.app === app.id)))
-    document.querySelectorAll('.app').forEach(a => { if (a.id !== app.id) { a.hidden = true; a.restaurarMiniatura() } else a.hidden = false })
+    document.querySelectorAll('.app').forEach(a => { a.hidden = a.id !== app.id })
     ajustarDiagramas()
     if (enfocar) document.getElementById('soluciones').scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
