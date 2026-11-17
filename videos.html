@@ -56,6 +56,8 @@
     .menu { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 500; }
     .boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--tinta); color: #fff; font-weight: 600; font-size: 15px; }
     .boton:hover { color: #fff; background: #1B3358; }
+    .boton.claro { background: var(--blanco); color: var(--tinta); border: 1px solid var(--borde); }
+    .boton.claro:hover { background: var(--acento-suave); color: var(--tinta); border-color: var(--acento); }
 
     /* Portada */
     .hero { padding-top: 48px; padding-bottom: 28px; }
@@ -118,9 +120,13 @@
     .diag-zoom button { position: fixed; top: 12px; right: 12px; z-index: 1; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--tinta); color: #fff; font: 600 15px 'DM Sans', sans-serif; box-shadow: 0 4px 14px rgba(13,31,60,.3); cursor: pointer; }
 
     /* Celular: todo en una columna y márgenes más cortos */
+    @media (max-width: 359px) { .logo b { display: none; } }  /* en pantallas muy angostas queda solo el isotipo */
     @media (max-width: 767px) {
       .ancho { padding-left: 16px; padding-right: 16px; }
-      .menu { gap: 16px; }
+      .menu { gap: 8px; }
+      .menu .boton { padding: 0 12px; font-size: 13.5px; }
+      .cab-in { gap: 10px; }
+      .txt-largo { display: none; }
       .hero { padding-top: 28px; padding-bottom: 20px; }
       .intro-txt, .intro-diag { flex: none; }
       /* Las 5 pestañas en una sola fila: número y nombre corto, sin la categoría */
@@ -153,7 +159,8 @@
       <b>Pragma <span>TI</span></b>
     </a>
     <nav class="menu" aria-label="Principal">
-      <a class="boton wa-contacto" data-mensaje="Hola Pragma TI, vi el catálogo de soluciones y quiero una demostración." href="https://wa.me/51925079592" target="_blank" rel="noopener">Pide una demo gratis</a>
+      <a class="boton claro" href="/demos"><span>Demos<span class="txt-largo"> en vivo</span></span></a>
+      <a class="boton wa-contacto" data-mensaje="Hola Pragma TI, vi el catálogo de soluciones y quiero una demostración." href="https://wa.me/51925079592" target="_blank" rel="noopener"><span>Pide una demo<span class="txt-largo"> gratis</span></span></a>
     </nav>
   </div>
 </header>
