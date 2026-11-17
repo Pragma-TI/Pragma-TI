@@ -125,6 +125,12 @@
     .d-leyenda p { margin: 0; font-size: 14.5px; line-height: 20px; color: #2B2F36; }
     .proceso-img { max-width: 1120px; margin: 0 auto; padding: 16px 20px; }
     .proceso-img img { display: block; width: 100%; height: auto; }
+    .proceso-nota { display: none; margin: 0; padding: 0 8px 12px; }
+    .proceso-nota::before { content: 'Toca el diagrama para verlo en grande'; }
+    /* Diagrama en grande (celular): se puede desplazar en las dos direcciones */
+    .diag-zoom { position: fixed; inset: 0; z-index: 1000; background: #F7F7F8; overflow: auto; -webkit-overflow-scrolling: touch; }
+    .diag-zoom .diag { margin: 0; transform: none !important; }
+    .diag-zoom button { position: fixed; top: 12px; right: 12px; z-index: 1; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--tinta); color: #fff; font: 600 15px 'DM Sans', sans-serif; box-shadow: 0 4px 14px rgba(13,31,60,.3); cursor: pointer; }
 
     /* Celular: todo en una columna y márgenes más cortos */
     @media (max-width: 767px) {
@@ -142,19 +148,12 @@
       .pestana .corto { display: block; font-family: 'Fraunces', serif; font-weight: 600; font-size: 12.5px; line-height: 1.15; hyphens: manual; -webkit-hyphens: manual; }
       .app { border-radius: 18px; }
       .principal { padding-bottom: 28px; }
-      /* Diagrama en celular: sin casa, sin líneas ni números; todo en una columna */
+      /* Diagrama en celular: se ve completo y reducido, como la imagen de Renta Corta; al tocarlo se abre en grande */
       .proceso { padding: 0; }
-      .diag-marco { height: auto !important; }
-      .diag { width: auto; height: auto !important; transform: none !important; display: flex; flex-direction: column; gap: 14px; padding: 18px 16px 20px; }
-      .diag > svg, .diag > .d-num { display: none; }
-      .diag > div { position: static; left: auto !important; top: auto !important; width: auto !important; height: auto !important; min-height: 0 !important; }
-      .d-franja { padding: 10px 12px; font-size: 14px; line-height: 20px; }
-      .d-franja span span { font-size: 14px !important; }
-      .proceso-img a::after { content: 'Toca la imagen para verla en grande'; display: block; margin-top: 6px; text-align: center; font-size: 12.5px; color: var(--suave); }
-      .d-titulo { font-size: 21px; line-height: 27px; }
-      .d-tarjeta { margin-top: 18px; position: relative !important; }
-      .d-centro { padding: 18px 12px 14px; }
-      .d-leyenda { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); grid-template-rows: none !important; padding: 16px; }
+      .diag-marco { cursor: zoom-in; }
+      .proceso-nota { display: block; }
+      .proceso-img a::after, .proceso-nota::before { display: block; margin-top: 6px; text-align: center; font-size: 12.5px; color: var(--suave); }
+      .proceso-img a::after { content: 'Toca la imagen para verla en grande'; }
       .proceso-img { padding: 12px 8px; }
       .intro { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 24px; padding: 24px 20px; }
       .intro-video { max-width: none; }
@@ -242,7 +241,7 @@
       ${d.tarjetas.map(t => `<div class="d-tarjeta" style="${pos(t)}--c:${t.color}"><svg viewBox="0 0 44 44" aria-hidden="true">${t.icono || ''}</svg>${t.html}</div>`).join('')}
       ${d.numeros.map(n => `<div class="d-num" style="${pos(n)}background:${n.color}" aria-hidden="true">${n.n}</div>`).join('')}
       <div class="d-leyenda" style="${pos({ ...d.leyenda, h: 0 })}min-height:${d.leyenda.h}px;grid-template-rows:repeat(${d.leyenda.filas},auto)">${d.leyenda.html}</div>
-    </div></div>`
+    </div></div><p class="proceso-nota"></p>`
   }
 
   // Escala el lienzo de 1120 px al ancho disponible (en celular el diagrama se apila y no se escala).
@@ -250,7 +249,6 @@
   function ajustarDiagramas() {
     document.querySelectorAll('.app:not([hidden]) .diag').forEach(dg => {
       const marco = dg.parentElement
-      if (movil.matches) { dg.style.transform = ''; marco.style.height = ''; return }
       // Si un texto de la leyenda ocupa dos líneas, el lienzo crece para que no se corte.
       const ley = dg.querySelector('.d-leyenda')
       const alto = Math.max(+dg.dataset.alto, ley.offsetTop + ley.offsetHeight + 20)
@@ -261,6 +259,24 @@
     })
   }
   addEventListener('resize', ajustarDiagramas)
+  document.addEventListener('click', e => {
+    const marco = e.target.closest('.diag-marco')
+    if (!marco || !movil.matches) return
+    const capa = document.createElement('div')
+    capa.className = 'diag-zoom'
+    capa.setAttribute('role', 'dialog'); capa.setAttribute('aria-label', 'Diagrama en grande')
+    const copia = marco.querySelector('.diag').cloneNode(true)
+    copia.style.transform = ''
+    capa.innerHTML = '<button type="button">Cerrar ✕</button>'
+    capa.appendChild(copia)
+    const tecla = ev => { if (ev.key === 'Escape') cerrar() }
+    const cerrar = () => { capa.remove(); document.body.style.overflow = ''; removeEventListener('keydown', tecla) }
+    capa.querySelector('button').addEventListener('click', cerrar)
+    addEventListener('keydown', tecla)
+    document.body.style.overflow = 'hidden'
+    document.body.appendChild(capa)
+    capa.scrollLeft = (copia.offsetWidth - capa.clientWidth) / 2
+  })
 
   function registrarContacto() {
     try { fbq('track', 'Contact', { content_name: 'WhatsApp', content_category: 'catalogo-soluciones' }) } catch (e) {}
