@@ -73,6 +73,7 @@
     .pestana[aria-selected="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta); }
     .pestana[aria-selected="true"] .num { color: #FF8A5C; }
     .pestana[aria-selected="true"] .cat { color: var(--claro-oscuro); }
+    .pestana .corto { display: none; }
     .app[hidden] { display: none; }
 
     /* Tarjeta de cada app */
@@ -133,10 +134,12 @@
       .intro-txt, .intro-video { flex: none; }
       .video .play { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
       .video .pie { left: 12px; right: 12px; bottom: 10px; font-size: 12.5px; }
-      .pestanas { grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 8px; }
-      .pestana { padding: 12px; border-radius: 12px; }
-      .pestana .nom { font-size: 16px; }
-      .pestana .cat { font-size: 12px; }
+      /* Las 5 pestañas en una sola fila: número y nombre corto, sin la categoría */
+      .pestanas { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+      .pestana { align-items: center; justify-content: center; text-align: center; gap: 3px; min-height: 58px; padding: 8px 2px; border-radius: 10px; }
+      .pestana .num { font-size: 11px; letter-spacing: .04em; }
+      .pestana .nom, .pestana .cat { display: none; }
+      .pestana .corto { display: block; font-family: 'Fraunces', serif; font-weight: 600; font-size: 12.5px; line-height: 1.15; hyphens: manual; -webkit-hyphens: manual; }
       .app { border-radius: 18px; }
       .principal { padding-bottom: 28px; }
       /* Diagrama en celular: sin casa, sin líneas ni números; todo en una columna */
@@ -193,19 +196,19 @@
   // lista = lista de YouTube; inicio = primer video (el reproductor se abre en él y sigue con la lista;
   // la forma «videoseries» fallaba al azar con «Video no disponible»); portada = video de la miniatura.
   const APPS = [
-    { id: 'asistenzia', nombre: 'Asistenzia', tld: '.app', dominio: 'asistenzia.app', categoria: 'Asistencia y visitas',
+    { id: 'asistenzia', nombre: 'Asistenzia', corto: 'Asis­tenzia', tld: '.app', dominio: 'asistenzia.app', categoria: 'Asistencia y visitas',
       lista: 'PLNiqJejKUFGY', inicio: 'lynC4b8buSo', portada: 'cSY4n4giEVA',
       desc: 'Control de asistencia del personal y registro de ingreso y salida de visitas, con foto, hora y ubicación.',
       para: ['Empresas y pymes', 'Obras y proyectos', 'Clínicas y colegios', 'Edificios y recepciones'], },
-    { id: 'azamblea', nombre: 'Azamblea', tld: '.app', dominio: 'azamblea.app', categoria: 'Asambleas',
+    { id: 'azamblea', nombre: 'Azamblea', corto: 'Azam­blea', tld: '.app', dominio: 'azamblea.app', categoria: 'Asambleas',
       lista: 'PLamHDec3hxIA', inicio: 'X5WpRR3V0wE', portada: 'EAMdZabqUGQ',
       desc: 'Gestiona una reunión de forma dinámica: convocatoria, quórum en vivo, votaciones en tiempo real y resultados publicados en acta.',
       para: ['Asociaciones y juntas vecinales', 'Cooperativas', 'Clubes, gremios y sindicatos', 'Directorios y juntas de accionistas'], },
-    { id: 'junta-de-propietarios', nombre: 'Junta de Propietarios', tld: '.org', dominio: 'juntadepropietarios.org', categoria: 'Administración de edificios',
+    { id: 'junta-de-propietarios', nombre: 'Junta de Propietarios', corto: 'Junta', tld: '.org', dominio: 'juntadepropietarios.org', categoria: 'Administración de edificios',
       lista: 'PLA1uFvDQmyz8', inicio: 'rkkBbvxZI84', portada: 'rkkBbvxZI84',
       desc: 'Administración y mantenimiento para edificios residenciales: padrón, reuniones y votaciones, presupuesto, cuotas y recibos, todo en un solo lugar.',
       para: ['Edificios y condominios', 'Administradores', 'Junta directiva', 'Propietarios'], },
-    { id: 'limpiadores', nombre: 'Limpiadores', tld: '.app', dominio: 'limpiadores.app', categoria: 'Limpieza con evidencia',
+    { id: 'limpiadores', nombre: 'Limpiadores', corto: 'Limpia­dores', tld: '.app', dominio: 'limpiadores.app', categoria: 'Limpieza con evidencia',
       lista: 'PLNKK3srRKwV8', inicio: 'm8PMjO1KbRA', portada: 'm8PMjO1KbRA',
       desc: 'Cada servicio de limpieza programado y ejecutado con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
       para: ['Edificios', 'Propiedades particulares', 'Alquileres', 'Personal de limpieza independiente'], },
@@ -267,7 +270,7 @@
   const pestanas = document.getElementById('pestanas'), contenedor = document.getElementById('apps')
   APPS.forEach((app, i) => {
     const num = String(i + 1).padStart(2, '0')
-    pestanas.insertAdjacentHTML('beforeend', `<button type="button" class="pestana" role="tab" id="tab-${app.id}" aria-controls="${app.id}" aria-selected="false" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="cat">${app.categoria}</span></button>`)
+    pestanas.insertAdjacentHTML('beforeend', `<button type="button" class="pestana" role="tab" id="tab-${app.id}" aria-controls="${app.id}" aria-selected="false" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="corto">${app.corto || app.nombre}</span><span class="cat">${app.categoria}</span></button>`)
     const art = document.createElement('article')
     art.className = 'app'; art.id = app.id
     art.setAttribute('role', 'tabpanel'); art.setAttribute('aria-labelledby', 'tab-' + app.id)
