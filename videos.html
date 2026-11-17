@@ -103,8 +103,6 @@
     .diag { position: relative; width: 1120px; transform-origin: 0 0; font-family: 'DM Sans', system-ui, sans-serif; color: #2B2F36; }
     .diag > svg { position: absolute; left: 0; top: 0; pointer-events: none; }
     .diag > div { position: absolute; box-sizing: border-box; }
-    .d-titulo { text-align: center; font-size: 26px; line-height: 32px; font-weight: 700; color: #222; }
-    .d-frase { text-align: center; font-size: 14.5px; line-height: 20px; color: #6B7280; }
     .d-centro { padding: 16px 10px 10px; display: flex; align-items: center; justify-content: center; text-align: center; background: #4A5468; border-top: 5px solid #D9381E; border-radius: 10px; box-shadow: 0 8px 22px rgba(43,47,54,.18); color: #E6E9EE; font-size: 14px; line-height: 19px; }
     .d-tarjeta { padding: 26px 10px 8px; display: flex; align-items: center; justify-content: center; text-align: center; background: #fff; border: 2.5px solid var(--c); border-radius: 10px; font-size: 14px; line-height: 19px; color: #2B2F36; }
     .d-tarjeta > svg { position: absolute; left: 50%; top: -24.5px; width: 44px; height: 44px; margin-left: -22px; }
@@ -208,15 +206,13 @@
 
   function diagrama(app) {
     const d = PROCESOS[app.id]
-    if (!d) return `<div class="proceso-img"><a href="img/procesos/renta-corta.webp?v=1" target="_blank" rel="noopener" title="Haz clic para verla en grande"><img src="img/procesos/renta-corta.webp?v=1" width="1600" height="1203" loading="lazy" alt="Cómo funciona ${app.nombre}: Airbnb avisa cada reserva, el huésped registra a sus acompañantes, el conserje marca la llegada, limpieza confirma con fotos y el anfitrión recibe reportes y alertas."></a></div>`
-    const DY = 78   // se quita la franja roja de arriba: el título queda a 20 px del borde
+    if (!d) return `<div class="proceso-img"><a href="img/procesos/renta-corta.webp?v=2" target="_blank" rel="noopener" title="Haz clic para verla en grande"><img src="img/procesos/renta-corta.webp?v=2" width="1600" height="1103" loading="lazy" alt="Cómo funciona ${app.nombre}: Airbnb avisa cada reserva, el huésped registra a sus acompañantes, el conserje marca la llegada, limpieza confirma con fotos y el anfitrión recibe reportes y alertas."></a></div>`
+    const DY = 148  // sin franja, título ni frase: el ícono del recuadro superior queda a 16 px del borde
     const pos = c => `left:${c.x}px;top:${c.y - DY}px;width:${c.w}px;${c.h ? `height:${c.h}px;` : ''}`
     const alto = d.alto - DY
     return `<div class="diag-marco" title="Haz clic para verlo en grande"><div class="diag" style="height:${alto}px" data-alto="${alto}">
       <svg viewBox="0 ${DY} 1120 ${alto}" width="1120" height="${alto}" aria-hidden="true">${d.casa}</svg>
       <svg viewBox="0 ${DY} 1120 ${alto}" width="1120" height="${alto}" aria-hidden="true">${d.lineas}</svg>
-      <div class="d-titulo" style="${pos(d.titulo)}">${d.titulo.html}</div>
-      <div class="d-frase" style="${pos(d.frase)}">${d.frase.html}</div>
       <div class="d-centro" style="${pos(d.centro)}">${d.centro.html}</div>
       ${d.tarjetas.map(t => `<div class="d-tarjeta" style="${pos(t)}--c:${t.color}"><svg viewBox="0 0 44 44" aria-hidden="true">${t.icono || ''}</svg>${t.html}</div>`).join('')}
       ${d.numeros.map(n => `<div class="d-num" style="${pos(n)}background:${n.color}" aria-hidden="true">${n.n}</div>`).join('')}
