@@ -107,16 +107,8 @@
     .video .pie > span:first-child { background: rgba(13,31,60,.82); padding: 4px 10px; border-radius: 8px; }
     .video .demo { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: var(--naranja); color: var(--tinta); padding: 4px 10px; border-radius: 999px; }
 
-    /* Primer paso */
-    .franja { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; padding: 16px 40px; background: var(--fondo); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
-    .franja-ic { width: 40px; height: 40px; border-radius: 12px; background: var(--acento); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .franja-txt { flex: 1 1 280px; min-width: 0; }
-    .franja-txt b { display: block; font-size: 16px; }
-    .franja-txt span { display: block; margin-top: 2px; font-size: 14px; color: var(--suave); }
-    .tiempo { font-size: 14px; font-weight: 600; background: var(--blanco); border: 1px solid var(--borde); padding: 8px 14px; border-radius: 999px; }
-
     /* Funcionalidades */
-    .grupos { display: flex; flex-wrap: wrap; gap: 28px 48px; padding: 28px 40px; }
+    .grupos { display: flex; flex-wrap: wrap; gap: 28px 48px; padding: 28px 40px; border-top: 1px solid var(--borde); }
     .grupo { flex: 1 1 340px; min-width: 0; }
     .grupo.ancho2 { flex: 2 1 560px; }
     .grupo .etiqueta { font-size: 12px; margin-bottom: 6px; }
@@ -154,7 +146,6 @@
       .intro-video { max-width: none; }
       .intro h2 { font-size: 30px; }
       .desc { font-size: 16px; }
-      .franja { padding: 14px 20px; }
       .grupos { gap: 24px; padding: 22px 20px 24px; }
       .grupo.ancho2 ol { grid-template-columns: minmax(0, 1fr); }
       .resultados { grid-template-columns: minmax(0, 1fr); padding: 0 20px 24px; }
@@ -199,7 +190,6 @@
       lista: 'PLNiqJejKUFGY', inicio: 'lynC4b8buSo', portada: 'cSY4n4giEVA',
       desc: 'Control de asistencia del personal y registro de ingreso y salida de visitas, con foto, hora y ubicación.',
       para: ['Empresas y pymes', 'Obras y proyectos', 'Clínicas y colegios', 'Edificios y recepciones'],
-      inicioCuenta: ['Crea tu cuenta y tu organización', 'Con Google o tu correo.', '1 minuto'],
       grupos: [
         { eti: 'Funcionalidad A', tit: 'Registro de visitas', pasos: P([['Llega la visita', 'Visita, proveedor o delivery.'], ['Foto a su DNI', 'Los datos se llenan solos.'], ['Ingreso registrado', 'Con hora, foto y ubicación.'], ['Marca su salida', 'Sabes quién sigue dentro.']]) },
         { eti: 'Funcionalidad B', tit: 'Asistencia del personal', pasos: P([['Registra a tu personal', 'Tres fotos del rostro.'], ['Asigna su horario', 'Días, entrada y salida.'], ['Marca con una foto', 'Reconoce su rostro.'], ['Tardanzas y horas', 'Se calculan solas.']]) },
@@ -209,7 +199,6 @@
       lista: 'PLamHDec3hxIA', inicio: 'X5WpRR3V0wE', portada: 'EAMdZabqUGQ',
       desc: 'Gestiona una reunión de forma dinámica: convocatoria, quórum en vivo, votaciones en tiempo real y resultados publicados en acta.',
       para: ['Asociaciones y juntas vecinales', 'Cooperativas', 'Clubes, gremios y sindicatos', 'Directorios y juntas de accionistas'],
-      inicioCuenta: ['Crea tu organización y tu padrón', 'Pégalo desde Excel.', '2 minutos'],
       grupos: [
         { eti: 'El administrador', tit: 'Convoca y controla', pasos: P([['Crea la reunión', 'Fecha, quórum y puntos.'], ['Convoca a todos', 'Por correo y WhatsApp.'], ['Quórum en vivo', 'Sube mientras llegan.'], ['Abre cada votación', 'Y ciérrala al terminar.']]) },
         { eti: 'El participante', tit: 'Se registra y vota', pasos: P([['Abre su enlace', 'Desde su celular.'], ['Escribe su DNI', 'Sin crear una cuenta.'], ['Vota con un toque', 'Y confirma su voto.'], ['¿No puede ir?', 'Delega con carta poder.']]) },
@@ -219,7 +208,6 @@
       lista: 'PLA1uFvDQmyz8', inicio: 'rkkBbvxZI84', portada: 'rkkBbvxZI84',
       desc: 'Administración y mantenimiento para edificios residenciales: padrón, reuniones y votaciones, presupuesto, cuotas y recibos, todo en un solo lugar.',
       para: ['Edificios y condominios', 'Administradores', 'Junta directiva', 'Propietarios'],
-      inicioCuenta: ['Carga tu edificio y su padrón', 'Desde tu Excel actual.', '5 minutos'],
       grupos: [
         { eti: 'La administración', tit: 'Emite, cobra y controla', ancho: true, pasos: P([['Arma el presupuesto y conceptos', 'Versiones, frecuencia, documentos adjuntos.'], ['Lectura de medidor', 'Agua, luz, gas.'], ['Emite los recibos', 'Mantenimiento, extraordinarios.'], ['Notificación WhatsApp y correo', 'Recibos, reuniones, reservas, incidentes.'], ['Controla la morosidad', 'Multas, esquelas.'], ['Gestiona mantenimientos', 'Programación, cotizaciones, ejecución, facturas.'], ['Supervisa las rondas', 'Equipos con QR, evidencia con foto y hora, alertas.'], ['Concilia ingresos y egresos', 'Extracto de banco, asociado a recibos y facturas.']]) },
         { eti: 'El propietario', tit: 'Paga y participa', pasos: P([['Entra a su portal', 'Con su DNI, desde el celular.'], ['Ve y paga su recibo', 'Con el detalle del mes.'], ['Reserva y reporta', 'Áreas comunes e incidencias.'], ['Revisa en qué se gastó', 'Cada gasto, con su recibo.']]) },
@@ -229,7 +217,6 @@
       lista: 'PLNKK3srRKwV8', inicio: 'm8PMjO1KbRA', portada: 'm8PMjO1KbRA',
       desc: 'Cada servicio de limpieza programado y ejecutado con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
       para: ['Edificios', 'Propiedades particulares', 'Alquileres', 'Personal de limpieza independiente'],
-      inicioCuenta: ['Crea tu cuenta con tu celular', 'Gratis, con un código por mensaje.', '1 minuto'],
       grupos: [
         { eti: 'El propietario', tit: 'Programa y revisa', pasos: P([['Crea su inmueble', 'Y qué se limpia en cada ambiente.'], ['Invita al personal', 'Por WhatsApp, con un enlace.'], ['Programa la limpieza', 'Una vez o con horario fijo.'], ['Revisa la evidencia', 'Fotos y acta de cada servicio.']]) },
         { eti: 'El personal de limpieza', tit: 'Limpia con evidencia', pasos: P([['Recibe el aviso', 'Por WhatsApp, con el horario.'], ['Foto de cómo lo encontró', 'Antes de empezar.'], ['Olvidados y daños', 'Cada uno con su foto.'], ['Foto de cómo lo dejó', 'Y cierra el servicio.']]) },
@@ -239,7 +226,6 @@
       lista: 'PLK-3aSlpwZns', inicio: 'hmUYkZTktDE', portada: 'hmUYkZTktDE',
       desc: 'Rentas cortas en piloto automático: sincronización con Airbnb, registro de huéspedes, limpiezas programadas y avisos por WhatsApp.',
       para: ['Anfitriones', 'Propietarios de departamentos en alquiler temporal'],
-      inicioCuenta: ['Crea tu cuenta y tu marca', 'Con Google o tu correo.', '2 minutos'],
       grupos: [
         { eti: 'El anfitrión', tit: 'Configura una vez', pasos: P([['Vincula tus anuncios', 'El calendario iCal de Airbnb.'], ['Registra a tu equipo', 'Conserje y limpieza.'], ['Ponle tu marca', 'Logo, colores y nombre.'], ['Recibe los avisos', 'Por WhatsApp y correo.']]) },
         { eti: 'Cada reserva', tit: 'Corre en automático', pasos: P([['Entra sola de Airbnb', 'En segundos, sin copiar nada.'], ['El huésped se registra', 'Con su documento, desde su enlace.'], ['El conserje marca la llegada', 'Con su cochera asignada.'], ['Limpieza deja sus fotos', 'Antes y después.']]) },
@@ -250,7 +236,6 @@
   const ICO = {
     flecha: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>',
     youtube: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg>',
-    check: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4.5 4.5L19 7"/></svg>',
     play: '<svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1F3C" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>',
     grafico: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l4-4 3 3 5-6"/></svg>',
   }
@@ -264,7 +249,6 @@
   APPS.forEach((app, i) => {
     const num = String(i + 1).padStart(2, '0')
     pestanas.insertAdjacentHTML('beforeend', `<button type="button" class="pestana" role="tab" id="tab-${app.id}" aria-controls="${app.id}" aria-selected="false" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="cat">${app.categoria}</span></button>`)
-    const [cTit, cSub, cTiempo] = app.inicioCuenta
     const art = document.createElement('article')
     art.className = 'app'; art.id = app.id
     art.setAttribute('role', 'tabpanel'); art.setAttribute('aria-labelledby', 'tab-' + app.id)
@@ -288,11 +272,6 @@
             <span class="pie"><span>Mira cómo funciona ${app.nombre}</span><span class="demo">Demo</span></span>
           </button>
         </div>
-      </div>
-      <div class="franja">
-        <span class="franja-ic">${ICO.check}</span>
-        <div class="franja-txt"><b>${cTit}</b><span>${cSub}</span></div>
-        <span class="tiempo">⏱ ${cTiempo}</span>
       </div>
       <div class="grupos">${app.grupos.map(g => `
         <section class="grupo${g.ancho ? ' ancho2' : ''}">
