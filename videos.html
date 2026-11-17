@@ -54,21 +54,13 @@
     .logo b { font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
     .logo b span { color: var(--acento); }
     .menu { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 500; }
-    .menu a.txt { color: var(--texto); }
-    .menu a.txt:hover { color: var(--tinta); }
     .boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--tinta); color: #fff; font-weight: 600; font-size: 15px; }
     .boton:hover { color: #fff; background: #1B3358; }
 
     /* Portada */
-    .hero { padding-top: 56px; padding-bottom: 36px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; }
-    .hero-txt { flex: 3 1 560px; min-width: 0; }
-    .hero h1 { margin-top: 20px; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(36px, 4.4vw, 54px); line-height: 1.06; letter-spacing: -.02em; }
+    .hero { padding-top: 48px; padding-bottom: 28px; }
+    .hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(32px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -.02em; }
     .hero h1 em { color: var(--acento); }
-    .hero-txt > p:last-child { margin-top: 24px; max-width: 560px; font-size: 19px; line-height: 1.6; color: var(--texto); }
-    .para-quien { flex: 2 1 340px; min-width: 0; background: var(--blanco); border: 1px solid var(--borde); border-radius: 18px; padding: 20px 24px 6px; }
-    .para-quien p { margin-bottom: 8px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
-    .para-quien div { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--linea); font-size: 16px; font-weight: 600; }
-    .para-quien div::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--naranja); flex-shrink: 0; }
 
     /* Índice */
     /* Pestañas: una por app; solo se ve la tarjeta de la pestaña activa */
@@ -85,6 +77,7 @@
 
     /* Tarjeta de cada app */
     .apps { display: block; }
+    .principal { padding-bottom: 48px; }
     .app { background: var(--blanco); border: 1px solid var(--borde); border-radius: 20px; overflow: hidden; }
     .intro { display: flex; flex-wrap: wrap; gap: 36px; align-items: center; padding: 36px 40px; }
     .intro-txt { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; }
@@ -142,40 +135,12 @@
     .resultado b { display: block; font-size: 16px; }
     .resultado span { display: block; margin-top: 2px; font-size: 14px; color: var(--claro-oscuro); }
 
-    /* Cómo empezar */
-    .empieza { padding-top: 64px; padding-bottom: 32px; }
-    .empieza-in { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
-    .empieza-tit { flex: 1 1 360px; min-width: 0; }
-    .empieza h2, .medida h2 { margin-top: 16px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 44px; line-height: 1.1; letter-spacing: -.02em; }
-    .empieza h2 em { color: var(--acento); }
-    .pasos { flex: 2 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-    .pasos div { background: var(--blanco); border: 1px solid var(--borde); border-radius: 18px; padding: 26px; }
-    .pasos b { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; color: var(--acento); }
-    .pasos p { margin-top: 12px; font-size: 17px; font-weight: 600; line-height: 1.4; }
-    .organizacion { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 32px; border-radius: 18px; background: var(--acento-suave); }
-    .organizacion p { flex: 1 1 420px; font-size: 17px; line-height: 1.5; }
-    .organizacion .boton { min-height: 48px; padding: 0 22px; }
-
-    /* A medida */
-    .medida-wrap { padding-top: 24px; padding-bottom: 64px; }
-    .medida { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between; padding: 48px; border-radius: 24px; background: var(--tinta); color: #fff; }
-    .medida-txt { flex: 1 1 520px; min-width: 0; }
-    .medida .etiqueta { color: #FF8A5C; letter-spacing: .14em; }
-    .medida-txt p:last-child { margin-top: 18px; max-width: 560px; font-size: 18px; line-height: 1.6; color: var(--claro-oscuro); }
-    .medida-bot { display: flex; flex-direction: column; gap: 14px; flex: 0 1 300px; }
-    .medida-bot a:first-child { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #fff; color: var(--tinta); font-size: 16px; font-weight: 700; }
-    .medida-bot a:last-child { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; color: #fff; font-size: 15px; font-weight: 600; }
-
-    footer { border-top: 1px solid var(--borde); background: var(--blanco); }
-    footer .ancho { padding-top: 28px; padding-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--suave); }
-
     /* Celular: todo en una columna y márgenes más cortos */
     @media (max-width: 767px) {
       .ancho { padding-left: 16px; padding-right: 16px; }
       .menu { gap: 16px; }
-      .menu a.txt { display: none; }
-      .hero { padding-top: 48px; padding-bottom: 40px; gap: 32px; }
-      .hero-txt, .para-quien, .grupo, .grupo.ancho2, .empieza-tit, .pasos, .medida-txt { flex-basis: 100%; }
+      .hero { padding-top: 28px; padding-bottom: 20px; }
+      .grupo, .grupo.ancho2 { flex-basis: 100%; }
       .intro-txt, .intro-video { flex: none; }
       .video .play { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
       .video .pie { left: 12px; right: 12px; bottom: 10px; font-size: 12.5px; }
@@ -184,6 +149,7 @@
       .pestana .nom { font-size: 16px; }
       .pestana .cat { font-size: 12px; }
       .app { border-radius: 18px; }
+      .principal { padding-bottom: 28px; }
       .intro { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 24px; padding: 24px 20px; }
       .intro-video { max-width: none; }
       .intro h2 { font-size: 30px; }
@@ -192,11 +158,6 @@
       .grupos { gap: 24px; padding: 22px 20px 24px; }
       .grupo.ancho2 ol { grid-template-columns: minmax(0, 1fr); }
       .resultados { grid-template-columns: minmax(0, 1fr); padding: 0 20px 24px; }
-      .empieza { padding-top: 48px; }
-      .empieza h2, .medida h2 { font-size: 34px; }
-      .organizacion { padding: 22px 20px; }
-      .medida { padding: 36px 24px; border-radius: 22px; }
-      .medida-bot { flex-basis: 100%; }
     }
   </style>
 </head>
@@ -214,72 +175,19 @@
       <b>Pragma <span>TI</span></b>
     </a>
     <nav class="menu" aria-label="Principal">
-      <a class="txt" href="#soluciones">Soluciones</a>
-      <a class="txt" href="#empieza">Cómo empezar</a>
-      <a class="txt" href="#a-medida">A medida</a>
       <a class="boton wa-contacto" data-mensaje="Hola Pragma TI, vi el catálogo de soluciones y quiero una demostración." href="https://wa.me/51925079592" target="_blank" rel="noopener">Pide una demo gratis</a>
     </nav>
   </div>
 </header>
 
 <section class="ancho hero">
-  <div class="hero-txt">
-    <p class="etiqueta" style="letter-spacing:.14em">Catálogo de soluciones</p>
-    <h1>5 soluciones digitales para tu <em>edificio, comunidad o propiedad</em></h1>
-    <p>Aplicaciones web listas para usar, cada una con su propio sitio y tutoriales paso a paso. Empieza gratis hoy, sin llamadas ni citas.</p>
-  </div>
-  <div class="para-quien">
-    <p>Pensadas para</p>
-    <div>Edificios y condominios</div>
-    <div>Empresas y pymes</div>
-    <div>Asociaciones y cooperativas</div>
-    <div>Propietarios particulares</div>
-  </div>
+  <h1>5 soluciones digitales para tu <em>edificio, comunidad o propiedad</em></h1>
 </section>
 
-<main class="ancho" id="soluciones">
+<main class="ancho principal" id="soluciones">
   <div class="pestanas" role="tablist" aria-label="Soluciones" id="pestanas"></div>
   <div class="apps" id="apps"></div>
 </main>
-
-<section class="ancho empieza" id="empieza">
-  <div class="empieza-in">
-    <div class="empieza-tit">
-      <p class="etiqueta" style="letter-spacing:.14em">Empieza en tres pasos</p>
-      <h2>Empieza gratis hoy, <em>sin llamadas ni citas</em></h2>
-    </div>
-    <div class="pasos">
-      <div><b>1</b><p>Ingresa a la aplicación en la web</p></div>
-      <div><b>2</b><p>Crea tu cuenta gratis usando Google</p></div>
-      <div><b>3</b><p>Aprende con nuestros videos paso a paso</p></div>
-    </div>
-  </div>
-  <div class="organizacion">
-    <p><strong>¿Organización grande, compleja o necesitas personalización?</strong> Te mostramos cómo funciona para tu organización.</p>
-    <a class="boton wa-contacto" data-mensaje="Hola Pragma TI, vi el catálogo de soluciones y quiero una demostración." href="https://wa.me/51925079592" target="_blank" rel="noopener">Pide una demo por WhatsApp</a>
-  </div>
-</section>
-
-<section class="ancho medida-wrap" id="a-medida">
-  <div class="medida">
-    <div class="medida-txt">
-      <p class="etiqueta">¿Necesitas algo distinto?</p>
-      <h2>Desarrollamos tu aplicación a medida</h2>
-      <p>Nuevas aplicaciones, procesos automatizados y páginas web para tu organización. Cuéntanos qué necesitas.</p>
-    </div>
-    <div class="medida-bot">
-      <a class="wa-contacto" data-mensaje="Hola Pragma TI, quiero una aplicación a medida para mi organización." href="https://wa.me/51925079592" target="_blank" rel="noopener">Escríbenos: +51 925 079 592</a>
-      <a href="index.html?sin_intro=1">Conoce Pragma TI →</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="ancho">
-    <span>© 2026 Pragma TI · Lima, Perú</span>
-    <span>Asistenzia · Azamblea · Junta de Propietarios · Limpiadores · Renta Corta</span>
-  </div>
-</footer>
 
 <script>
   // Cada solución: textos del rediseño aprobado (catalogo/soluciones-rediseno.html) y los enlaces reales.
@@ -342,7 +250,6 @@
   const ICO = {
     flecha: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>',
     youtube: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg>',
-    whatsapp: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg>',
     check: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4.5 4.5L19 7"/></svg>',
     play: '<svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1F3C" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>',
     grafico: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l4-4 3 3 5-6"/></svg>',
@@ -357,7 +264,6 @@
   APPS.forEach((app, i) => {
     const num = String(i + 1).padStart(2, '0')
     pestanas.insertAdjacentHTML('beforeend', `<button type="button" class="pestana" role="tab" id="tab-${app.id}" aria-controls="${app.id}" aria-selected="false" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="cat">${app.categoria}</span></button>`)
-    const msj = encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)
     const [cTit, cSub, cTiempo] = app.inicioCuenta
     const art = document.createElement('article')
     art.className = 'app'; art.id = app.id
@@ -372,8 +278,7 @@
           <div class="chips">${app.para.map(p => `<span>${p}</span>`).join('')}</div>
           <div class="acciones">
             <a class="boton" href="https://${app.dominio}" target="_blank" rel="noopener">Visitar ${app.dominio} ${ICO.flecha}</a>
-            <a class="sec" href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">${ICO.youtube}Tutoriales</a>
-            <a class="sec app-wa" href="https://wa.me/51925079592?text=${msj}" target="_blank" rel="noopener">${ICO.whatsapp}WhatsApp</a>
+            <a class="sec" href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener">${ICO.youtube}Ver tutoriales</a>
           </div>
         </div>
         <div class="intro-video">
@@ -399,7 +304,6 @@
       <div class="resultados">${app.resultados.map(r => `
         <div class="resultado"><i>${ICO.grafico}</i><div><b>${r.t}</b><span>${r.d}</span></div></div>`).join('')}
       </div>`
-    art.querySelector('.app-wa').addEventListener('click', registrarContacto)
     const miniatura = art.querySelector('.video').outerHTML
     // Al hacer clic la miniatura se cambia por el reproductor; al cambiar de pestaña vuelve la miniatura
     // (así el video de una pestaña oculta deja de sonar).
@@ -436,7 +340,7 @@
   if (!desdeHash()) mostrar(APPS[0].id)
   window.addEventListener('hashchange', desdeHash)
 
-  // Botones generales de WhatsApp (cabecera, cómo empezar y a medida).
+  // Botón «Pide una demo gratis» de la cabecera (WhatsApp).
   document.querySelectorAll('.wa-contacto').forEach(a => {
     a.href = 'https://wa.me/51925079592?text=' + encodeURIComponent(a.dataset.mensaje)
     a.addEventListener('click', registrarContacto)
