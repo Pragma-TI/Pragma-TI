@@ -93,21 +93,6 @@
     .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 22px; }
     .icono { width: 46px; height: 46px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--borde); background: var(--blanco); color: var(--tinta); transition: border-color .2s, transform .2s; }
     .icono:hover { border-color: var(--acento); transform: translateY(-2px); color: var(--tinta); }
-    /* Video bajo la descripción (16:9). Los videos son verticales: la miniatura se recorta al centro. */
-    .video-mini { position: relative; margin-top: 20px; border-radius: 14px; overflow: hidden; background: var(--tinta); }
-    .video-mini::before { content: ''; display: block; padding-top: 56.25%; }
-    .video-mini iframe, .vm-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .vm-play { padding: 0; background: var(--tinta); cursor: pointer; }
-    .vm-play .mini { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); height: 100%; aspect-ratio: 9 / 16; overflow: hidden; }
-    .vm-play .mini img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); display: block; transition: opacity .2s; }
-    .vm-play:hover .mini img { opacity: .85; }
-    .vm-play .play { position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(13,31,60,.35); }
-    .vm-ampliar { position: absolute; top: 8px; right: 8px; z-index: 2; width: 44px; height: 44px; border: 0; border-radius: 12px; background: rgba(13,31,60,.78); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-    .vm-ampliar:hover { background: var(--tinta); }
-    /* Video a tamaño real */
-    .video-zoom { position: fixed; inset: 0; z-index: 1000; background: rgba(13,31,60,.94); display: flex; align-items: center; justify-content: center; padding: 64px 16px 24px; }
-    .video-zoom iframe { width: min(92vw, calc((100vh - 96px) * 9 / 16)); aspect-ratio: 9 / 16; height: auto; border: 0; border-radius: 14px; background: #000; }
-    .video-zoom button { position: fixed; top: 12px; right: 12px; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: #fff; color: var(--tinta); font: 600 15px 'DM Sans', sans-serif; cursor: pointer; }
     .acciones svg { flex-shrink: 0; }
 
 
@@ -210,8 +195,6 @@
   ]
 
   const ICO = {
-    play: '<svg width="22" height="22" viewBox="0 0 24 24" fill="#0D1F3C" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>',
-    ampliar: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>',
     web: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>',
     youtube: '<svg width="23" height="23" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0000" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z"/><path fill="#fff" d="M9.8 15.3 15.5 12 9.8 8.7z"/></svg>',
     whatsapp: '<svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path fill="#25D366" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3z"/><path fill="#fff" d="M12.6 9.6c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.2 2.6 4.1 6.4 5.6 3.2 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5l-2.4-1.2c-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.2-2.8z"/></svg>',
@@ -299,38 +282,10 @@
             <a class="icono" href="https://www.youtube.com/playlist?list=${app.lista}" target="_blank" rel="noopener" aria-label="Ver los tutoriales de ${app.nombre} en YouTube" title="Tutoriales en YouTube">${ICO.youtube}</a>
             <a class="icono app-wa" href="https://wa.me/51925079592?text=${encodeURIComponent(`Hola Pragma TI, quiero información sobre ${app.nombre}.`)}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp sobre ${app.nombre}" title="WhatsApp +51 925 079 592">${ICO.whatsapp}</a>
           </div>
-          <div class="video-mini">
-            <button class="vm-play" type="button" aria-label="Reproducir el video de ${app.nombre}">
-              <span class="mini"><img src="https://i.ytimg.com/vi/${app.portada}/maxresdefault.jpg" alt="" loading="lazy"></span>
-              <span class="play">${ICO.play}</span>
-            </button>
-            <button class="vm-ampliar" type="button" aria-label="Ver el video de ${app.nombre} en tamaño real" title="Ver en tamaño real">${ICO.ampliar}</button>
-          </div>
         </div>
         <section class="intro-diag" aria-label="Cómo funciona ${app.nombre}">${diagrama(app)}</section>
       </div>`
     art.querySelector('.app-wa').addEventListener('click', registrarContacto)
-    // Video: se reproduce en su recuadro o se abre en tamaño real; al cambiar de pestaña vuelve la miniatura.
-    const urlVideo = `https://www.youtube-nocookie.com/embed/${app.inicio}?list=${app.lista}&autoplay=1&rel=0`
-    const marcoVideo = art.querySelector('.video-mini'), miniatura = marcoVideo.querySelector('.vm-play').outerHTML
-    const iframe = titulo => `<iframe src="${urlVideo}" title="${titulo}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`
-    art.restaurarVideo = () => { const f = marcoVideo.querySelector('iframe'); if (f) f.outerHTML = miniatura }
-    marcoVideo.addEventListener('click', e => {
-      if (e.target.closest('.vm-play')) { e.target.closest('.vm-play').outerHTML = iframe(`Videos de ${app.nombre}`); return }
-      if (!e.target.closest('.vm-ampliar')) return
-      art.restaurarVideo()
-      const capa = document.createElement('div')
-      capa.className = 'video-zoom'
-      capa.setAttribute('role', 'dialog'); capa.setAttribute('aria-label', `Video de ${app.nombre}`)
-      capa.innerHTML = `<button type="button">Cerrar ✕</button>${iframe(`Videos de ${app.nombre} en tamaño real`)}`
-      const tecla = ev => { if (ev.key === 'Escape') cerrar() }
-      const cerrar = () => { capa.remove(); document.body.style.overflow = ''; removeEventListener('keydown', tecla) }
-      capa.querySelector('button').addEventListener('click', cerrar)
-      capa.addEventListener('click', ev => { if (ev.target === capa) cerrar() })
-      addEventListener('keydown', tecla)
-      document.body.style.overflow = 'hidden'
-      document.body.appendChild(capa)
-    })
     contenedor.appendChild(art)
   })
 
@@ -338,7 +293,7 @@
   function mostrar(id, enfocar) {
     const app = APPS.find(a => a.id === id) || APPS[0]
     document.querySelectorAll('.pestana').forEach(t => t.setAttribute('aria-selected', String(t.dataset.app === app.id)))
-    document.querySelectorAll('.app').forEach(a => { a.hidden = a.id !== app.id; if (a.hidden) a.restaurarVideo() })
+    document.querySelectorAll('.app').forEach(a => { a.hidden = a.id !== app.id })
     ajustarDiagramas()
     if (enfocar) document.getElementById('soluciones').scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
