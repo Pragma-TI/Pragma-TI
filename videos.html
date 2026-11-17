@@ -65,16 +65,18 @@
     /* Índice */
     /* Pestañas: una por app; solo se ve la tarjeta de la pestaña activa */
     .pestanas { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 16px; }
-    .pestana { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; min-height: 44px; padding: 16px 18px; border-radius: 14px; cursor: pointer; font-family: inherit; background: var(--blanco); color: var(--tinta); border: 1px solid var(--borde); transition: border-color .2s; }
-    .pestana:hover { border-color: var(--acento); }
+    .pestana { text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; min-height: 44px; padding: 16px 18px; border-radius: 14px; cursor: pointer; font-family: inherit; background: var(--blanco); color: var(--tinta); border: 1px solid var(--borde); transition: border-color .2s; }
+    .pestana:hover { border-color: var(--acento); color: var(--tinta); }
+    .pestana.activa:hover { color: #fff; }
     .pestana .num { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--etiqueta); }
     .pestana .nom { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
     .pestana .cat { font-size: 13px; color: var(--suave); }
-    .pestana[aria-selected="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta); }
-    .pestana[aria-selected="true"] .num { color: #FF8A5C; }
-    .pestana[aria-selected="true"] .cat { color: var(--claro-oscuro); }
+    .pestana.activa { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+    .pestana.activa .num { color: #FF8A5C; }
+    .pestana.activa .cat { color: var(--claro-oscuro); }
     .pestana .corto { display: none; }
-    .app[hidden] { display: none; }
+    .app { scroll-margin-top: 16px; }
+    .app + .app { margin-top: 24px; }
 
     /* Tarjeta de cada app */
     .apps { display: block; }
@@ -90,7 +92,7 @@
     .ideal { margin: 18px 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chips span { font-size: 14px; color: var(--tinta); background: var(--fondo); border: 1px solid var(--borde); padding: 6px 12px; border-radius: 999px; }
-    .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 22px; }
+    .acciones { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 22px; }
     .icono { width: 46px; height: 46px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--borde); background: var(--blanco); color: var(--tinta); transition: border-color .2s, transform .2s; }
     .icono:hover { border-color: var(--acento); transform: translateY(-2px); color: var(--tinta); }
     .acciones svg { flex-shrink: 0; }
@@ -163,7 +165,7 @@
 </section>
 
 <main class="ancho principal" id="soluciones">
-  <div class="pestanas" role="tablist" aria-label="Soluciones" id="pestanas"></div>
+  <nav class="pestanas" aria-label="Soluciones" id="pestanas"></nav>
   <div class="apps" id="apps"></div>
 </main>
 
@@ -174,23 +176,23 @@
   const APPS = [
     { id: 'asistenzia', nombre: 'Asistenzia', corto: 'Asis­tenzia', tld: '.app', dominio: 'asistenzia.app', categoria: 'Asistencia y visitas',
       lista: 'PLNiqJejKUFGY', inicio: 'lynC4b8buSo', portada: 'cSY4n4giEVA',
-      desc: 'Control de asistencia del personal y registro de ingreso y salida de visitas, con foto, hora y ubicación.',
+      desc: 'Aplicación web para controlar la asistencia del personal y registrar el ingreso y salida de visitas, con foto, hora y ubicación.',
       para: ['Empresas y pymes', 'Obras y proyectos', 'Clínicas y colegios', 'Edificios y recepciones'], },
     { id: 'azamblea', nombre: 'Azamblea', corto: 'Azam­blea', tld: '.app', dominio: 'azamblea.app', categoria: 'Asambleas',
       lista: 'PLamHDec3hxIA', inicio: 'X5WpRR3V0wE', portada: 'EAMdZabqUGQ',
-      desc: 'Gestiona una reunión de forma dinámica: convocatoria, quórum en vivo, votaciones en tiempo real y resultados publicados en acta.',
+      desc: 'Aplicación web para gestionar reuniones de forma dinámica: convocatoria, quórum en vivo, votaciones en tiempo real y resultados publicados en acta.',
       para: ['Asociaciones y juntas vecinales', 'Cooperativas', 'Clubes, gremios y sindicatos', 'Directorios y juntas de accionistas'], },
     { id: 'junta-de-propietarios', nombre: 'Junta de Propietarios', corto: 'Junta', tld: '.org', dominio: 'juntadepropietarios.org', categoria: 'Administración de edificios',
       lista: 'PLA1uFvDQmyz8', inicio: 'rkkBbvxZI84', portada: 'rkkBbvxZI84',
-      desc: 'Administración y mantenimiento para edificios residenciales: padrón, reuniones y votaciones, presupuesto, cuotas y recibos, todo en un solo lugar.',
+      desc: 'Aplicación web de administración y mantenimiento para edificios residenciales: padrón, reuniones y votaciones, presupuesto, cuotas y recibos, todo en un solo lugar.',
       para: ['Edificios y condominios', 'Administradores', 'Junta directiva', 'Propietarios'], },
     { id: 'limpiadores', nombre: 'Limpiadores', corto: 'Limpia­dores', tld: '.app', dominio: 'limpiadores.app', categoria: 'Limpieza con evidencia',
       lista: 'PLNKK3srRKwV8', inicio: 'm8PMjO1KbRA', portada: 'm8PMjO1KbRA',
-      desc: 'Cada servicio de limpieza programado y ejecutado con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
+      desc: 'Aplicación web para programar cada servicio de limpieza y ejecutarlo con evidencia: fotos de antes y después, acta del servicio y reportes históricos.',
       para: ['Edificios', 'Propiedades particulares', 'Alquileres', 'Personal de limpieza independiente'], },
     { id: 'renta-corta', nombre: 'Renta Corta', tld: '.app', dominio: 'rentacorta.app', categoria: 'Huéspedes Airbnb',
       lista: 'PLK-3aSlpwZns', inicio: 'hmUYkZTktDE', portada: 'hmUYkZTktDE',
-      desc: 'Rentas cortas en piloto automático: sincronización con Airbnb, registro de huéspedes, limpiezas programadas y avisos por WhatsApp.',
+      desc: 'Aplicación web para rentas cortas en piloto automático: sincronización con Airbnb, registro de huéspedes, limpiezas programadas y avisos por WhatsApp.',
       para: ['Anfitriones', 'Propietarios de departamentos en alquiler temporal'], },
   ]
 
@@ -265,10 +267,9 @@
   const pestanas = document.getElementById('pestanas'), contenedor = document.getElementById('apps')
   APPS.forEach((app, i) => {
     const num = String(i + 1).padStart(2, '0')
-    pestanas.insertAdjacentHTML('beforeend', `<button type="button" class="pestana" role="tab" id="tab-${app.id}" aria-controls="${app.id}" aria-selected="false" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="corto">${app.corto || app.nombre}</span><span class="cat">${app.categoria}</span></button>`)
+    pestanas.insertAdjacentHTML('beforeend', `<a class="pestana" href="#${app.id}" data-app="${app.id}"><span class="num">${num}</span><span class="nom">${app.nombre}</span><span class="corto">${app.corto || app.nombre}</span><span class="cat">${app.categoria}</span></a>`)
     const art = document.createElement('article')
     art.className = 'app'; art.id = app.id
-    art.setAttribute('role', 'tabpanel'); art.setAttribute('aria-labelledby', 'tab-' + app.id)
     art.innerHTML = `
       <div class="intro">
         <div class="intro-txt">
@@ -289,28 +290,28 @@
     contenedor.appendChild(art)
   })
 
-  // Pestañas: muestra solo la app elegida. Respeta los enlaces con #id (p. ej. /soluciones#renta-corta).
-  function mostrar(id, enfocar) {
-    const app = APPS.find(a => a.id === id) || APPS[0]
-    document.querySelectorAll('.pestana').forEach(t => t.setAttribute('aria-selected', String(t.dataset.app === app.id)))
-    document.querySelectorAll('.app').forEach(a => { a.hidden = a.id !== app.id })
-    ajustarDiagramas()
-    if (enfocar) document.getElementById('soluciones').scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  // Índice: lleva a cada app y resalta la que se está viendo.
+  const marcar = id => document.querySelectorAll('.pestana').forEach(t => t.classList.toggle('activa', t.dataset.app === id))
   pestanas.addEventListener('click', e => {
     const t = e.target.closest('.pestana'); if (!t) return
-    mostrar(t.dataset.app)
+    e.preventDefault()
+    document.getElementById(t.dataset.app).scrollIntoView({ behavior: 'smooth', block: 'start' })
     history.replaceState(null, '', '#' + t.dataset.app)
+    marcar(t.dataset.app)
   })
-  pestanas.addEventListener('keydown', e => {
-    if (!['ArrowRight', 'ArrowLeft'].includes(e.key)) return
-    const ts = [...pestanas.querySelectorAll('.pestana')], i = ts.findIndex(t => t.getAttribute('aria-selected') === 'true')
-    const sig = ts[(i + (e.key === 'ArrowRight' ? 1 : ts.length - 1)) % ts.length]
-    sig.focus(); sig.click()
-  })
-  const desdeHash = () => { const id = location.hash.slice(1); if (APPS.some(a => a.id === id)) { mostrar(id, true); return true } return false }
-  if (!desdeHash()) mostrar(APPS[0].id)
-  window.addEventListener('hashchange', desdeHash)
+  // Se resalta la app que más se ve en pantalla.
+  const visibles = new Map()
+  const observador = new IntersectionObserver(entradas => {
+    entradas.forEach(en => visibles.set(en.target.id, en.intersectionRatio))
+    const [mejor] = [...visibles].sort((a, b) => b[1] - a[1])
+    if (mejor && mejor[1] > 0) marcar(mejor[0])
+  }, { threshold: [0, .1, .25, .5, .75, 1] })
+  document.querySelectorAll('.app').forEach(a => observador.observe(a))
+  marcar(APPS[0].id)
+  ajustarDiagramas()
+  // Si se entra con #app (p. ej. /soluciones#renta-corta), baja a esa app cuando ya está dibujada.
+  const id0 = location.hash.slice(1)
+  if (APPS.some(a => a.id === id0)) requestAnimationFrame(() => document.getElementById(id0).scrollIntoView({ block: 'start' }))
 
   // Botón «Pide una demo gratis» de la cabecera (WhatsApp).
   document.querySelectorAll('.wa-contacto').forEach(a => {
